@@ -11,6 +11,9 @@
   import Refiner from './pages/Refiner.svelte';
   import Crafting from './pages/Crafting.svelte';
   import Stars from './pages/Stars.svelte';
+  import Base from './pages/Base.svelte';
+  import Technology from './pages/Technology.svelte';
+  import Cooking from './pages/Cooking.svelte';
   import Portals from './pages/Portals.svelte';
   import Poi from './pages/Poi.svelte';
   import PoiPuzzles from './pages/PoiPuzzles.svelte';
@@ -31,6 +34,9 @@
     '/resources': Resources,
     '/refiner': Refiner,
     '/crafting': Crafting,
+    '/base': Base,
+    '/technology': Technology,
+    '/cooking': Cooking,
     '/stars': Stars,
     '/poi': Poi,
     '/poi-puzzles': PoiPuzzles,

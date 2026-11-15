@@ -95,6 +95,36 @@
       </section>
     {/if}
 
+    {#if it.cook}
+      <section class="card">
+        <h2>Cook it</h2>
+        <p class="small muted">{it.cook.cat}{#if it.cook.bonus} · {it.cook.bonus}{/if}</p>
+        {#each it.cook.recipes as rec}
+          <p class="small cookrec">{#each rec as slot, j}{#if j > 0}<span class="muted"> + </span>{/if}{#each slot as ing, k}{#if k > 0}<span class="muted"> / </span>{/if}<ItemLink name={ing} />{/each}{/each}</p>
+        {/each}
+        <p class="small"><a href={href('/cooking') + '?' + encodeURIComponent(it.name)}>Open in Cooking →</a></p>
+      </section>
+    {/if}
+
+    {#if it.usedInCooking.length}
+      <section class="card">
+        <h2>Used in cooking</h2>
+        <ul class="clean list">
+          {#each it.usedInCooking.slice(0, 15) as d}<li><ItemLink name={d} /></li>{/each}
+        </ul>
+        {#if it.usedInCooking.length > 15}<p class="muted small">…and {it.usedInCooking.length - 15} more — search it on the <a href={href('/cooking')}>Cooking</a> page.</p>{/if}
+      </section>
+    {/if}
+
+    {#if it.usedInTech.length}
+      <section class="card">
+        <h2>Used to build technology</h2>
+        <ul class="clean list">
+          {#each it.usedInTech as t}<li><a href={href('/technology') + '?' + encodeURIComponent(t.tech)}>{t.tech}</a> <span class="muted small">{t.device} · needs {t.amount}</span></li>{/each}
+        </ul>
+      </section>
+    {/if}
+
     {#if it.usedIn.length}
       <section class="card">
         <h2>Used to craft</h2>
@@ -159,5 +189,6 @@
   .flat { box-shadow: none; border: 0; margin: 0 -1.1rem; border-radius: 0; background: transparent; }
   .flat td:first-child, .flat th:first-child { padding-left: 1.1rem; }
   .more { margin-top: 0.6rem; }
+  .cookrec { margin: 0.25rem 0; line-height: 1.8; }
   @media (max-width: 600px) { .process { display: none; } }
 </style>

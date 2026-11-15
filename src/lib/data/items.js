@@ -5,6 +5,8 @@ import { production } from './settlements.js';
 import { resources } from './resources.js';
 import { crafted } from './crafting.js';
 import { refinerRecipes } from './refiner.js';
+import { dishes } from './cooking.js';
+import { technology } from './tech.js';
 
 const aliasToName = {};
 for (const [name, list] of Object.entries(tradeGoodAliases)) {
@@ -33,6 +35,9 @@ function get(name) {
       refinedFrom: [],
       refinesInto: [],
       settlement: [],
+      cook: null,
+      usedInCooking: [],
+      usedInTech: [],
     });
   }
   return items.get(name);
@@ -82,6 +87,25 @@ for (const [sp, rows] of Object.entries(production)) {
     it.kinds.add('Settlement product');
     it.settlement.push({ species: sp, ...row });
   }
+}
+
+for (const d of dishes) {
+  const it = get(d.name);
+  it.kinds.add('Food');
+  it.value ??= d.value;
+  it.cook = d;
+  const seen = new Set();
+  for (const rec of d.recipes) for (const slot of rec) for (const ing of slot) {
+    if (seen.has(ing)) continue;
+    seen.add(ing);
+    const ingItem = get(ing);
+    ingItem.usedInCooking.push(d.name);
+    ingItem.kinds.add('Cooking ingredient');
+  }
+}
+
+for (const t of technology) {
+  for (const [ing, n] of t.cost) get(ing).usedInTech.push({ tech: t.name, device: t.device, amount: n });
 }
 
 export const allItems = [...items.values()].sort((a, b) => a.name.localeCompare(b.name));

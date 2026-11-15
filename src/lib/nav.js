@@ -17,6 +17,14 @@ export const navGroups = [
     ],
   },
   {
+    title: 'Building & Survival',
+    pages: [
+      { path: '/base', title: 'Base Building & Power', blurb: 'Generators, power planning, hotspots, extractors, farms and base specialists.' },
+      { path: '/technology', title: 'Technology & Blueprints', blurb: 'Every installable tech: build cost, recharge and where to get the blueprint.' },
+      { path: '/cooking', title: 'Cooking', blurb: '320+ Nutrient Processor recipes, searchable by dish or ingredient.' },
+    ],
+  },
+  {
     title: 'Exploration',
     pages: [
       { path: '/stars', title: 'Stars & Biomes', blurb: 'Star colours and warp drives; what each biome offers.' },

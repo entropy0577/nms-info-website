@@ -2,6 +2,7 @@
   import { allItems, aliasesOf } from '../data/items.js';
   import { economies, strengths } from '../data/economy.js';
   import { pages } from '../nav.js';
+  import { technology } from '../data/tech.js';
   import { go, href, itemHref } from '../router.svelte.js';
   import { norm } from '../format.js';
 
@@ -14,6 +15,7 @@
       url: itemHref(it.name),
       keys: norm([it.name, ...aliasesOf(it.name)].join(' ')),
     })),
+    ...technology.map((t) => ({ label: t.name, sub: `${t.device} technology`, url: href('/technology') + '?' + encodeURIComponent(t.name), keys: norm(t.name + ' technology tech') })),
     ...economies.flatMap((e) =>
       e.aliases.map((a) => ({ label: a, sub: `Economy type: ${e.name}`, url: href('/economies') + '?' + e.id, keys: norm(a + ' economy') })),
     ),
