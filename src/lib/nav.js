@@ -20,6 +20,8 @@ export const navGroups = [
     title: 'Exploration',
     pages: [
       { path: '/stars', title: 'Stars & Biomes', blurb: 'Star colours and warp drives; what each biome offers.' },
+      { path: '/poi', title: 'Points of Interest', blurb: 'Every planet building and site: how to find it and what it gives.' },
+      { path: '/poi-puzzles', title: 'POI Puzzles', blurb: 'Search answers for monoliths, facilities, observatories and towers.' },
       { path: '/portals', title: 'Portals & Glyphs', blurb: 'Glyph names and how portal addresses work.' },
     ],
   },

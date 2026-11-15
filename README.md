@@ -7,7 +7,7 @@ A clean, fast No Man's Sky reference — built because the Fandom wiki is hard t
 - **Search everything** from any page (press `/` or `Ctrl+K`): items, pages, and Galactic Map economy names like "Booming" or "Alchemical".
 - **One page per item** gathering where to buy it, settlement production, crafting tree, refiner recipes and what it's used for.
 - Economies & trade goods, settlements, units & nanites, resources, 290+ refiner recipes, crafting/profit chains, stars & biomes,
-  portals, starships, exocraft, multi-tools, an X-class module roll guide, frigates and sentinels.
+  portals, points of interest with a searchable puzzle-answer guide, starships, exocraft, multi-tools, an X-class module roll guide, frigates and sentinels.
 
 ## Development
 
@@ -33,6 +33,9 @@ All game data lives in `src/lib/data/` as plain JS — edit those files to corre
 | `refiner.js` | Refiner recipes (generated from the wiki) |
 | `crafting.js` | Crafting recipes and values |
 | `explore.js` | Star colours, biomes, portal glyphs |
+| `poi.js` | Points of interest, plaque/harmonic camp/terminal puzzles |
+| `monoliths.js` | Monolith puzzle answers |
+| `puzzles-generated.js` | Facility, observatory and transmission tower puzzles (generated from the wiki) |
 | `gear.js` | Starships, exocraft, multi-tools, frigates, sentinels |
 | `money.js` | Units and nanite methods |
 | `xmodules.js` | X-class vs S-class upgrade module roll ranges |

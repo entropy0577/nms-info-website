@@ -12,6 +12,8 @@
   import Crafting from './pages/Crafting.svelte';
   import Stars from './pages/Stars.svelte';
   import Portals from './pages/Portals.svelte';
+  import Poi from './pages/Poi.svelte';
+  import PoiPuzzles from './pages/PoiPuzzles.svelte';
   import Starships from './pages/Starships.svelte';
   import MultiTools from './pages/MultiTools.svelte';
   import Exocraft from './pages/Exocraft.svelte';
@@ -30,6 +32,8 @@
     '/refiner': Refiner,
     '/crafting': Crafting,
     '/stars': Stars,
+    '/poi': Poi,
+    '/poi-puzzles': PoiPuzzles,
     '/portals': Portals,
     '/starships': Starships,
     '/exocraft': Exocraft,
