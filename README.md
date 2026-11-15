@@ -4,6 +4,14 @@
 
 A clean, fast No Man's Sky reference — built because the Fandom wiki is hard to use mid-game.
 
+**Live site:** https://entropy0577.github.io/nms-info-website/
+
+> [!NOTE]
+> **AI disclaimer:** this site was built with the help of an AI coding assistant (Claude, by Anthropic). The AI wrote most of the
+> code and gathered, parsed and summarised the game data from the sources listed below. The work was directed and reviewed by a
+> human, but AI-compiled data can contain mistakes or out-of-date values — check anything important in game, and please
+> [open an issue](https://github.com/entropy0577/nms-info-website/issues) if you spot an error.
+
 - **Search everything** from any page (press `/` or `Ctrl+K`): items, pages, and Galactic Map economy names like "Booming" or "Alchemical".
 - **One page per item** gathering where to buy it, settlement production, crafting tree, refiner recipes and what it's used for.
 - Economies & trade goods, settlements, units & nanites, resources, 290+ refiner recipes, crafting/profit chains, cooking, technology & blueprints, base building & power, stars & biomes,
@@ -48,7 +56,15 @@ All game data lives in `src/lib/data/` as plain JS — edit those files to corre
 | `xmodules.js` | X-class vs S-class upgrade module roll ranges |
 | `items.js` | Builds the cross-referenced item index (no data of its own) |
 
-Data was compiled in November 2026 (Cosmos / 7.x era) from the No Man's Sky community wiki, plus player testing for
-settlement production ("Settlement Math Part 4", Steam forums). Values may shift with game updates.
+## Sources
+
+Data was compiled in November 2026 (Cosmos / 7.x era). Values may shift with game updates.
+
+- The [No Man's Sky community wiki](https://nomanssky.fandom.com/) (CC BY-SA) — most item, recipe, technology, POI and puzzle data.
+- Player research: settlement production ("Settlement Math Part 4", Steam forums) and the Monolith answers Steam guide.
+- Community Xeno Arena guides for creature battle mechanics and the affinity chart (sources are credited on that page).
+- The game's expedition reward table, as extracted in [csakypeter/NMS-BetterRewards](https://github.com/csakypeter/NMS-BetterRewards).
+
+Each page on the site names its own sources at the bottom.
 
 Unofficial fan project; not affiliated with Hello Games.
