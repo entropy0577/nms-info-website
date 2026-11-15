@@ -18,7 +18,7 @@
   --warn: #f5c451;
   --good-soft: rgb(82 214 155 / 0.12);
   --bad-soft: rgb(255 92 92 / 0.12);
-  --radius: 10px;
+  --radius: 0;
   --sidebar: 248px;
   --shadow: 0 1px 0 rgb(255 255 255 / 0.02) inset, 0 10px 30px rgb(0 0 0 / 0.35);
   --font-display: 'Rajdhani', 'Segoe UI', ui-sans-serif, system-ui, sans-serif;
@@ -180,6 +180,12 @@ h1 + .lead, h1 + p.lead {
 /* Section headings trail off into a fading red line. */
 h2::after { content: ''; flex: 1; height: 1px; margin-left: 0.4rem; background: linear-gradient(90deg, rgb(224 45 54 / 0.45), transparent 80%); }
 .card h2::after { display: none; }
+
+/* HUD corner brackets on cards. Drawn as their own elements sitting on the 1px border, so they stay flush with the square corner. */
+.card { position: relative; }
+.card::before, .card::after { content: ''; position: absolute; pointer-events: none; }
+.card::before { top: -1px; left: -1px; width: 14px; height: 14px; border-top: 2px solid var(--accent); border-left: 2px solid var(--accent); }
+.card::after { bottom: -1px; right: -1px; width: 10px; height: 10px; border-bottom: 1px solid rgb(224 45 54 / 0.6); border-right: 1px solid rgb(224 45 54 / 0.6); }
 
 /* Tables: red-tinted header band and faint zebra rows. */
 th { background: linear-gradient(180deg, #1d1418, var(--surface-2)); }

@@ -113,6 +113,7 @@
     {#each pools as pool, i}
       <div class="card pool">
         <h3 class="ptitle">Pool {i + 1}</h3>
+        <div class="pool-scroll">
         <table>
           <thead><tr><th>Reward</th><th class="num">Chance</th><th class="num">Amount</th></tr></thead>
           <tbody>
@@ -125,6 +126,7 @@
             {/each}
           </tbody>
         </table>
+        </div>
       </div>
     {/each}
   </div>
@@ -249,7 +251,8 @@
   .fuelt { margin-top: 0.9rem; }
   .pools { display: grid; gap: 0.8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); align-items: start; }
   .pool td.num { white-space: nowrap; }
-  .pool { padding: 0.8rem 0; overflow-x: auto; }
+  .pool { padding: 0.8rem 0; }
+  .pool-scroll { overflow-x: auto; }
   .pool .ptitle { margin: 0 1rem 0.4rem; font-size: 0.9rem; color: var(--muted); }
   .pool th:first-child, .pool td:first-child { padding-left: 1rem; }
   .pool th:last-child, .pool td:last-child { padding-right: 1rem; }
