@@ -28,6 +28,7 @@ export const navGroups = [
     title: 'Exploration',
     pages: [
       { path: '/stars', title: 'Stars & Biomes', blurb: 'Star colours and warp drives; what each biome offers.' },
+      { path: '/companions', title: 'Companions & Holo-Arena', blurb: 'Battle stats explained, affinity chart, and a team optimiser for the Holo-Arena.' },
       { path: '/poi', title: 'Points of Interest', blurb: 'Every planet building and site: how to find it and what it gives.' },
       { path: '/poi-puzzles', title: 'POI Puzzles', blurb: 'Search answers for monoliths, facilities, observatories and towers.' },
       { path: '/portals', title: 'Portals & Glyphs', blurb: 'Glyph names and how portal addresses work.' },
@@ -40,7 +41,7 @@ export const navGroups = [
       { path: '/exocraft', title: 'Exocraft', blurb: 'Every vehicle compared, plus how to unlock and summon them.' },
       { path: '/multitools', title: 'Multi-Tools', blurb: 'Every multi-tool type and what it is best at.' },
       { path: '/x-modules', title: 'X-Class Module Rolls', blurb: 'For every upgrade: X-class vs S-class roll ranges, and which X rolls are worth keeping.' },
-      { path: '/frigates', title: 'Frigates', blurb: 'Specialisms and expedition tips.' },
+      { path: '/frigates', title: 'Frigates & Expeditions', blurb: 'Fleet expeditions, rewards, a fuel calculator, frigate checker and trait lookup.' },
       { path: '/sentinels', title: 'Sentinels', blurb: 'Wanted levels and how to handle them.' },
     ],
   },

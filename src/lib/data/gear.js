@@ -37,21 +37,6 @@ export const multiToolTypes = [
   { name: 'Voltaic Staff', role: 'Combat', notes: 'Built at the Autophage Synthesis Terminal ("They Who Returned"). Customisable look.' },
 ];
 
-export const frigateSpecialisms = [
-  { name: 'Combat', trait: 'Combat Specialist (+15 Combat)', good: 'Combat expeditions; protects the fleet.' },
-  { name: 'Exploration', trait: 'Exploration Specialist (+15 Exploration)', good: 'Exploration expeditions; units-rich encounters.' },
-  { name: 'Industrial', trait: 'Industrial Specialist (+15 Industry)', good: 'Mining expeditions; metals and alloys.' },
-  { name: 'Trade', trait: 'Trade Specialist (+15 Trading)', good: 'Trade expeditions; units and tradeables.' },
-  { name: 'Support', trait: 'Support Specialist (−15 Expedition Fuel Cost)', good: 'Cuts fuel costs for every expedition it joins.' },
-];
-
-export const frigateTips = [
-  'Every frigate has one specialism trait plus up to four random traits. Inspect traits before buying — negative traits can outweigh a cheap price.',
-  'Trade and Exploration expeditions are the most likely to return units.',
-  'Damaged frigates must be repaired (visit them in space) before they can go out again.',
-  'Frigate Fuel can be produced by an S-class Starport at a settlement.',
-];
-
 export const sentinelLevels = [
   { level: 1, ground: '2 heavy drones, 1 repair, 1 summoner', space: '1 Sentinel starship' },
   { level: 2, ground: '2 heavy drones, 2 repair, 1 summoner', space: '2 Sentinel starships' },

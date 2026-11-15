@@ -100,7 +100,7 @@
         <h2>Cook it</h2>
         <p class="small muted">{it.cook.cat}{#if it.cook.bonus} · {it.cook.bonus}{/if}</p>
         {#each it.cook.recipes as rec}
-          <p class="small cookrec">{#each rec as slot, j}{#if j > 0}<span class="muted"> + </span>{/if}{#each slot as ing, k}{#if k > 0}<span class="muted"> / </span>{/if}<ItemLink name={ing} />{/each}{/each}</p>
+          <p class="small cookrec">{#each rec as slot, j}{#if j > 0}<span class="muted sep">+</span>{/if}{#each slot as ing, k}{#if k > 0}<span class="muted sep">/</span>{/if}<ItemLink name={ing} />{/each}{/each}</p>
         {/each}
         <p class="small"><a href={href('/cooking') + '?' + encodeURIComponent(it.name)}>Open in Cooking →</a></p>
       </section>

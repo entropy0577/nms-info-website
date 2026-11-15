@@ -136,3 +136,5 @@ ul.tips li { margin-bottom: 0.4rem; }
 }
 
 .source { font-size: 0.8rem; color: var(--muted); margin-top: 2rem; }
+
+.sep { margin: 0 0.35rem; }

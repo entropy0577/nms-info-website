@@ -1,58 +1,51 @@
 <script>
+  import { tick } from 'svelte';
   import { route, href, scrollToAnchor } from './lib/router.svelte.js';
   import { navGroups, pages } from './lib/nav.js';
   import Search from './lib/components/Search.svelte';
 
-  import Home from './pages/Home.svelte';
-  import Economies from './pages/Economies.svelte';
-  import Settlements from './pages/Settlements.svelte';
-  import Money from './pages/Money.svelte';
-  import Resources from './pages/Resources.svelte';
-  import Refiner from './pages/Refiner.svelte';
-  import Crafting from './pages/Crafting.svelte';
-  import Stars from './pages/Stars.svelte';
-  import Base from './pages/Base.svelte';
-  import Technology from './pages/Technology.svelte';
-  import Cooking from './pages/Cooking.svelte';
-  import Portals from './pages/Portals.svelte';
-  import Poi from './pages/Poi.svelte';
-  import PoiPuzzles from './pages/PoiPuzzles.svelte';
-  import Starships from './pages/Starships.svelte';
-  import MultiTools from './pages/MultiTools.svelte';
-  import Exocraft from './pages/Exocraft.svelte';
-  import XModules from './pages/XModules.svelte';
-  import Frigates from './pages/Frigates.svelte';
-  import Sentinels from './pages/Sentinels.svelte';
-  import Item from './pages/Item.svelte';
-  import NotFound from './pages/NotFound.svelte';
-
+  // Each page is loaded on demand, so page-specific data (puzzles, recipes…) isn't downloaded until it's needed.
   const routes = {
-    '/': Home,
-    '/economies': Economies,
-    '/settlements': Settlements,
-    '/money': Money,
-    '/resources': Resources,
-    '/refiner': Refiner,
-    '/crafting': Crafting,
-    '/base': Base,
-    '/technology': Technology,
-    '/cooking': Cooking,
-    '/stars': Stars,
-    '/poi': Poi,
-    '/poi-puzzles': PoiPuzzles,
-    '/portals': Portals,
-    '/starships': Starships,
-    '/exocraft': Exocraft,
-    '/multitools': MultiTools,
-    '/x-modules': XModules,
-    '/frigates': Frigates,
-    '/sentinels': Sentinels,
+    '/': () => import('./pages/Home.svelte'),
+    '/economies': () => import('./pages/Economies.svelte'),
+    '/settlements': () => import('./pages/Settlements.svelte'),
+    '/money': () => import('./pages/Money.svelte'),
+    '/resources': () => import('./pages/Resources.svelte'),
+    '/refiner': () => import('./pages/Refiner.svelte'),
+    '/crafting': () => import('./pages/Crafting.svelte'),
+    '/base': () => import('./pages/Base.svelte'),
+    '/technology': () => import('./pages/Technology.svelte'),
+    '/cooking': () => import('./pages/Cooking.svelte'),
+    '/stars': () => import('./pages/Stars.svelte'),
+    '/companions': () => import('./pages/Companions.svelte'),
+    '/poi': () => import('./pages/Poi.svelte'),
+    '/poi-puzzles': () => import('./pages/PoiPuzzles.svelte'),
+    '/portals': () => import('./pages/Portals.svelte'),
+    '/starships': () => import('./pages/Starships.svelte'),
+    '/exocraft': () => import('./pages/Exocraft.svelte'),
+    '/multitools': () => import('./pages/MultiTools.svelte'),
+    '/x-modules': () => import('./pages/XModules.svelte'),
+    '/frigates': () => import('./pages/Frigates.svelte'),
+    '/sentinels': () => import('./pages/Sentinels.svelte'),
   };
+  const loadItem = () => import('./pages/Item.svelte');
+  const loadNotFound = () => import('./pages/NotFound.svelte');
 
   let menuOpen = $state(false);
 
   const itemName = $derived(route.path.startsWith('/item/') ? route.path.slice(6) : null);
-  const Page = $derived(itemName ? Item : routes[route.path] || NotFound);
+  // Component, its props and key are swapped together so an old page never renders with the new route's props.
+  let view = $state({ Page: null, name: null, key: '' });
+  $effect(() => {
+    const path = route.path;
+    const loader = itemName ? loadItem : routes[path] || loadNotFound;
+    loader().then((m) => {
+      if (route.path !== path) return; // user navigated again while loading
+      view = { Page: m.default, name: itemName, key: path };
+      // Deep links like #/economies?mining: scroll once the newly loaded page has rendered.
+      if (route.query) tick().then(() => scrollToAnchor(route.query));
+    });
+  });
   const index = $derived(pages.findIndex((p) => p.path === route.path));
   const prev = $derived(index > 0 ? pages[index - 1] : null);
   const next = $derived(index >= 0 && index < pages.length - 1 ? pages[index + 1] : null);
@@ -95,8 +88,8 @@
   {/if}
 
   <main class="content">
-    {#key route.path}
-      <Page name={itemName} />
+    {#key view.key}
+      {#if view.Page}<view.Page name={view.name} />{/if}
     {/key}
 
     {#if prev || next}
