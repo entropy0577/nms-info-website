@@ -40,6 +40,7 @@ export const navGroups = [
       { path: '/starships', title: 'Starships', blurb: 'Ship types, class bonuses and where to find S-class.' },
       { path: '/exocraft', title: 'Exocraft', blurb: 'Every vehicle compared, plus how to unlock and summon them.' },
       { path: '/multitools', title: 'Multi-Tools', blurb: 'Every multi-tool type and what it is best at.' },
+      { path: '/voltaic-staff', title: 'Voltaic Staff', blurb: 'Unlocking, parts and Void Mote prices, and how to hunt an S-class Autophage staff.' },
       { path: '/x-modules', title: 'X-Class Module Rolls', blurb: 'For every upgrade: X-class vs S-class roll ranges, and which X rolls are worth keeping.' },
       { path: '/frigates', title: 'Frigates & Expeditions', blurb: 'Fleet expeditions, rewards, a fuel calculator, frigate checker and trait lookup.' },
       { path: '/sentinels', title: 'Sentinels', blurb: 'Wanted levels and how to handle them.' },

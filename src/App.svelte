@@ -24,6 +24,7 @@
     '/starships': () => import('./pages/Starships.svelte'),
     '/exocraft': () => import('./pages/Exocraft.svelte'),
     '/multitools': () => import('./pages/MultiTools.svelte'),
+    '/voltaic-staff': () => import('./pages/VoltaicStaff.svelte'),
     '/x-modules': () => import('./pages/XModules.svelte'),
     '/frigates': () => import('./pages/Frigates.svelte'),
     '/sentinels': () => import('./pages/Sentinels.svelte'),
