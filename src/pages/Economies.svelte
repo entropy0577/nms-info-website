@@ -121,6 +121,7 @@
   .eco th:first-child, .eco td:first-child { padding-left: 1.1rem; width: 3rem; }
   .eco th:last-child, .eco td:last-child { padding-right: 1.1rem; }
   .flow { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.75rem; }
+  .eco :global(.item) { white-space: normal; }
   .popular { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   section[id], h2[id] { scroll-margin-top: 70px; }
 </style>

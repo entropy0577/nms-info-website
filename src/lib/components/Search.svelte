@@ -3,7 +3,7 @@
   import { economies, strengths } from '../data/economy.js';
   import { pages } from '../nav.js';
   import { technology } from '../data/tech.js';
-  import { go, href, itemHref } from '../router.svelte.js';
+  import { route, href, itemHref } from '../router.svelte.js';
   import { norm } from '../format.js';
 
   // Everything searchable: pages, items, and Galactic Map economy descriptors.
@@ -28,6 +28,13 @@
   let open = $state(false);
   let active = $state(0);
   let input;
+
+  // Clear and close the search whenever the page changes.
+  $effect(() => {
+    route.path;
+    query = '';
+    open = false;
+  });
 
   const results = $derived.by(() => {
     const q = norm(query);

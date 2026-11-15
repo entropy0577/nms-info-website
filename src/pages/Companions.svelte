@@ -257,12 +257,12 @@
   .affgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
   .affgrid div { display: flex; flex-direction: column; }
   .k { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 700; }
-  .k.good, .matrix td.good, .m.good { color: #0b7a43; }
-  .k.bad, .matrix td.bad, .m.bad { color: #b4301f; }
+  .k.good, .matrix td.good, .m.good { color: var(--good); }
+  .k.bad, .matrix td.bad, .m.bad { color: var(--bad); }
   .matrix th, .matrix td { padding: 0.35rem 0.45rem; }
   .matrix .c { text-align: center; }
-  .matrix td.good { background: color-mix(in srgb, #2fb36b 14%, transparent); }
-  .matrix td.bad { background: color-mix(in srgb, #e5603b 12%, transparent); }
+  .matrix td.good { background: var(--good-soft); }
+  .matrix td.bad { background: var(--bad-soft); }
   .card + .card { margin-top: 0.9rem; }
   .adder { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-end; margin-bottom: 0.8rem; }
   .adder label, .opp label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.8rem; color: var(--muted); }
@@ -272,7 +272,7 @@
   .opp { display: flex; flex-wrap: wrap; gap: 0.8rem; }
   .flat { box-shadow: none; margin-bottom: 0.6rem; }
   .x { background: none; border: 0; color: var(--muted); cursor: pointer; font-size: 1rem; }
-  .x:hover { color: #b4301f; }
+  .x:hover { color: var(--bad); }
   .linkish { background: none; border: 0; padding: 0; font: inherit; color: var(--link); cursor: pointer; text-decoration: underline; }
   .team { border: 1px solid var(--border); border-radius: 8px; padding: 0.7rem 0.8rem; margin-bottom: 0.7rem; }
   .team.top { border-color: var(--accent); background: var(--accent-soft); }
@@ -284,13 +284,7 @@
   .vs { min-width: 8.5rem; }
   .m { font-weight: 700; min-width: 4.5rem; }
   .m.meh { color: var(--muted); }
-  .warn { color: #a86a00; }
-  @media (prefers-color-scheme: dark) {
-    .k.good, .matrix td.good, .m.good { color: #6ee7a8; }
-    .k.bad, .matrix td.bad, .m.bad { color: #ff9b8f; }
-    .warn { color: #f5cf5a; }
-    .primary, .lead { color: #062018; }
-  }
+  .warn { color: var(--warn); }
   @media (max-width: 700px) {
     .split { grid-template-columns: 1fr; }
     .affgrid { grid-template-columns: 1fr 1fr; }

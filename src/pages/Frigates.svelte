@@ -243,8 +243,8 @@
   .result { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--border); }
   .result div { display: flex; flex-direction: column; }
   .result strong { font-size: 1.05rem; }
-  .good { color: #0b7a43; }
-  .bad { color: #b4301f; }
+  .good { color: var(--good); }
+  .bad { color: var(--bad); }
   .meh { color: var(--muted); }
   .fuelt { margin-top: 0.9rem; }
   .pools { display: grid; gap: 0.8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); align-items: start; }
@@ -253,5 +253,4 @@
   .pool .ptitle { margin: 0 1rem 0.4rem; font-size: 0.9rem; color: var(--muted); }
   .pool th:first-child, .pool td:first-child { padding-left: 1rem; }
   .pool th:last-child, .pool td:last-child { padding-right: 1rem; }
-  @media (prefers-color-scheme: dark) { .good { color: #6ee7a8; } .bad { color: #ff9b8f; } }
 </style>

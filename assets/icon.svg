@@ -1,4 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#059669"/>
-  <text x="32" y="32" dy="0.35em" text-anchor="middle" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif" font-size="26" font-weight="600" fill="#ffffff">NI</text>
+  <defs>
+    <radialGradient id="g" cx="50%" cy="45%" r="55%">
+      <stop offset="0" stop-color="#ff5a5f"/>
+      <stop offset="0.55" stop-color="#e02d36"/>
+      <stop offset="1" stop-color="#7a0d14"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#08080a"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#e02d36" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M32 11 L50 32 L32 53 L14 32 Z" fill="url(#g)"/>
+  <path d="M32 11 L50 32 L32 53 L14 32 Z" fill="none" stroke="#ffb3b0" stroke-opacity="0.5" stroke-width="1.2"/>
+  <circle cx="32" cy="32" r="5.5" fill="#08080a"/>
 </svg>

@@ -173,7 +173,7 @@
   .solver { margin-bottom: 0.9rem; }
   .solver summary { cursor: pointer; }
   .solver input { margin: 0.7rem 0 0.4rem; font-family: ui-monospace, monospace; }
-  .answer { font: 700 1.2rem ui-monospace, monospace; color: var(--accent); }
+  .answer { font: 700 1.3rem ui-monospace, monospace; color: var(--good); }
   .first { margin-top: 0; display: flex; align-items: center; gap: 0.5rem; }
   section { margin-bottom: 0.9rem; scroll-margin-top: 70px; }
   .count { margin: 1rem 0 0.5rem; }
@@ -182,15 +182,11 @@
   .text { font-size: 0.92rem; color: var(--muted); font-style: italic; }
   .seq { font: 600 1.1rem ui-monospace, monospace; margin-bottom: 0.4rem; }
   .opts li { display: flex; gap: 0.55rem; align-items: baseline; padding: 0.3rem 0.5rem; border-radius: 7px; }
-  .opts li.best { background: var(--accent-soft); }
+  .opts li.best { background: var(--good-soft); box-shadow: inset 2px 0 0 var(--good); }
   .v { font-weight: 800; width: 1rem; text-align: center; flex: none; }
-  .v.good { color: #0b7a43; }
-  .v.bad { color: #b4301f; }
+  .v.good { color: var(--good); }
+  .v.bad { color: var(--bad); }
   .v.meh { color: var(--muted); }
   .more { margin-top: 0.8rem; }
   .detail::before { content: '—'; margin: 0 0.35rem; }
-  @media (prefers-color-scheme: dark) {
-    .v.good { color: #6ee7a8; }
-    .v.bad { color: #ff9b8f; }
-  }
 </style>

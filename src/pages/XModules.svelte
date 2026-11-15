@@ -125,21 +125,14 @@
   .flat td:last-child, .flat th:last-child { padding-right: 1.1rem; }
   .barcol { width: 26%; min-width: 130px; vertical-align: middle; }
   tr.key td:first-child { font-weight: 600; }
-  .xv { color: #a02bb5; font-weight: 600; }
+  .xv { color: #e08cf0; font-weight: 600; }
   .badge { font-size: 0.75rem; font-weight: 700; padding: 0.12rem 0.55rem; border-radius: 999px; }
-  .badge.good { background: #dcf5e7; color: #0b6b3a; }
+  .badge.good { background: var(--good-soft); color: var(--good); }
   .badge.meh { background: var(--surface-2); color: var(--muted); }
-  .badge.bad { background: #fde4e1; color: #a1281b; }
-  .good-t { color: #0b7a43; font-weight: 600; }
-  .bad-t { color: #b4301f; font-weight: 600; }
+  .badge.bad { background: var(--bad-soft); color: var(--bad); }
+  .good-t { color: var(--good); font-weight: 600; }
+  .bad-t { color: var(--bad); font-weight: 600; }
   .note-line { margin: 0.6rem 0 0; }
-  @media (prefers-color-scheme: dark) {
-    .xv { color: #e08cf0; }
-    .badge.good { background: #113a26; color: #6ee7a8; }
-    .badge.bad { background: #44181a; color: #ff9b8f; }
-    .good-t { color: #6ee7a8; }
-    .bad-t { color: #ff9b8f; }
-  }
   @media (max-width: 700px) {
     .barcol { display: none; }
     .fam td.num { white-space: normal; }
