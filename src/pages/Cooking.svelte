@@ -296,7 +296,7 @@
   .more { margin-top: 0.8rem; }
   .steps { margin-bottom: 0.5rem; }
   .steps p { margin: 0.35rem 0 0; }
-  .best { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+  .best { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
   .glabel { display: block; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; color: var(--accent-bright); margin-bottom: 0.4rem; }
   .blist li { padding: 0.35rem 0; border-top: 1px dashed var(--border); display: flex; flex-direction: column; }
   .blist li:first-child { border-top: 0; }

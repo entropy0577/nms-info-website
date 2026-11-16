@@ -159,7 +159,7 @@
     border-left-color: var(--accent); border-radius: 0 6px 6px 0;
   }
 
-  .content { padding: 2.25rem 2.5rem 3rem; max-width: 1100px; width: 100%; min-width: 0; overflow-x: clip; }
+  .content { padding: 2.25rem 2.5rem 3rem; max-width: 1720px; width: 100%; min-width: 0; overflow-x: clip; }
 
   .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; margin-top: 3rem; }
   .pager a { display: flex; flex-direction: column; gap: 0.15rem; color: var(--text); }
@@ -172,7 +172,8 @@
     border-top: 1px solid rgb(224 45 54 / 0.4);
     background: linear-gradient(90deg, rgb(224 45 54 / 0.1), transparent 60%);
   }
-  .diamond { position: absolute; left: 1rem; top: 1.25rem; width: 9px; height: 9px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 10px var(--accent-glow); }
+  /* Centred on the first line of text: top padding + half the line height (0.8rem × 1.6), minus half the 9px diamond. */
+  .diamond { position: absolute; left: 1rem; top: calc(1.1rem + 0.64rem - 4.5px); width: 9px; height: 9px; background: var(--accent); transform: rotate(45deg); box-shadow: 0 0 10px var(--accent-glow); }
 
   .scrim { display: none; }
 

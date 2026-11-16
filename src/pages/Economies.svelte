@@ -224,6 +224,13 @@
   td.stars { color: var(--warn); white-space: nowrap; letter-spacing: 0.05em; }
   .eco-grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
   .eco { border-top: 3px solid var(--eco); padding-bottom: 0.8rem; scroll-margin-top: 70px; }
+  /* Equal-height cards whose header, description, table and footer line up across each row (subgrid shares the 4 row tracks). */
+  .eco-grid { grid-auto-rows: auto; }
+  @supports (grid-template-rows: subgrid) {
+    .eco { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; }
+    .eco > * { align-self: start; }
+    .eco .flow { align-self: end; }
+  }
   /* These cards already have a coloured top edge, so skip the red corner brackets. */
   .eco::before, .eco::after { display: none; }
   .eco.flash { outline: 2px solid var(--eco); }
@@ -231,13 +238,17 @@
   .eco h3 { margin: 0; display: flex; align-items: center; gap: 0.45rem; }
   .aliases { margin: 0.35rem 0 0.6rem; }
   .eco table { margin: 0 -1.1rem; width: calc(100% + 2.2rem); }
-  .eco th:first-child, .eco td:first-child { padding-left: 1.1rem; width: 3rem; }
-  .eco th:last-child, .eco td:last-child { padding-right: 1.1rem; }
+  /* Fixed layout so the table always fits the card: tier, stars and value get set widths, the name takes the rest. */
+  .eco table { table-layout: fixed; }
+  .eco th, .eco td { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .eco th:first-child, .eco td:first-child { padding-left: 1.1rem; width: 3.4rem; }
+  .eco th:nth-child(3), .eco td:nth-child(3) { width: 4.2rem; }
+  .eco th:last-child, .eco td:last-child { padding-right: 1.1rem; width: 5.4rem; }
   .flow { display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.75rem; }
   .eco :global(.item) { white-space: normal; }
   .popular { display: flex; flex-wrap: wrap; gap: 0.4rem; }
   section[id], h2[id], h3[id] { scroll-margin-top: 70px; }
-  .surge-steps { grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); margin-bottom: 0.5rem; }
+  .surge-steps { grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); margin-bottom: 0.5rem; }
   .surge-steps p { margin: 0.35rem 0 0; }
   .surge-ecos { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; }
   .eco-chip { display: inline-flex; align-items: center; gap: 0.4rem; }

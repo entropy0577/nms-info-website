@@ -171,10 +171,10 @@
 <style>
   .head { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; }
   h2[id], h3[id] { scroll-margin-top: 70px; }
-  .steps { margin-bottom: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr)); }
+  .steps { margin-bottom: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 210px), 1fr)); }
   .steps p { margin: 0.35rem 0 0; }
   .good { color: var(--good); font-weight: 600; }
-  .money-buffs { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+  .money-buffs { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
   .pay { margin: 0.1rem 0 0.4rem; }
   .flist { margin-bottom: 0.5rem; }
   .flist li { padding: 0.15rem 0; }

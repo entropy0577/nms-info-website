@@ -72,6 +72,10 @@ pages in a browser, including at phone width (~390px) — no page may scroll sid
 - Shared classes in `app.css`: `.card`, `.grid`, `.table-wrap`, `.tabs`, `.chip`, `.pill`, `.cls cls-S…C`, `.toolbar`,
   `.tips`, `.note`, `.lead`, `.source`, `.atlas-band` (red/black banner), `.sep` (spaced separator).
 - **Svelte trims whitespace** inside tags: `<span> + </span>` renders as "+" with no spaces. Use `<span class="sep">+</span>`.
+- **Layout width:** the content area grows to 1720px on wide screens. Card grids use `repeat(auto-fit, minmax(min(100%, Npx), 1fr))`
+  so short rows stretch to fill. Running text (`main > p`, tips, notes) is capped at ~95ch for readability.
+- **Card grids keep equal-height rows** (the default grid `stretch`). Where cards share a structure, line their parts up across
+  a row with CSS subgrid (see `.eco` in `Economies.svelte`: header, description, table and footer each get a shared row track).
 - Tables in narrow layouts must not overflow the page: use `.table-wrap`, allow wrapping, or switch to stacked cards on
   mobile (see `Technology.svelte`).
 

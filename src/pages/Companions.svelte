@@ -194,7 +194,7 @@
           </div>
           <div class="members">
             {#each t.team as c}
-              <span class="pill member"><span class="dot" style:background={affinityInfo[c.affinity].colour}></span>{c.name}{#if c === lead}<em class="lead">lead</em>{/if}</span>
+              <span class="pill member"><span class="dot" style:background={affinityInfo[c.affinity].colour}></span>{c.name}{#if c === lead}<em class="lead-tag">lead</em>{/if}</span>
             {/each}
           </div>
           <ul class="clean matchups">
@@ -264,6 +264,7 @@
   .matrix td.good { background: var(--good-soft); }
   .matrix td.bad { background: var(--bad-soft); }
   .card + .card { margin-top: 0.9rem; }
+  .grid > .card { margin-top: 0; } /* the grid gap already spaces these */
   .adder { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: flex-end; margin-bottom: 0.8rem; }
   .adder label, .opp label { display: flex; flex-direction: column; gap: 0.2rem; font-size: 0.8rem; color: var(--muted); }
   .adder select, .opp select { width: auto; padding: 0.4rem 0.5rem; }
@@ -279,7 +280,7 @@
   .thead { display: flex; justify-content: space-between; }
   .members { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0.5rem 0; }
   .member { color: var(--text); }
-  .lead { font-style: normal; font-size: 0.7rem; background: var(--accent); color: #fff; padding: 0 0.35rem; border-radius: 999px; margin-left: 0.25rem; }
+  .lead-tag { font-style: normal; font-size: 0.7rem; background: var(--accent); color: #fff; padding: 0 0.35rem; border-radius: 999px; margin-left: 0.25rem; }
   .matchups li { display: flex; flex-wrap: wrap; gap: 0.25rem 0.8rem; align-items: baseline; padding: 0.15rem 0; }
   .vs { min-width: 8.5rem; }
   .m { font-weight: 700; min-width: 4.5rem; }
