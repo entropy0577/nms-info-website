@@ -1,5 +1,6 @@
 <script>
   import { dishes, rawIngredients } from '../lib/data/cooking.js';
+  import { tick } from 'svelte';
   import { route, scrollToAnchor, href } from '../lib/router.svelte.js';
   import { ingestEffects, buffGroups, statNotes, statBySlug, effectLabel, durSeconds, recipesFor, strongest, bestFor, effectFor } from '../lib/buffs.js';
   import { findItem } from '../lib/data/items.js';
@@ -7,6 +8,7 @@
   import Cls from '../lib/components/Cls.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
   import { units, norm } from '../lib/format.js';
+  import { recipeTree, rawShoppingList } from '../lib/cooktree.js';
 
   const cats = [...new Set(dishes.map((d) => d.cat))];
   const dishNames = new Set(dishes.map((d) => d.name));
@@ -17,14 +19,15 @@
   let sort = $state('value');
   let limit = $state(30);
 
-  // ?Dish%20Name from a link elsewhere pre-fills the search.
-  $effect(() => { if (route.query && dishNames.has(route.query)) { q = route.query; mode = 'dish'; } });
+  // ?Dish%20Name from a link elsewhere (e.g. "Open in Cooking" on item pages) opens that recipe.
+  $effect(() => { if (route.query && dishNames.has(route.query)) openRecipe(route.query); });
 
   const results = $derived.by(() => {
     const t = norm(q);
     let r = dishes.filter((d) => {
       if (cat !== 'All' && d.cat !== cat) return false;
       if (!t) return true;
+      if (mode === 'exact') return d.name === q;
       if (mode === 'dish') return norm(d.name).includes(t);
       return d.recipes.some((rec) => rec.some((slot) => slot.some((i) => norm(i).includes(t))));
     });
@@ -35,7 +38,15 @@
   $effect(() => { q; mode; cat; sort; limit = 30; });
 
   const topValue = [...dishes].filter((d) => d.value).sort((a, b) => b.value - a.value).slice(0, 8);
-  const lookFor = (name) => { q = name; mode = dishNames.has(name) ? 'dish' : 'ingredient'; window.scrollTo({ top: document.getElementById('recipes').offsetTop - 70 }); };
+  // Jump to the Recipes tab: a dish shows its own card (tree open), anything else shows what it's used in.
+  let openTree = $state('');
+  const showTab = (tab) => { panel = tab; tick().then(() => scrollToAnchor('lookup')); };
+  function openRecipe(name) { q = name; mode = 'exact'; cat = 'All'; openTree = name; showTab('recipes'); }
+  function lookFor(name) {
+    if (dishNames.has(name)) return openRecipe(name);
+    q = name; mode = 'ingredient'; cat = 'All'; openTree = ''; showTab('recipes');
+  }
+  const leafInfo = new Map(rawIngredients.map((r) => [r.name, r.how]));
   // ── Food buff lookup ──
   const statOrder = buffGroups.flatMap((g) => g.stats);
   let bq = $state('');
@@ -46,7 +57,7 @@
   // ?buff-resources-mined (from the Units & Nanites page) preselects that buff.
   $effect(() => {
     const st = route.query?.startsWith('buff-') ? statBySlug(route.query.slice(5)) : null;
-    if (st) { bStat = st; bq = ''; bSrc = 'all'; scrollToAnchor('buff-lookup'); }
+    if (st) { panel = 'buffs'; bStat = st; bq = ''; bSrc = 'all'; scrollToAnchor('lookup'); }
   });
   const srcOf = (e) => (e.dish || e.src === 'cooked' ? 'cooked' : e.src === 'fish' ? 'fish' : 'other');
   const buffResults = $derived.by(() => {
@@ -61,15 +72,13 @@
     return r;
   });
   $effect(() => { bq; bStat; bSrc; bSort; bLimit = 24; });
-  const pickBuff = (stat) => { panel = 'buffs'; bStat = stat; bq = ''; bSrc = 'all'; bSort = 'strongest'; scrollToAnchor('buff-lookup'); };
+  const pickBuff = (stat) => { bStat = stat; bq = ''; bSrc = 'all'; bSort = 'strongest'; showTab('buffs'); };
   const where = (f) => [f.biome === 'All' ? 'any biome' : f.biome, f.when !== 'Any' ? `${f.when.toLowerCase()} only` : null].filter(Boolean).join(', ');
 
-  // Buff lookup and raw ingredients share one tabbed panel; ?raw opens the raw tab.
+  // Buff lookup, recipes and raw ingredients share one tabbed panel; ?buff-lookup, ?recipes and ?raw open a tab.
   let panel = $state('buffs');
-  $effect(() => {
-    if (route.query === 'raw') { panel = 'raw'; scrollToAnchor('buff-lookup'); }
-    else if (route.query === 'buff-lookup' || route.query?.startsWith('buff-')) panel = 'buffs';
-  });
+  const tabFor = { 'buff-lookup': 'buffs', recipes: 'recipes', raw: 'raw' };
+  $effect(() => { if (tabFor[route.query]) showTab(tabFor[route.query]); });
 
   let rawQ = $state('');
   const rawRows = $derived(rawIngredients.filter((r) => !rawQ || norm(`${r.name} ${r.how}`).includes(norm(rawQ))));
@@ -80,7 +89,7 @@
   {dishes.length} dishes you can make in a Nutrient Processor. Search by dish, or by an ingredient you have to see what it makes.
   Click any ingredient to jump to it.
 </p>
-<OnThisPage links={[['cronus', 'Cronus & money'], ['food-buffs', 'Food buffs'], ['buff-lookup', 'Buff lookup'], ['raw', 'Raw ingredients'], ['recipes', 'Recipes']]} />
+<OnThisPage links={[['cronus', 'Cronus & money'], ['food-buffs', 'Food buffs'], ['buff-lookup', 'Buff lookup'], ['recipes', 'Recipes'], ['raw', 'Raw ingredients']]} />
 
 <section id="cronus" class="card">
   <h2 class="first">Cooking for nanites & units</h2>
@@ -147,8 +156,21 @@
   {/each}
 </div>
 
-<div id="buff-lookup" class="ptabs" role="tablist" aria-label="Lookup">
+{#snippet treeNode(n)}
+  <li>
+    {#if n.cooked}<button class="ing cooked" onclick={() => openRecipe(n.name)}>{n.name}</button>
+    {:else if findItem(n.name)}<ItemLink name={n.name} />
+    {:else}<span title={leafInfo.get(n.name)}>{n.name}</span>{/if}
+    {#if n.process}<span class="muted small">{` · ${n.process}`}</span>{/if}
+    {#if !n.cooked && leafInfo.has(n.name)}<span class="muted small">{` · ${leafInfo.get(n.name)}`}</span>{/if}
+    {#if n.alts.length}<span class="muted small alts">{` or ${n.alts.join(', ')}`}</span>{/if}
+    {#if n.children.length}<ul>{#each n.children as c}{@render treeNode(c)}{/each}</ul>{/if}
+  </li>
+{/snippet}
+
+<div id="lookup" class="ptabs" role="tablist" aria-label="Lookup">
   <button role="tab" aria-selected={panel === 'buffs'} onclick={() => (panel = 'buffs')}>Buff lookup</button>
+  <button role="tab" aria-selected={panel === 'recipes'} onclick={() => (panel = 'recipes')}>Recipes</button>
   <button role="tab" aria-selected={panel === 'raw'} onclick={() => (panel = 'raw')}>Raw ingredients</button>
 </div>
 
@@ -203,35 +225,23 @@
           {/each}
         </div>
       {/each}
-      {#if recs.length > 2}<button class="ing small" onclick={() => lookFor(e.dish)}>+{recs.length - 2} more recipes →</button>{/if}
+      {#if e.dish}
+        <button class="chip openrec" onclick={() => openRecipe(e.dish)}>
+          Open recipe{#if recs.length > 2}{` (+${recs.length - 2} more)`}{/if} & full tree →
+        </button>
+      {/if}
     </article>
   {:else}
     <p class="muted">No foods match.</p>
   {/each}
 </div>
 {#if buffResults.length > bLimit}<button class="chip more" onclick={() => (bLimit += 48)}>Show more ({buffResults.length - bLimit} left)</button>{/if}
-<p class="muted small">Ingredient names open the full recipe below. Underlined ones are cooked dishes themselves.</p>
-{:else}
-<p class="small">Where the basic ingredients come from. Click one to see every dish it goes into.</p>
+<p class="muted small">Click an ingredient to open it in the Recipes tab. Underlined ones are cooked dishes themselves.</p>
+{:else if panel === 'recipes'}
 <div class="toolbar">
-  <input type="search" placeholder="Filter, e.g. egg, milk, lush" bind:value={rawQ} />
-  <span class="muted small">{rawRows.length} ingredient{rawRows.length === 1 ? '' : 's'}</span>
-</div>
-<div class="table-wrap">
-  <table>
-    <thead><tr><th>Ingredient</th><th>How to get it</th><th class="rawtype">Type</th></tr></thead>
-    <tbody>
-      {#each rawRows as r}<tr><td><button class="ing rawname" onclick={() => lookFor(r.name)}>{r.name}</button></td><td>{r.how}</td><td class="muted small rawtype">{r.source.replace('Raw Ingredients - ', '')}</td></tr>{/each}
-    </tbody>
-  </table>
-</div>
-{/if}
-
-<h2 id="recipes">Recipes</h2>
-<div class="toolbar">
-  <input type="search" placeholder={mode === 'dish' ? 'Dish name, e.g. Mystery Meat Stew' : 'Ingredient you have, e.g. Giant Egg'} bind:value={q} />
+  <input type="search" placeholder={mode === 'ingredient' ? 'Ingredient you have, e.g. Giant Egg' : 'Dish name, e.g. Mystery Meat Stew'} bind:value={q} oninput={() => { if (mode === 'exact') mode = 'dish'; }} />
   <div class="tabs" role="group" aria-label="Search by">
-    <button aria-pressed={mode === 'dish'} onclick={() => (mode = 'dish')}>Find a dish</button>
+    <button aria-pressed={mode !== 'ingredient'} onclick={() => (mode = 'dish')}>Find a dish</button>
     <button aria-pressed={mode === 'ingredient'} onclick={() => (mode = 'ingredient')}>What can I make with…</button>
   </div>
 </div>
@@ -243,6 +253,7 @@
 
 <div class="dishes">
   {#each results.slice(0, limit) as d (d.name)}
+    {@const tree = recipeTree(d.name)}
     <article class="card dish">
       <header>
         <h3>{d.name}</h3>
@@ -264,13 +275,37 @@
           {/each}
         </div>
       {/each}
+      <details class="tree" open={openTree === d.name}>
+        <summary>Full recipe tree <span class="muted small">{`· ${tree.steps} cooking step${tree.steps === 1 ? '' : 's'} from raw`}</span></summary>
+        <p class="small muted treenote">Follows the simplest route (fewest cooking steps). Other ingredients that fit a slot are listed after "or".</p>
+        <ul class="treelist">{@render treeNode(tree)}</ul>
+        <p class="small shop"><strong>Raw ingredients for one:</strong>
+          {#each rawShoppingList(tree) as [n, k], i}{#if i > 0}<span class="sep">·</span>{/if}<span class="nowrap">{k}× {n}</span>{/each}
+        </p>
+      </details>
     </article>
   {:else}
     <p class="muted">No dishes match.</p>
   {/each}
 </div>
 {#if results.length > limit}<button class="chip more" onclick={() => (limit += 60)}>Show more ({results.length - limit} left)</button>{/if}
-<p class="muted small">Underlined ingredients are themselves cooked dishes — click to see how to make them.</p>
+<p class="muted small">Underlined ingredients are themselves cooked dishes. Click one to open its recipe.</p>
+
+{:else}
+<p class="small">Where the basic ingredients come from. Click one to see every dish it goes into.</p>
+<div class="toolbar">
+  <input type="search" placeholder="Filter, e.g. egg, milk, lush" bind:value={rawQ} />
+  <span class="muted small">{rawRows.length} ingredient{rawRows.length === 1 ? '' : 's'}</span>
+</div>
+<div class="table-wrap">
+  <table>
+    <thead><tr><th>Ingredient</th><th>How to get it</th><th class="rawtype">Type</th></tr></thead>
+    <tbody>
+      {#each rawRows as r}<tr><td><button class="ing rawname" onclick={() => lookFor(r.name)}>{r.name}</button></td><td>{r.how}</td><td class="muted small rawtype">{r.source.replace('Raw Ingredients - ', '')}</td></tr>{/each}
+    </tbody>
+  </table>
+</div>
+{/if}
 
 <p class="source">Source: No Man's Sky community wiki ("Cooking", "Nutrient Ingestor", "Fish" and dish pages), Nov 2026. Values are base sell values; fish have no listed value.</p>
 
@@ -305,7 +340,20 @@
   .good { color: var(--good); font-weight: 600; }
   .buffval { color: var(--good); font-weight: 700; text-align: right; }
   .ingest { margin: -0.3rem 0 0.5rem; }
-  h3[id], #buff-lookup { scroll-margin-top: 70px; }
+  h3[id], #lookup { scroll-margin-top: 70px; }
+  .openrec { margin-top: 0.5rem; font-size: 0.85rem; }
+  .tree { margin-top: 0.4rem; border-top: 1px dashed var(--border); padding-top: 0.45rem; }
+  .tree summary { cursor: pointer; color: var(--link); font-size: 0.9rem; font-weight: 600; }
+  .tree summary:hover { color: var(--accent-bright); }
+  .treenote { margin: 0.35rem 0 0.2rem; }
+  .treelist, .treelist ul { list-style: none; margin: 0; padding: 0; }
+  .treelist ul { margin-left: 0.55rem; padding-left: 0.9rem; border-left: 1px solid var(--border-strong); }
+  .treelist li { position: relative; padding: 0.15rem 0; font-size: 0.88rem; }
+  .treelist ul > li::before { content: ''; position: absolute; left: -0.9rem; top: 0.85rem; width: 0.7rem; border-top: 1px solid var(--border-strong); }
+  .treelist .ing { padding: 0; font-size: 0.88rem; }
+  .alts { font-style: italic; }
+  .shop { margin: 0.5rem 0 0; }
+  .nowrap { white-space: nowrap; }
   .ptabs { display: flex; gap: 0; margin: 1.6rem 0 1rem; border-bottom: 1px solid var(--border-strong); }
   .ptabs button {
     font: inherit; font-family: var(--font-display); font-weight: 700; font-size: 1.12rem; letter-spacing: 0.01em;

@@ -156,6 +156,8 @@ ul.tips li::marker, ol.tips li::marker { color: var(--accent); }
 .source { font-size: 0.8rem; color: var(--muted); margin-top: 2rem; }
 
 .sep { margin: 0 0.35rem; }
+/* Svelte strips the whitespace around separators and item links don't wrap, so give the line a place to break after each one. */
+.sep::after { content: '\200B'; }
 
 kbd { font: inherit; font-size: 0.85em; border: 1px solid var(--border-strong); border-bottom-width: 2px; border-radius: 4px; padding: 0 0.3rem; background: var(--surface-2); }
 
