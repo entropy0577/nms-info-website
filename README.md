@@ -45,11 +45,12 @@ All game data lives in `src/lib/data/` as plain JS — edit those files to corre
 | `monoliths.js` | Monolith puzzle answers |
 | `puzzles-generated.js` | Facility, observatory and transmission tower puzzles (generated from the wiki) |
 | `gear.js` | Starships, exocraft, multi-tools, frigates, sentinels |
-| `money.js` | Units and nanite methods |
+| `money.js` | Units and nanite methods, Suspicious Packets for X-class flipping |
+| `ingest.js` | Nutrient Ingestor buff for every food and fish, with catch info and missing recipes (generated from the wiki) |
 | `companions.js` | Holo-Arena affinities, battle stats, Egg Sequencer mutagens |
 | `expeditions.js` | Frigate types, expedition rewards, boosters, fuel, traits, repairs |
 | `expedition-rewards.js` | Frigate expedition reward pools from the game's reward table (generated) |
-| `cooking.js` | Cooking recipes and raw ingredients (generated from the wiki) |
+| `cooking.js` | Cooking recipes and raw ingredients (generated from the wiki); buff helpers live in `src/lib/buffs.js` |
 | `tech.js` | Installable technology: cost, recharge, blueprint source (generated from the wiki) |
 | `base.js` | Power generators, consumption, hotspots, production parts, specialists |
 | `voltaic.js` | Voltaic Staff parts, prices, unlock steps and crafting mechanics |

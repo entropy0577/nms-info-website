@@ -10,6 +10,7 @@
   import Cls from '../lib/components/Cls.svelte';
   import Recipe from '../lib/components/Recipe.svelte';
   import { units } from '../lib/format.js';
+  import { effectFor, effectLabel, buffSlug } from '../lib/buffs.js';
 
   let { name } = $props();
   const it = $derived(findItem(name));
@@ -17,6 +18,7 @@
   const buyer = $derived(it?.tradeGood ? economyById[it.tradeGood.economy.sellsTo] : null);
   const raw = $derived(it?.craft ? Object.entries(rawTotals(it.name)).sort((a, b) => b[1] - a[1]) : []);
   const wikiUrl = $derived('https://nomanssky.fandom.com/wiki/' + encodeURIComponent((it?.name || name).replace(/ /g, '_')));
+  const buff = $derived(it ? effectFor(it.name) : null);
   const catBuilding = (id) => categories.find((c) => c.id === id)?.building;
   const showRefineInto = 12;
   let allInto = $state(false);
@@ -98,11 +100,19 @@
     {#if it.cook}
       <section class="card">
         <h2>Cook it</h2>
-        <p class="small muted">{it.cook.cat}{#if it.cook.bonus} · {it.cook.bonus}{/if}</p>
+        <p class="small muted">{it.cook.cat}{#if it.cook.bonus && it.cook.bonus !== '-'}{` · Eaten: ${it.cook.bonus}`}{/if}</p>
         {#each it.cook.recipes as rec}
           <p class="small cookrec">{#each rec as slot, j}{#if j > 0}<span class="muted sep">+</span>{/if}{#each slot as ing, k}{#if k > 0}<span class="muted sep">/</span>{/if}<ItemLink name={ing} />{/each}{/each}</p>
         {/each}
         <p class="small"><a href={href('/cooking') + '?' + encodeURIComponent(it.name)}>Open in Cooking →</a></p>
+      </section>
+    {/if}
+
+    {#if buff}
+      <section class="card">
+        <h2>Nutrient Ingestor buff</h2>
+        <p><strong class="buff">{effectLabel(buff)}</strong>{#if buff.dur}<span class="muted">{` for ${buff.dur} per unit`}</span>{/if}</p>
+        <p class="small"><a href={href('/cooking?buff-' + buffSlug(buff.stat))}>Other foods with this buff →</a></p>
       </section>
     {/if}
 
@@ -189,6 +199,7 @@
   .flat { box-shadow: none; border: 0; margin: 0 -1.1rem; border-radius: 0; background: transparent; }
   .flat td:first-child, .flat th:first-child { padding-left: 1.1rem; }
   .more { margin-top: 0.6rem; }
+  .buff { color: var(--good); }
   .cookrec { margin: 0.25rem 0; line-height: 1.8; }
   @media (max-width: 600px) { .process { display: none; } }
 </style>
