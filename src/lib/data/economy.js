@@ -83,6 +83,17 @@ export const economies = [
 // Base value by tier (identical across every economy).
 export const tierValues = [1000, 6000, 15000, 30000, 50000];
 
+// Economy strength needed to buy each tier (index 0 = tier 1). From each trade good's wiki page, which all follow the same
+// pattern: "can be purchased in all <x>-wealth systems" (min) and "also obtainable in some, but not all, <y>-wealth systems" (sometimes).
+// Strength stars: 1 = Weak, 2 = Average, 3 = Strong.
+export const tierStrength = [
+  { min: 1, sometimes: null },
+  { min: 2, sometimes: 1 },
+  { min: 2, sometimes: null },
+  { min: 3, sometimes: 2 },
+  { min: 3, sometimes: null },
+];
+
 // Short names used in-game / by players that should resolve to the same item.
 export const tradeGoodAliases = {
   'De-Scented Pheromone Bottle': ['De-Scented Bottles'],

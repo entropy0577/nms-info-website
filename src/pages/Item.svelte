@@ -1,6 +1,6 @@
 <script>
   import { findItem, aliasesOf } from '../lib/data/items.js';
-  import { economyById } from '../lib/data/economy.js';
+  import { economyById, tierStrength, strengths } from '../lib/data/economy.js';
   import { categories } from '../lib/data/settlements.js';
   import { rawTotals } from '../lib/data/crafting.js';
   import { href } from '../lib/router.svelte.js';
@@ -15,6 +15,8 @@
   let { name } = $props();
   const it = $derived(findItem(name));
   const aliases = $derived(it ? aliasesOf(it.name) : []);
+  const need = $derived(it?.tradeGood ? tierStrength[it.tradeGood.tier - 1] : null);
+  const strengthOf = (stars) => strengths.find((s) => s.stars === stars);
   const buyer = $derived(it?.tradeGood ? economyById[it.tradeGood.economy.sellsTo] : null);
   const raw = $derived(it?.craft ? Object.entries(rawTotals(it.name)).sort((a, b) => b[1] - a[1]) : []);
   const wikiUrl = $derived('https://nomanssky.fandom.com/wiki/' + encodeURIComponent((it?.name || name).replace(/ /g, '_')));
@@ -41,11 +43,21 @@
     {#if it.tradeGood}
       <section class="card">
         <h2>Buy & sell</h2>
-        <p>Tier {it.tradeGood.tier} trade good.</p>
+        <p>Tier {it.tradeGood.tier} of 5 {it.tradeGood.economy.name} trade good.</p>
         <ul class="clean facts">
           <li><span>Buy in</span><EconomyTag economy={it.tradeGood.economy} /></li>
+          <li>
+            <span>Needs</span>
+            <a class="pill strength" href={href('/economies?strength')}>
+              <span class="stars">{'★'.repeat(need.min)}</span>{strengthOf(need.min).level}{need.min < 3 ? ' or better' : need.sometimes ? '' : ' only'}
+            </a>
+          </li>
           <li><span>Sell in</span><EconomyTag economy={buyer} /></li>
         </ul>
+        {#if need.sometimes}
+          <p class="small muted">Sometimes stocked in {'★'.repeat(need.sometimes)} {strengthOf(need.sometimes).level} systems too, but not reliably.</p>
+        {/if}
+        <p class="small muted">{strengthOf(need.min).level} names on the Galactic Map: {strengthOf(need.min).names.join(', ')}.</p>
         <p class="muted small">Look for a strong economy with a low buy % to buy, and a high sell % to sell. <a href={href('/economies')}>Economy guide →</a></p>
       </section>
     {/if}
@@ -191,7 +203,7 @@
   section h2 { margin: 0 0 0.6rem; font-size: 1rem; }
   section h3 { font-size: 0.85rem; color: var(--muted); margin: 1rem 0 0.4rem; }
   .facts li { display: flex; align-items: center; gap: 0.6rem; padding: 0.25rem 0; }
-  .facts span { width: 4rem; color: var(--muted); font-size: 0.9rem; }
+  .facts li > span { width: 4rem; flex: none; color: var(--muted); font-size: 0.9rem; }
   .craft { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.5rem; }
   .craft h3 { margin-top: 0; }
   @media (max-width: 700px) { .craft { grid-template-columns: 1fr; } }
@@ -200,6 +212,10 @@
   .flat td:first-child, .flat th:first-child { padding-left: 1.1rem; }
   .more { margin-top: 0.6rem; }
   .buff { color: var(--good); }
+  .strength { color: var(--text); }
+  .strength:hover { text-decoration: none; border-color: var(--accent); }
+  .stars { color: var(--warn); letter-spacing: 0.05em; }
+  .facts + .small { margin-top: 0.5rem; }
   .cookrec { margin: 0.25rem 0; line-height: 1.8; }
   @media (max-width: 600px) { .process { display: none; } }
 </style>
