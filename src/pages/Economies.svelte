@@ -113,6 +113,8 @@
   .answer { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: center; }
   .eco-grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); }
   .eco { border-top: 3px solid var(--eco); padding-bottom: 0.8rem; scroll-margin-top: 70px; }
+  /* These cards already have a coloured top edge, so skip the red corner brackets. */
+  .eco::before, .eco::after { display: none; }
   .eco.flash { outline: 2px solid var(--eco); }
   .eco header { display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
   .eco h3 { margin: 0; display: flex; align-items: center; gap: 0.45rem; }
