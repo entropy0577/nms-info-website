@@ -1,0 +1,8 @@
+# Hand corrections and settings for tools/generate/refiner.js (refiner recipes from the wiki's PoC-Refine templates).
+# See tools/generate/lib/corrections.js for the correction format.
+
+# Ordering only: the generator reads every page with a PoC-Refine template. Recipes are listed for the resources in the
+# wiki "Resource" page's Elements table first, then these product pages, then all other PoC-Refine pages alphabetically.
+extraPages: [Glass, Unstable Plasma, Di-hydrogen Jelly]
+
+corrections: []

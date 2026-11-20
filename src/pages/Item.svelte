@@ -1,8 +1,9 @@
 <script>
-  import { findItem, aliasesOf } from '../lib/data/items.js';
-  import { economyById, tierStrength, strengths } from '../lib/data/economy.js';
-  import { categories } from '../lib/data/settlements.js';
-  import { rawTotals } from '../lib/data/crafting.js';
+  import { findItem, aliasesOf } from '../lib/items.js';
+  import { tierStrength, strengths } from '../lib/data/economy.yaml';
+  import { economyById } from '../lib/economy.js';
+  import { categories } from '../lib/data/settlements.yaml';
+  import { rawTotals } from '../lib/crafting.js';
   import { href } from '../lib/router.svelte.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import EconomyTag from '../lib/components/EconomyTag.svelte';
@@ -21,6 +22,10 @@
   const raw = $derived(it?.craft ? Object.entries(rawTotals(it.name)).sort((a, b) => b[1] - a[1]) : []);
   const wikiUrl = $derived('https://nomanssky.fandom.com/wiki/' + encodeURIComponent((it?.name || name).replace(/ /g, '_')));
   const buff = $derived(it ? effectFor(it.name) : null);
+  // Items listed in data/items.yaml (otherItems) may have nothing else on this site yet.
+  const bare = $derived(
+    it && !it.kinds.size && !buff && ![it.usedIn, it.refinesInto, it.usedInCooking, it.usedInTech].some((l) => l.length),
+  );
   const catBuilding = (id) => categories.find((c) => c.id === id)?.building;
   const showRefineInto = 12;
   let allInto = $state(false);
@@ -38,6 +43,7 @@
     {#if it.value != null}<span class="value">Base value <strong>{units(it.value)}</strong> units</span>{/if}
   </div>
   {#if aliases.length}<p class="muted small">Also called: {aliases.join(', ')}</p>{/if}
+  {#if bare}<p class="lead">This site has no details for this item yet — see the community wiki link below.</p>{/if}
 
   <div class="sections">
     {#if it.tradeGood}

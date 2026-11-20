@@ -1,0 +1,18 @@
+# Hand corrections for src/lib/data/ingest.yaml, applied by tools/generate/ingest.js on top of what it parses from
+# the wiki "Nutrient Ingestor" table. Format: see tools/generate/lib/corrections.js.
+
+# Food names: a row whose link is `from` is treated as `to` (before it is matched to cooking.yaml / the Fish list).
+renames:
+  - {from: Green -Ring Octopus, to: Green-Ring Octopus, why: 'Nutrient Ingestor table links "Green -Ring Octopus" (stray space); the fish page and Fish list are "Green-Ring Octopus".'}
+  - {from: Gas -Worm, to: Gas-Worm, why: 'Nutrient Ingestor table links "Gas -Worm" (stray space); the fish page and Fish list are "Gas-Worm".'}
+
+# Fish whose entry in the wiki "Fish" list is spelled differently from the in-game name (matching already ignores case,
+# a "(Fish)" suffix and -ized/-ised): in-game name → how the Fish list writes it.
+fishAliases:
+  Chalkscale Nibber:
+    listedAs: Chalkscale Nibbler
+    why: >-
+      The game text (AssistantNMS Fishing.lang.json) and the Nutrient Ingestor table say "Chalkscale Nibber"; the Fish
+      list says "Nibbler". Neither spelling has its own wiki page.
+
+corrections: []

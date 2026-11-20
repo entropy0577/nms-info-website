@@ -1,5 +1,5 @@
 <script>
-  import { affinities, affinityInfo, chart, stats, classMeaning, temperaments, abilityKinds, arenaFacts, mutagens } from '../lib/data/companions.js';
+  import { affinities, affinityInfo, chart, stats, classMeaning, temperaments, abilityKinds, arenaFacts, mutagens } from '../lib/data/companions.yaml';
   import { effectiveness, matchup, statRating, upgradeOrder, bestTeams, leadPick } from '../lib/arena.js';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
   import Cls from '../lib/components/Cls.svelte';

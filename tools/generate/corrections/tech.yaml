@@ -1,0 +1,28 @@
+# Hand corrections and settings for tools/generate/tech.js (installable technology from the wiki "Technology" page
+# and each tech's page). See tools/generate/lib/corrections.js for the correction format.
+
+# Technology the player starts with (or gets during the opening story): shown as "Starting gear / early story". The wiki
+# pages don't say this in a consistent way, so it's listed here.
+startingGear: [Hazard Protection, Life Support, Jetpack, Mining Beam, Terrain Manipulator, Scanner, Analysis Visor,
+  Boltcaster, Launch Thruster, Pulse Engine, Deflector Shield, Photon Cannon, Fusion Engine]
+
+# Wiki sub-headings whose technology is kept without a group: the starship's core flight tech (Launch Thruster,
+# Pulse Engine, Hyperdrive and their upgrades) is listed ungrouped, like the exosuit's.
+ungroupedSections: [Starship Flight Technology]
+
+corrections:
+  - why: >-
+      The Life Support infobox still says "recharge = Isotope" (a pre-NEXT term, unchanged since 2020); the page's own
+      Recharge section lists Oxygen and Life Support Gel as the main recharges (plus Dioxite and some foods).
+    match: {name: Life Support}
+    set: {recharge: "Oxygen, Life Support Gel"}
+  - why: >-
+      The Hyperdrive blueprint comes from the opening story (the page's walkthrough of the crashed-freighter distress
+      signal); the page's note that Iteration: Hyperion also sells it for 1 nanite is not how players normally get it.
+    match: {name: Hyperdrive}
+    set: {source: Story — Awakenings mission (crashed freighter distress signal)}
+  - why: >-
+      Shortened display name: the wiki page title "Nonlinear Optics (Infra-Knife Accelerator)" only disambiguates it from
+      the Photon Cannon upgrade of the same in-game name.
+    match: {name: Nonlinear Optics (Infra-Knife Accelerator)}
+    set: {name: Nonlinear Optics (Infra-Knife)}

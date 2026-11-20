@@ -1,0 +1,155 @@
+# Star colours, biomes, portals. Source: Fandom wiki (System colours, Biome, Glyph, Portal address), Nov 2026.
+# Accuracy pass, Nov 2026: Gas Giant harvester gas set to Methane (source: wiki "Biome - Gas Giant", "Hotspot").
+
+starColours:
+  - colour: Yellow
+    swatch: "#f2c94c"
+    classes: F / G
+    drive: Hyperdrive (base)
+    driveNeeds: Chromatic Metal + Microprocessors; blueprint from the Awakenings quest
+    metal: Copper
+    activated: Activated Copper
+    notes: Always inhabited. Sparse rare materials. Best odds of Lush worlds.
+  - colour: Red
+    swatch: "#e5534b"
+    classes: K / M
+    drive: Cadmium Drive
+    driveNeeds: Blueprint from the Space Anomaly (uses Chromatic Metal)
+    metal: Cadmium
+    activated: Activated Cadmium
+    notes: Uncommon rare materials. Usually uncharted (few inhabited systems).
+  - colour: Green
+    swatch: "#3fb950"
+    classes: E
+    drive: Emeril Drive
+    driveNeeds: Blueprint from the Space Anomaly (needs Cadmium)
+    metal: Emeril
+    activated: Activated Emeril
+    notes: Common rare materials.
+  - colour: Blue
+    swatch: "#4c8df6"
+    classes: B / O
+    drive: Indium Drive
+    driveNeeds: Blueprint from the Space Anomaly (needs Emeril)
+    metal: Indium
+    activated: Activated Indium
+    notes: Abundant rare materials. Activated Indium is a classic early money-maker.
+  - colour: Purple
+    swatch: "#a371f7"
+    classes: X / Y
+    drive: Atlantid Drive
+    driveNeeds: Blueprint from the "In Stellar Multitudes" quest (needs Indium)
+    metal: Quartzite
+    activated: Activated Quartzite
+    notes: Gas giants, waterworlds and deep oceans. Lithium, Crystallised Helium and Methane.
+
+biomes:
+  - name: Lush
+    hazard: Usually mild; storms only
+    plant: Star Bulb
+    mineral: Paraffinium
+    gas: Nitrogen
+    protection: —
+    notes: Earth-like grassy worlds. Most varied fauna.
+  - name: Barren
+    hazard: Hot days, cold nights
+    plant: Cactus Flesh
+    mineral: Pyrite
+    gas: Sulphurine
+    protection: Thermal (both)
+    notes: Desert worlds.
+  - name: Scorched
+    hazard: Heat (always)
+    plant: Solanium
+    mineral: Phosphorus
+    gas: Sulphurine
+    protection: Thermal (heat)
+    notes: Heat storms drain protection up to 3× faster.
+  - name: Frozen
+    hazard: Cold (always)
+    plant: Frost Crystal
+    mineral: Dioxite
+    gas: Radon
+    protection: Thermal (cold)
+    notes: Snow and ice; cold storms.
+  - name: Toxic
+    hazard: Toxicity (always)
+    plant: Fungal Mould
+    mineral: Ammonia
+    gas: Nitrogen
+    protection: Toxic
+    notes: Toxic rain and storms.
+  - name: Irradiated
+    hazard: Radiation (always)
+    plant: Gamma Root
+    mineral: Uranium
+    gas: Radon
+    protection: Radiation
+    notes: Spiral rock formations and vents.
+  - name: Dead
+    hazard: No atmosphere; extra life-support drain
+    plant: —
+    mineral: Rusted Metal deposits
+    gas: —
+    protection: Bring Oxygen / Life Support Gel
+    notes: No storms, no buildings, no water. Often resource-rich.
+  - name: Exotic
+    hazard: Usually mild
+    plant: —
+    mineral: Varies (sometimes Gold)
+    gas: —
+    protection: —
+    notes: Strange unique flora; one Stabilised Reality Glitch each. Never water.
+  - name: Mega Exotic
+    hazard: Any
+    plant: Varies
+    mineral: Varies
+    gas: Varies
+    protection: —
+    notes: Giant flora, tinted skies. Red, green and blue systems.
+  - name: Marsh
+    hazard: Varies
+    plant: Varies
+    mineral: Inconsistent (sometimes Faecium/Mordite)
+    gas: Varies
+    protection: —
+    notes: Misty swamp worlds, usually with water.
+  - name: Volcanic
+    hazard: Heat (always)
+    plant: Varies
+    mineral: Basalt
+    gas: Varies
+    protection: Coolant Network
+    notes: Erupting volcanoes; ground can ignite.
+  - name: Waterworld
+    hazard: Deep-water pressure
+    plant: —
+    mineral: Lithium, Quartzite
+    gas: —
+    protection: Underwater Oxygen, Pressure Membrane
+    notes: Purple systems only. Little or no land — use the Nautilon.
+  - name: Gas Giant
+    hazard: Endless extreme storms, high gravity
+    plant: —
+    mineral: Crystallised Helium, Activated Quartzite
+    gas: Methane
+    protection: Coolant Network
+    notes: Purple systems only. No fauna; Storm Crystals common.
+
+glyphs:
+  - {hex: "0", name: Sunset, title: The Star Above Water}
+  - {hex: "1", name: Bird, title: The Hunter}
+  - {hex: "2", name: Face, title: The Reflection}
+  - {hex: "3", name: Diplo, title: The Ancient Giant}
+  - {hex: "4", name: Eclipse, title: The Obscured Companion}
+  - {hex: "5", name: Balloon, title: The Ascending Orb}
+  - {hex: "6", name: Boat, title: The Sailor}
+  - {hex: "7", name: Bug, title: The Lowly Insect}
+  - {hex: "8", name: Dragonfly, title: ""}
+  - {hex: "9", name: Galaxy, title: The Spiral of Reality}
+  - {hex: A, name: Voxel, title: The Anomaly}
+  - {hex: B, name: Fish, title: The Ocean King}
+  - {hex: C, name: Tent, title: ""}
+  - {hex: D, name: Rocket, title: The Vessel to Beyond}
+  - {hex: E, name: Tree, title: ""}
+  - {hex: F, name: Atlas, title: ""}

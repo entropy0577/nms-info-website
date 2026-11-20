@@ -1,5 +1,6 @@
 <script>
-  import { crafted, craftGroups, rawTotals } from '../lib/data/crafting.js';
+  import { crafted, craftGroups } from '../lib/data/crafting.yaml';
+  import { rawTotals } from '../lib/crafting.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import RecipeTree from '../lib/components/RecipeTree.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
@@ -58,7 +59,7 @@
 <h2>Farming tips</h2>
 <ul class="tips">
   <li>Grow plants in Hydroponic Trays or biodomes at a base — they grow anywhere once planted. Harvest with the Haz-Mat Gauntlet.</li>
-  <li>Atmosphere Harvesters collect the biome's gas (Nitrogen, Sulphurine or Radon) automatically; they need power.</li>
+  <li>Atmosphere Harvesters collect the biome's gas (e.g. Nitrogen, Sulphurine or Radon) automatically. They need no power: a fuel inverter runs on Carbon or Condensed Carbon.</li>
   <li>Faecium comes from feeding creatures, or from Livestock Units at your base. Mordite comes from killing creatures.</li>
   <li>Craft the most valuable item your materials allow — selling intermediate products leaves most of the value on the table.</li>
 </ul>

@@ -1,10 +1,10 @@
 <script>
-  import { species, categories, production, claimCost, buildings, officeSteps, settlementTips } from '../lib/data/settlements.js';
+  import { species, categories, production, claimCost, buildings, officeSteps, settlementTips } from '../lib/data/settlements.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import EconomyTag from '../lib/components/EconomyTag.svelte';
   import Cls from '../lib/components/Cls.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
-  import { findItem } from '../lib/data/items.js';
+  import { findItem } from '../lib/items.js';
   import { units } from '../lib/format.js';
 
   let sp = $state('Korvax');
@@ -53,7 +53,7 @@
     <thead>
       <tr>
         <th>Unlocked by</th><th>Class</th><th>Product</th><th class="num">Per batch</th><th class="num">Batch value</th>
-        {#if sp === 'Gek'}<th class="num" title="Gek batch time in GPT units (1 GPT = 1–2 hours)">Batch time</th>{/if}
+        {#if sp === 'Gek'}<th class="num" title="Gek batch time in GPT units (how long one GPT lasts varies with the settlement's productivity and maintenance cost)">Batch time</th>{/if}
       </tr>
     </thead>
     <tbody>
@@ -76,10 +76,11 @@
 </div>
 <p class="muted small">
   {#if sp === 'Gek'}
-    Gek batches are quick: 1 GPT is 1–2 real hours, so most items arrive many times a day — but the S-class Cryogenic Chamber takes 300 GPT (2–3 weeks).
+    Gek batches are quick: most items take only a few GPT, but the S-class Cryogenic Chamber takes 300 GPT.
   {:else}
-    {sp} batches all take the same time: 1–2 real days per batch (it gets slower as the settlement grows).
+    {sp} batches all take the same time.
   {/if}
+  How long a batch takes varies with the settlement's productivity and its maintenance cost.
   Commercial goods tagged with an economy are standard trade goods.
 </p>
 

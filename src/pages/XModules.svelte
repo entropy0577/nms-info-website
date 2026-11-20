@@ -1,5 +1,6 @@
 <script>
-  import { xFamilies, verdict, familyVerdict, xSources, xRollTips, xNoVersion } from '../lib/data/xmodules.js';
+  import { xFamilies, xSources, xRollTips, xNoVersion } from '../lib/data/xmodules.yaml';
+  import { verdict, familyVerdict } from '../lib/xmodules.js';
   import RangeBar from '../lib/components/RangeBar.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
   import { norm } from '../lib/format.js';

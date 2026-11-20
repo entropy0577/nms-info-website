@@ -1,5 +1,5 @@
 <script>
-  import { exocraft, exocraftTips } from '../lib/data/gear.js';
+  import { exocraft, exocraftTips } from '../lib/data/gear.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
 </script>
 

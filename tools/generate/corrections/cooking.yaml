@@ -1,0 +1,72 @@
+# Hand corrections for src/lib/data/cooking.yaml, applied by tools/generate/cooking.js on top of what it parses from
+# the wiki "Cooking" page. Format: see tools/generate/lib/corrections.js. Most fix recipes the Cooking table gets
+# wrong or incomplete, checked against each dish's own wiki page ({{Cook}} template).
+
+# Ingredient spellings: every occurrence of `from` in a generated recipe becomes `to` (the generator stops if a
+# rename no longer matches anything). In-game names checked against the wiki item pages and the game-text extract
+# AssistantNMS assets/json/en/Fishing.lang.json (https://github.com/AssistantNMS/App), Nov 2026.
+renames:
+  - {from: Child Of Helios, to: Child of Helios, why: Wiki Cooking table capitalises "Of"; the item page and game text are "Child of Helios".}
+  - {from: Jelly Of The Veil, to: Jelly of the Veil, why: Wiki Cooking table misspells Jelly of the Veil; the item page and game text are "Jelly of the Veil".}
+  - {from: Mellitluous Jellyfish, to: Mellifluous Jellyfish, why: Wiki Cooking table misspells Mellifluous Jellyfish; the item page is "Mellifluous Jellyfish".}
+  - {from: Atlandidian Crab, to: Atlantidian Crab, why: Wiki Cooking table misspells Atlantidian Crab; the item page is "Atlantidian Crab".}
+  - {from: Giant Whiskerfin, to: Giant Whiskerfish, why: Wiki Cooking table misspells Giant Whiskerfish; the item page is "Giant Whiskerfish".}
+  - {from: HelionBass, to: Hellion Bass, why: "Wiki Cooking table misspells Hellion Bass (no page under either spelling); the wiki Fish list, Nutrient Ingestor table and game text all have \"Hellion Bass\"."}
+  - {from: Spartfin, to: Spratfin, why: "Wiki Cooking table misspells Spratfin (no page under either spelling); the wiki Fish list, Nutrient Ingestor table and game text all have \"Spratfin\"."}
+  - {from: Quatzshell Crab, to: Quartzshell Crab, why: "Wiki Cooking table misspells Quartzshell Crab (no page under either spelling); the wiki Fish list, Nutrient Ingestor table and game text all have \"Quartzshell Crab\"."}
+  - {from: Sulphyrfish, to: Sulphurfish, why: "Wiki Cooking table misspells Sulphurfish (no page under either spelling); the wiki Fish list, Nutrient Ingestor table and game text all have \"Sulphurfish\"."}
+  - {from: Chalkscale Nibbler, to: Chalkscale Nibber, why: "No page under either spelling; the wiki Cooking table and Fish list say \"Nibbler\", but the game text and the Nutrient Ingestor table have \"Chalkscale Nibber\"."}
+  - {from: Hyper-Cockle, to: Hyper-cockle, why: "No page under either spelling; the wiki Cooking table and Fish list say \"Hyper-Cockle\", but the game text and the Nutrient Ingestor table have \"Hyper-cockle\"."}
+
+corrections:
+  - why: "Same options as the Cooking table, but in the order of the Smoked Meat page's {{Cook}} recipes, which the data was rebuilt from by hand."
+    match: {name: Smoked Meat}
+    set: {recipes: [[[Meaty Chunks, Processed Meat, Meaty Wings, Fiendish Roe, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Crystal Flesh, Dirty Meat, Lumpy Brainstem, Scooped Innards, Crunchy Wings, Latticed Sinew, Juicy Thorax], [Carbon, Condensed Carbon]]]}
+  - why: "Same options as the Cooking table, but in the order of the Delicate Meringue page's {{Cook}} recipes (Larval Core first), which the data was rebuilt from by hand."
+    match: {name: Delicate Meringue}
+    set: {recipes: [[[Larval Core, Creature Egg, Tall Eggs, Giant Egg], [Processed Sugar]]]}
+  - why: "Rebuilt by hand from the Clarified Oil page's five {{Cook}} pairs, grouped as two recipes. The Cooking table's single row ([Churned/Proto/Bone Butter] + [Churned/Bone Butter]) allows the same pairs."
+    match: {name: Clarified Oil}
+    set: {recipes: [[[Churned Butter], [Churned Butter, Proto-Butter, Bone Butter]], [[Bone Butter, Proto-Butter], [Bone Butter]]]}
+  - why: "Cooking table omits the second recipe; the Bone Milk page's {{Cook}} also lists Ancient Bones + Ancient Bones (process \"Stew Bones\")."
+    match: {name: Bone Milk}
+    set: {recipes: [[[Bone Nuggets]], [[Ancient Bones], [Ancient Bones]]]}
+  - why: "Cooking table omits Butter Syrup; the Wailing Batter page's {{Cook}} lists Butter Syrup + Refined Flour + Larval Core."
+    match: {name: Wailing Batter}
+    set: {recipes: [[[Refined Flour], [Larval Core], [Sweetened Butter, Honey Butter, Sweetened Proto-Butter, Honied Proto-Butter, Gooey Butter, Gooey ProtoButter, Butter Syrup]]]}
+  - why: "Cooking table omits Juicy Thorax as second ingredient; the item page's {{Cook}} lists it."
+    match: {name: Crystalline Soup}
+    set: {recipes: [[[Crystal Flesh], [Crystal Flesh, Processed Meat, Meaty Chunks, Smoked Meat, Salty Chunks, Meaty Wings, Fiendish Roe, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Juicy Thorax]]]}
+  - why: "Cooking table omits Juicy Thorax as second ingredient; the item page's {{Cook}} lists it."
+    match: {name: Well-Stirred Stew}
+    set: {recipes: [[[Latticed Sinew], [Latticed Sinew, Processed Meat, Meaty Chunks, Smoked Meat, Salty Chunks, Meaty Wings, Fiendish Roe, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Juicy Thorax]]]}
+  - why: "Cooking table omits Juicy Thorax as second ingredient; the item page's {{Cook}} lists it."
+    match: {name: Gelatinous Goop}
+    set: {recipes: [[[Crunchy Wings], [Crunchy Wings, Processed Meat, Meaty Chunks, Smoked Meat, Salty Chunks, Meaty Wings, Fiendish Roe, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Juicy Thorax]]]}
+  - why: "Cooking table omits Juicy Thorax as second ingredient; the item page's {{Cook}} lists it."
+    match: {name: Soiled Soup}
+    set: {recipes: [[[Dirty Meat], [Dirty Meat, Processed Meat, Meaty Chunks, Smoked Meat, Salty Chunks, Meaty Wings, Fiendish Roe, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Juicy Thorax]]]}
+  - why: "Cooking table omits Juicy Thorax as second ingredient; the item page's {{Cook}} lists it."
+    match: {name: "Chewy 'Dumpling' Stew"}
+    set: {recipes: [[[Lumpy Brainstem], [Lumpy Brainstem, Processed Meat, Meaty Chunks, Smoked Meat, Salty Chunks, Meaty Wings, Fiendish Roe, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Juicy Thorax]]]}
+  - why: "Cooking table omits Crystal Flesh, Latticed Sinew, Crunchy Wings, Lumpy Brainstem, Dirty Meat, Scooped Innards, Foraged Mushrooms and Bone Nuggets; the Abyssal Stew page's {{Cook}} lists them with Hypnotic Eye."
+    match: {name: Abyssal Stew}
+    set: {recipes: [[[Hypnotic Eye, Horrifying Mush], [Hypnotic Eye, Horrifying Mush, Processed Meat, Smoked Meat, Meaty Chunks, Offal Sac, Feline Liver, Meaty Wings, ProtoSausage, Diplo Chunks, Scaly Meat, Strider Sausage, Raw Steak, Steamed Vegetables, Impulse Beans, Solartillo, Jade Peas, Non-Toxic Mushroom, Sievert Beans, Sweetroot, Pulpy Roots, Juicy Thorax, Nourishing Slime, Crystal Flesh, Latticed Sinew, Crunchy Wings, Lumpy Brainstem, Dirty Meat, Scooped Innards, Foraged Mushrooms, Bone Nuggets]]]}
+  - why: "Cooking table lists only Softened Marrow + Softened Marrow; the Bone Broth page's {{Cook}} lists 13 more second ingredients (meats, Pulpy Roots, Sweetroot)."
+    match: {name: Bone Broth}
+    set: {recipes: [[[Softened Marrow], [Softened Marrow, Processed Meat, Meaty Chunks, Meaty Wings, Offal Sac, ProtoSausage, Diplo Chunks, Scaly Meat, Feline Liver, Strider Sausage, Raw Steak, Leg Meat, Pulpy Roots, Sweetroot]]]}
+  - why: "Cooking table omits Nourishing Slime; the Solidified Grease Pie page's {{Cook}} lists Pie Case + Nourishing Slime."
+    match: {name: Solidified Grease Pie}
+    set: {recipes: [[[Pie Case], [Regis Grease, Clarified Oil, Proto-Oil, Nourishing Slime]]]}
+  - why: "Cooking table lets any batter take Sticky 'Honey' or Gooey Butter; the item page's {{Cook}} and the 7.0.3 game recipe table (NMSE Recipes.json) only allow those with Syrupy Batter (other batters make Questionably Sweet Cake)."
+    match: {name: Syrup-Drenched Delight}
+    set: {recipes: [[["Thick, Sweet Batter", Cake Batter, Syrupy Batter], [Syrupy Nectar, Butter Syrup]], [[Syrupy Batter], ["Sticky 'Honey'", Gooey Butter]]]}
+  - why: "Cooking table says Proto-Butter; the Cream Fingers page's {{Cook}} has Sugar Dough + Proto-Cream."
+    match: {name: Cream Fingers}
+    set: {recipes: [[[Sugar Dough], [Cream, Proto-Cream, Bone Cream, Salty Custard, Viscous Custard, Stellar Custard, Monstrous Custard]]]}
+  - why: "Cooking table omits Giant Egg; the Enriched Biscuit page's {{Cook}} lists Sugar Dough + Giant Egg."
+    match: {name: Enriched Biscuit}
+    set: {recipes: [[[Sugar Dough], [Warm Proto-Milk, Fresh Milk, Wild Milk, Craw Milk, Bone Milk, Bone Nuggets, Tall Eggs, Creature Egg, Giant Egg]]]}
+  - why: "Cooking table omits Edible Chum; the Fish Biscuit page's {{Cook}} lists Sugar Dough + Edible Chum."
+    match: {name: Fish Biscuit}
+    set: {recipes: [[[Sugar Dough], [Hadal Core, Salty Chunks, Edible Chum]]]}

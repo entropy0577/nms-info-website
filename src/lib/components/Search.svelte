@@ -1,26 +1,25 @@
 <script>
-  import { allItems, aliasesOf } from '../data/items.js';
-  import { economies, strengths } from '../data/economy.js';
+  // Slim build-time copy of the names to search (tools/vite-plugin-data.js), so the app shell doesn't load all the data.
+  import { items, technology, economies, strengths } from 'virtual:nms-search';
   import { pages } from '../nav.js';
-  import { technology } from '../data/tech.js';
   import { route, href, itemHref } from '../router.svelte.js';
   import { norm } from '../format.js';
 
   // Everything searchable: pages, items, and Galactic Map economy descriptors.
   const entries = [
     ...pages.map((p) => ({ label: p.title, sub: 'Page', url: href(p.path), keys: norm(p.title + ' ' + p.blurb) })),
-    ...allItems.map((it) => ({
-      label: it.name,
-      sub: [...it.kinds].join(' · '),
-      url: itemHref(it.name),
-      keys: norm([it.name, ...aliasesOf(it.name)].join(' ')),
+    ...items.map(([name, kinds, aliases]) => ({
+      label: name,
+      sub: kinds,
+      url: itemHref(name),
+      keys: norm([name, ...aliases].join(' ')),
     })),
-    ...technology.map((t) => ({ label: t.name, sub: `${t.device} technology`, url: href('/technology') + '?' + encodeURIComponent(t.name), keys: norm(t.name + ' technology tech') })),
-    ...economies.flatMap((e) =>
-      e.aliases.map((a) => ({ label: a, sub: `Economy type: ${e.name}`, url: href('/economies') + '?' + e.id, keys: norm(a + ' economy') })),
+    ...technology.map(([name, device]) => ({ label: name, sub: `${device} technology`, url: href('/technology') + '?' + encodeURIComponent(name), keys: norm(name + ' technology tech') })),
+    ...economies.flatMap(([id, name, aliases]) =>
+      aliases.map((a) => ({ label: a, sub: `Economy type: ${name}`, url: href('/economies') + '?' + id, keys: norm(a + ' economy') })),
     ),
-    ...strengths.flatMap((s) =>
-      s.names.map((n) => ({ label: n, sub: `Economy strength: ${s.level} ${'★'.repeat(s.stars)}`, url: href('/economies'), keys: norm(n + ' economy strength') })),
+    ...strengths.flatMap(([level, stars, names]) =>
+      names.map((n) => ({ label: n, sub: `Economy strength: ${level} ${'★'.repeat(stars)}`, url: href('/economies'), keys: norm(n + ' economy strength') })),
     ),
   ];
 

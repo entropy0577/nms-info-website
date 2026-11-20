@@ -1,0 +1,217 @@
+# Companions & Holo-Arena (Xeno Arena, update 6.30+).
+# Sources: official 6.30 patch notes (via community wiki); community wiki Egg Sequencer page and species pages;
+# community guides (nomansskyrecipes.com, allthings.how, topgamerarena.com, vortexgaming.io), April–Aug 2026.
+# The affinity chart is community-mapped from in-game matchup screens — sources disagree on some cells, so verify in game.
+# Accuracy pass, Nov 2026: Anomalous Jam mutagen shift corrected 3% → 8.3% per item (source: community wiki "Egg Sequencer - Neural Calibrator").
+
+affinities: [Fire, Frost, Radioactive, Toxic, Tropical, Anomalous, Mechanical, Desert]
+
+affinityInfo:
+  Fire: {colour: "#e5603b", biome: Scorched / Volcanic (hot) planets, plant: Solanium}
+  Frost: {colour: "#5aa9e6", biome: Frozen planets, plant: Frost Crystal}
+  Radioactive: {colour: "#9bc53d", biome: Irradiated planets, plant: Gamma Root}
+  Toxic: {colour: "#b05fc9", biome: Toxic planets, plant: Fungal Mould}
+  Tropical: {colour: "#2fb36b", biome: Lush planets, plant: Star Bulb}
+  Anomalous: {colour: "#e0a526", biome: Exotic / anomalous planets, plant: —}
+  Mechanical:
+    colour: "#8a94a6"
+    biome: Robotic fauna (often uncharted/abandoned systems)
+    plant: — (tame with Ion Battery)
+  Desert: {colour: "#c9935a", biome: Barren (desert) planets, plant: Cactus Flesh}
+
+# atk: deals extra damage to / reduced damage to.  def: takes reduced damage from / extra damage from.
+chart:
+  Fire: {atkStrong: Frost, atkWeak: Desert, defStrong: Anomalous, defWeak: Radioactive}
+  Frost: {atkStrong: Mechanical, atkWeak: Radioactive, defStrong: Toxic, defWeak: Fire}
+  Radioactive: {atkStrong: Fire, atkWeak: Toxic, defStrong: Frost, defWeak: Anomalous}
+  Toxic: {atkStrong: Tropical, atkWeak: Frost, defStrong: Radioactive, defWeak: Desert}
+  Tropical: {atkStrong: Anomalous, atkWeak: Mechanical, defStrong: Desert, defWeak: Toxic}
+  Anomalous: {atkStrong: Radioactive, atkWeak: Fire, defStrong: Mechanical, defWeak: Tropical}
+  Mechanical: {atkStrong: Desert, atkWeak: Anomalous, defStrong: Tropical, defWeak: Frost}
+  Desert: {atkStrong: Toxic, atkWeak: Tropical, defStrong: Fire, defWeak: Mechanical}
+
+stats:
+  - {name: Agility, what: Turn order — the faster creature acts first. Small creatures also dodge more., priority: 1}
+  - {name: Health, what: Hit points. Lets a creature survive long enough to land status effects. Large creatures are tankier but easier to hit., priority: 2}
+  - {name: Combat Effectiveness, what: Scales the damage and strength of every ability., priority: 3}
+
+classMeaning:
+  - {cls: S, text: Highest growth ceiling — what you want for a main team.}
+  - {cls: A, text: Strong; fine for most content.}
+  - {cls: B, text: Usable when it covers an affinity you lack.}
+  - {cls: C, text: Low ceiling — evolution can’t make up for it.}
+
+temperaments:
+  - {name: Independence, battle: "Chance to take an extra move on its own in a turn, ignoring that move’s cooldown. Worth raising on battlers.", confirmed: true}
+  - {name: Devotion, battle: Opposite of Independence — no known battle bonus., confirmed: true}
+  - {name: Aggression / Gentleness, battle: Battle effect not yet confirmed (players report aggressive creatures make more bonus attacks)., confirmed: false}
+  - {name: Helpfulness / Playfulness, battle: Battle effect not yet confirmed., confirmed: false}
+
+abilityKinds: ["Basic attack — reliable damage, no cooldown.", "Status attack — damage over time, stat reduction or stun.", "Power attack — big damage, but may miss or carry a long cooldown.", Heal or buff — restore health or boost your own stats., "Special — species-specific trick (shields, cleanse, morph the target’s affinity, delayed effects…)."]
+
+arenaFacts:
+  - Battles are 3 vs 3 and turn-based. Knock out all three opposing creatures to win. You can swap your active creature on your turn.
+  - "Holo-Arena tables: Space Anomaly (other players), space stations (system champions — harder, better rewards), planetary outposts, archives and some settlement buildings (local aliens)."
+  - "Start with Iteration: Oceanus on the Space Anomaly: a short tutorial plus two more fights unlock everything and give your first Retroviral Pellet. Oceanus also sets one daily challenge, the same for every player."
+  - Affinity advantage is worth roughly ±30% damage. It usually matters more than class — a B-class creature with the right matchup beats an S-class on the wrong side.
+  - Creatures level to 30 from battle XP. Each level gives a mutation point to spend on Agility, Health or Combat Effectiveness (each can be raised about 10 times); upgrades unlock in tiers.
+  - Retroviral Pellets trigger an evolution immediately. Summon the creature you want first, then feed it the pellet.
+  - "Use the Analysis Visor’s Creature Survey mode to see a wild creature’s battle classes before you adopt it. Companion slots: 2 free, then 500 nanites and rising (max 30)."
+  - Arena League ranks (Catalogue & Guide) reward titles and five exclusive companions from Oceanus.
+
+# Egg Sequencer — Neural Calibrator mutagens (community wiki). pct = shift per item; full = items for a 100% dose.
+mutagens:
+  - {item: Activated Emeril, pair: Aggression/Gentleness, outcome: Gentleness, pct: 2.7, full: "37"}
+  - {item: Activated Indium, pair: Aggression/Gentleness, outcome: Gentleness, pct: 3.7, full: "27"}
+  - {item: Aronium, pair: Aggression/Gentleness, outcome: Gentleness, pct: 39, full: "3"}
+  - {item: Storm Crystal, pair: Aggression/Gentleness, outcome: Gentleness, pct: 100, full: "1"}
+  - {item: Glowing Mineral, pair: Aggression/Gentleness, outcome: Gentleness, pct: 5, full: "20"}
+  - {item: Hadal Core, pair: Aggression/Gentleness, outcome: Aggression, pct: 100, full: "1"}
+  - {item: Larval Core, pair: Aggression/Gentleness, outcome: Aggression, pct: 100, full: "1"}
+  - {item: Hexite, pair: Aggression/Gentleness, outcome: Aggression, pct: 12.5, full: "8"}
+  - {item: Indium, pair: Aggression/Gentleness, outcome: Aggression, pct: 1.8, full: "56"}
+  - {item: Phosphorus, pair: Aggression/Gentleness, outcome: Aggression, pct: 0.24, full: "413"}
+  - {item: Pugneum, pair: Aggression/Gentleness, outcome: Aggression, pct: 2.78, full: "36"}
+  - {item: Uranium, pair: Aggression/Gentleness, outcome: Gentleness, pct: 0.24, full: "413"}
+  - {item: GekNip, pair: Aggression/Gentleness, outcome: Gentleness, pct: 100, full: "1"}
+  - {item: Magno-Gold, pair: Aggression/Gentleness, outcome: Aggression, pct: -39, full: "3"}
+  - {item: "'Apple' Curiosity", pair: Aggression/Gentleness, outcome: Aggression, pct: 100, full: "1"}
+  - {item: "'Apple' Ice Cream", pair: Aggression/Gentleness, outcome: Gentleness, pct: 88, full: "2"}
+  - {item: Aloe Flesh, pair: Aggression/Gentleness, outcome: Aggression, pct: 1.25, full: "80"}
+  - {item: Bittersweet Cocoa, pair: Aggression/Gentleness, outcome: Gentleness, pct: 2.8, full: ""}
+  - {item: Cake Batter, pair: Aggression/Gentleness, outcome: Gentleness, pct: 59, full: "2"}
+  - {item: Cream, pair: Aggression/Gentleness, outcome: Gentleness, pct: 8.5, full: "12"}
+  - {item: Grahberry, pair: Aggression/Gentleness, outcome: Aggression, pct: 1.25, full: "80"}
+  - {item: Ice Cream, pair: Aggression/Gentleness, outcome: Gentleness, pct: 75, full: "2"}
+  - {item: Chocolate Ice Cream, pair: Aggression/Gentleness, outcome: Gentleness, pct: 69, full: "2"}
+  - {item: Meaty Wings, pair: Aggression/Gentleness, outcome: Gentleness, pct: 2.2, full: ""}
+  - {item: Devilled Organs, pair: Aggression/Gentleness, outcome: Gentleness, pct: 29.5, full: "4"}
+  - {item: Proto-Butter, pair: Aggression/Gentleness, outcome: Gentleness, pct: 15, full: ""}
+  - {item: ProtoCheese, pair: Aggression/Gentleness, outcome: Gentleness, pct: 19, full: ""}
+  - {item: Proto-Cream, pair: Aggression/Gentleness, outcome: Gentleness, pct: 11, full: ""}
+  - {item: Proto-Oil, pair: Aggression/Gentleness, outcome: Gentleness, pct: 75, full: "2"}
+  - {item: Proto-Beignet, pair: Aggression/Gentleness, outcome: Gentleness, pct: 100, full: "1"}
+  - {item: Viscous Custard, pair: Aggression/Gentleness, outcome: Gentleness, pct: 50, full: "2"}
+  - {item: Salty Juice, pair: Aggression/Gentleness, outcome: Gentleness, pct: 2.8, full: ""}
+  - {item: Cream of Vegetable Soup, pair: Aggression/Gentleness, outcome: Gentleness, pct: 41, full: "3"}
+  - {item: Chewy 'Dumpling' Stew, pair: Aggression/Gentleness, outcome: Gentleness, pct: 10, full: "10"}
+  - {item: Delicious Vegetable Stew, pair: Aggression/Gentleness, outcome: Gentleness, pct: 29.5, full: "4"}
+  - {item: Flavoursome Sauce, pair: Aggression/Gentleness, outcome: Gentleness, pct: 11.5, full: "9"}
+  - {item: Cheese-and-Flesh Stew, pair: Aggression/Gentleness, outcome: Gentleness, pct: 56, full: "2"}
+  - {item: Stellar Ice Cream, pair: Aggression/Gentleness, outcome: Gentleness, pct: 56, full: "2"}
+  - {item: Synthetic Honey, pair: Aggression/Gentleness, outcome: Aggression, pct: 5, full: "20"}
+  - {item: Activated Cadmium, pair: Independence/Devotion, outcome: Independence, pct: 1.8, full: "57"}
+  - {item: Activated Copper, pair: Independence/Devotion, outcome: Devotion, pct: 1, full: "105"}
+  - {item: Ammonia, pair: Independence/Devotion, outcome: Devotion, pct: 1.25, full: "80"}
+  - {item: Antimatter, pair: Independence/Devotion, outcome: Independence, pct: 8.2, full: "13"}
+  - {item: Cadmium, pair: Independence/Devotion, outcome: Independence, pct: 0.9, full: "110"}
+  - {item: Crystal Sulphide, pair: Independence/Devotion, outcome: Independence, pct: 12.2, full: "9"}
+  - {item: Emeril, pair: Independence/Devotion, outcome: Independence, pct: 1.4, full: "74"}
+  - {item: Gold, pair: Independence/Devotion, outcome: Devotion, pct: 7.14, full: "114"}
+  - {item: Inverted Mirror, pair: Independence/Devotion, outcome: Independence, pct: 25, full: "4"}
+  - {item: Platinum, pair: Independence/Devotion, outcome: Devotion, pct: 1.96, full: "51"}
+  - {item: Radon, pair: Independence/Devotion, outcome: Devotion, pct: 0.078, full: ""}
+  - {item: Silver, pair: Independence/Devotion, outcome: Devotion, pct: 0.72, full: "138"}
+  - {item: Sodium, pair: Independence/Devotion, outcome: Devotion, pct: 0.83, full: "120"}
+  - {item: Di-hydrogen, pair: Independence/Devotion, outcome: Independence, pct: 0.68, full: "145"}
+  - {item: Fusion Accelerant, pair: Independence/Devotion, outcome: Independence, pct: 100, full: "1"}
+  - {item: Ionised Cobalt, pair: Independence/Devotion, outcome: Devotion, pct: 1.56, full: "64"}
+  - {item: Gravitino Ball, pair: Independence/Devotion, outcome: Independence, pct: 50, full: "2"}
+  - {item: Organic Catalyst, pair: Independence/Devotion, outcome: Independence, pct: 100, full: "1"}
+  - {item: Walker Brain, pair: Independence/Devotion, outcome: Independence, pct: 55, full: "2"}
+  - {item: "'Apple' Cake of Lost Souls", pair: Independence/Devotion, outcome: Independence, pct: 100, full: "1"}
+  - {item: Abyssal Stew, pair: Independence/Devotion, outcome: Independence, pct: 100, full: "1"}
+  - {item: Bone Nuggets, pair: Independence/Devotion, outcome: Independence, pct: 5, full: "20"}
+  - {item: Angelic Fruitcake, pair: Independence/Devotion, outcome: Devotion, pct: 100, full: "1"}
+  - {item: Chocolate Cake, pair: Independence/Devotion, outcome: Devotion, pct: 76, full: "2"}
+  - {item: Crab 'Apple', pair: Independence/Devotion, outcome: Devotion, pct: 5, full: "20"}
+  - {item: Esophageal Surprise, pair: Independence/Devotion, outcome: Devotion, pct: 90, full: "2"}
+  - {item: Feline Liver, pair: Independence/Devotion, outcome: Independence, pct: 2.2, full: ""}
+  - {item: Fibrous Stew, pair: Independence/Devotion, outcome: Independence, pct: 10, full: "10"}
+  - {item: Fireberry, pair: Independence/Devotion, outcome: Independence, pct: 1.25, full: "80"}
+  - {item: Gooey Chocolate Cake, pair: Independence/Devotion, outcome: Devotion, pct: 95, full: "2"}
+  - {item: Gooey Fruit Surprise, pair: Independence/Devotion, outcome: Devotion, pct: 100, full: "1"}
+  - {item: Haunted Chocolate Dreams, pair: Independence/Devotion, outcome: Independence, pct: 100, full: "1"}
+  - {item: Cocoa Tart, pair: Independence/Devotion, outcome: Devotion, pct: 84, full: "2"}
+  - {item: Jam Fluffer, pair: Independence/Devotion, outcome: Devotion, pct: 55, full: "2"}
+  - {item: Jam Tart, pair: Independence/Devotion, outcome: Devotion, pct: 69, full: "2"}
+  - {item: Fungal Tart, pair: Independence/Devotion, outcome: Devotion, pct: 63, full: "2"}
+  - {item: Hexaberry, pair: Independence/Devotion, outcome: Devotion, pct: 2.5, full: "40"}
+  - {item: Honey Tart, pair: Independence/Devotion, outcome: Devotion, pct: 75, full: "2"}
+  - {item: Horrifying Mush, pair: Independence/Devotion, outcome: Independence, pct: 100, full: "1"}
+  - {item: Hypnotic Eye, pair: Independence/Devotion, outcome: Independence, pct: 94, full: "2"}
+  - {item: Jam Oozers, pair: Independence/Devotion, outcome: Devotion, pct: 100, full: "1"}
+  - {item: "'Legs-in-Pastry'", pair: Independence/Devotion, outcome: Devotion, pct: 100, full: "1"}
+  - {item: Leopard-Fruit, pair: Independence/Devotion, outcome: Devotion, pct: 5, full: "20"}
+  - {item: Fresh Milk, pair: Independence/Devotion, outcome: Devotion, pct: 5, full: "20"}
+  - {item: Gritty Meat Pie, pair: Independence/Devotion, outcome: Devotion, pct: 97, full: "2"}
+  - {item: Chewy Organ Pie, pair: Independence/Devotion, outcome: Devotion, pct: 63, full: "2"}
+  - {item: Solidified Grease Pie, pair: Independence/Devotion, outcome: Devotion, pct: 84, full: "2"}
+  - {item: Perpetual Jam Fluffer, pair: Independence/Devotion, outcome: Devotion, pct: 53, full: "2"}
+  - {item: Processed Sugar, pair: Independence/Devotion, outcome: Independence, pct: 2.5, full: ""}
+  - {item: Regis Grease, pair: Independence/Devotion, outcome: Devotion, pct: 5, full: "20"}
+  - {item: Refined Flour, pair: Independence/Devotion, outcome: Independence, pct: 2.8, full: "36"}
+  - {item: Smoked Meat, pair: Independence/Devotion, outcome: Independence, pct: 3.4, full: "29"}
+  - {item: Soft Custard Fancy, pair: Independence/Devotion, outcome: Devotion, pct: 100, full: "1"}
+  - {item: Steamed Vegetables, pair: Independence/Devotion, outcome: Independence, pct: 2.8, full: ""}
+  - {item: Salty Custard, pair: Independence/Devotion, outcome: Independence, pct: 44, full: "3"}
+  - {item: Sticky 'Honey', pair: Independence/Devotion, outcome: Independence, pct: 5, full: "20"}
+  - {item: Sweetened Proto-Butter, pair: Independence/Devotion, outcome: Independence, pct: 50, full: "2"}
+  - {item: Baked Cheese Tart, pair: Independence/Devotion, outcome: Devotion, pct: 97, full: "2"}
+  - {item: Warm Proto-Milk, pair: Independence/Devotion, outcome: Devotion, pct: 5, full: "20"}
+  - {item: Wild Yeast, pair: Independence/Devotion, outcome: Independence, pct: 0.9, full: "110"}
+  - {item: Acid, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 100, full: "1"}
+  - {item: Albumen Pearl, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 17.6, full: "6"}
+  - {item: Carbon, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.24, full: "410"}
+  - {item: Chromatic Metal, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 4.76, full: "21"}
+  - {item: Copper, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.5, full: "212"}
+  - {item: Deuterium, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.13, full: "750"}
+  - {item: Dioxite, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.24, full: "413"}
+  - {item: Faecium, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 0.15, full: ""}
+  - {item: Fungal Mould, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 0.065, full: ""}
+  - {item: Geode, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 25, full: "4"}
+  - {item: Lemmium, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 39, full: "3"}
+  - {item: Magnetised Ferrite, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 1.66, full: "60"}
+  - {item: Oxygen, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.13, full: "753"}
+  - {item: Paraffinium, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 3.5, full: "350"}
+  - {item: Pyrite, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.24, full: "413"}
+  - {item: Rusted Metal, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 0.14, full: ""}
+  - {item: Condensed Carbon, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 0.48, full: "205"}
+  - {item: Fungal Mould, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.32, full: "308"}
+  - {item: Silicate Powder, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 0.009, full: "11100"}
+  - {item: Herox, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 39, full: "3"}
+  - {item: Unstable Gel, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 78, full: "2"}
+  - {item: Anomalous Doughnut, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 100, full: "1"}
+  - {item: Anomalous Jam, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 8.3, full: "12"}
+  - {item: Bone Cream, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 50, full: "2"}
+  - {item: Bone Butter, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 50, full: "2"}
+  - {item: Bread, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 8, full: "13"}
+  - {item: Cake of the Lost, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 100, full: "1"}
+  - {item: Churned Butter, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 11.2, full: "9"}
+  - {item: Creamy Sauce, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 25, full: "4"}
+  - {item: Crystal Flesh, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 2.17, full: "46"}
+  - {item: Delicate Meringue, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 8, full: "13"}
+  - {item: Ever-burning Jam, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 5, full: ""}
+  - {item: Extra-Fluffy Batter, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 22, full: ""}
+  - {item: Furball Jelly, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 14, full: ""}
+  - {item: Grahj'am, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 5.4, full: "19"}
+  - {item: Heptaploid Wheat, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 1.25, full: "80"}
+  - {item: Impulse Beans, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 1.3, full: ""}
+  - {item: Lumpy Brainstem, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 0.45, full: ""}
+  - {item: Partially-Liquid Cheese, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 38, full: "3"}
+  - {item: Pastry, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 38, full: "3"}
+  - {item: Wild Milk, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 2.6, full: ""}
+  - {item: Pie Case, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 47, full: "3"}
+  - {item: Processed Meat, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 3.3, full: "31"}
+  - {item: Pulpy Roots, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 1.25, full: ""}
+  - {item: Root Juice, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 3, full: ""}
+  - {item: Scrambled Marrow, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 38, full: "3"}
+  - {item: Star Bulb, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 0.13, full: ""}
+  - {item: Mystery Meat Stew, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 10, full: "10"}
+  - {item: Stewed Organs, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 10, full: "10"}
+  - {item: Sweetroot, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 1.25, full: "80"}
+  - {item: "Itching, Creeping Honey Sponge", pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 100, full: "1"}
+  - {item: "Thick, Sweet Batter", pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 75, full: "2"}
+  - {item: Wriggling Jam, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 14, full: ""}
+  - {item: Writhing Jam Puff, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 100, full: "1"}
+  - {item: "Writhing, Roiling Batter", pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 100, full: "1"}

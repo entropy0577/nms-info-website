@@ -1,0 +1,259 @@
+# Planetary Points of Interest. Source: No Man's Sky community wiki ("Point of Interest" and individual POI pages), Nov 2026.
+# Accuracy pass, Nov 2026: removed Signal Booster scan types gone since Beyond (Monolith, Plaque, Abandoned Building), Drop Pod
+# location (Exosuit Upgrade Charts; renamed from Drop Pod Coordinate Data in Waypoint), Transmission Tower chart type, Curious
+# Deposit contents, Autophage Camp decloaking and Harmonic Interface equations (source: wiki "Signal Booster", "Plaque",
+# "Monolith", "Exosuit Upgrade Chart", "Planetary Chart", "Curious Deposit", "Polyphonic Core", "Harmonic Interface" pages).
+# Removed a terminal interaction ("Cut heat sensors / Cut the alarm / Cut the camera feed") that no source documents.
+# puzzle: id of the puzzle section on the POI Puzzles page, or null.
+
+poiGroups: [Ancient sites, Secure sites, Outposts & shelters, Wrecks, Resources & finds, Other]
+
+pois:
+  # Ancient sites
+  - name: Monolith
+    group: Ancient sites
+    puzzle: monoliths
+    puzzleType: Story choice
+    find: Exocraft Radar Power Resonator, Signal Booster, Observatory puzzle reward, Planetary Chart (Ancient), or exploring.
+    inside: A trial based on the local race’s values, with 2–3 Knowledge Stones nearby.
+    rewards: Words, standing, multi-tools, blueprints, health/tech repair. Second interaction can reveal the planet’s Portal.
+  - name: Plaque
+    group: Ancient sites
+    puzzle: plaques
+    puzzleType: Simple choice
+    find: Planetary Chart (Ancient), Exocraft Radar Power Resonator.
+    inside: A chapter of the local race’s lore.
+    rewards: "\"Seek help with language\" → word + standing. \"Seek knowledge of the past\" → location of a Ruin with a buried artifact."
+  - name: Ruins
+    group: Ancient sites
+    puzzle: null
+    find: Plaque reward, Signal Booster, Planetary Chart (Ancient).
+    inside: Buried Large Artifact Crates; Artifact Fragments nearby give Ancient Keys.
+    rewards: Valuable artifacts to sell.
+  - name: Knowledge Stone
+    group: Ancient sites
+    puzzle: null
+    find: Near monoliths and ruins; scattered on many planets (Analysis Visor).
+    inside: A glowing stone.
+    rewards: One word of the local language.
+  - name: Portal
+    group: Ancient sites
+    puzzle: null
+    find: Offer a Gek Relic / Korvax Casing / Vy’keen Dagger at a solved Monolith.
+    inside: A glyph-dialled gateway.
+    rewards: Travel to any address. See Portals & Glyphs.
+    link: /portals
+  - name: Boundary Failure
+    group: Ancient sites
+    puzzle: null
+    find: Exotic and Infested planets only.
+    inside: Enigmatic structure.
+    rewards: Lore from the Atlas’s security protocol.
+  - name: Sentinel Pillar
+    group: Ancient sites
+    puzzle: null
+    find: Clear Wanted level 5, Sentinel Boundary Maps (from Salvaged Glass), Salvage Containers, Mercenaries Guild maps.
+    inside: A Sentinel control post with logs.
+    rewards: Shut down planet Sentinels for a while; the only source of Royal multi-tools.
+  # Secure sites
+  - name: Manufacturing Facility
+    group: Secure sites
+    puzzle: secure
+    puzzleType: Terminal problem
+    find: Planetary Chart (Secure Site) from a station Cartographer.
+    inside: Locked steel door — blast it open (raises Sentinel alert). Terminal problem inside.
+    rewards: Product recipes (Factory Override Unit), nanites, Multi-Tool expansion slot.
+  - name: Operations Centre
+    group: Secure sites
+    puzzle: secure
+    puzzleType: Terminal problem
+    find: Planetary Chart (Secure Site); "raid planetary harvester" missions.
+    inside: Locked door, guarded by drones and two Quads. Terminal problem inside; AtlasPass v2 side rooms.
+    rewards: Same as Manufacturing Facilities, with better odds of tech blueprints and upgrade modules.
+  - name: Depot
+    group: Secure sites
+    puzzle: null
+    find: Missions and exploring.
+    inside: Small structures full of resources.
+    rewards: Resources; destroying them is needed for some blueprints/missions (triggers Sentinels).
+  # Outposts & shelters
+  - name: Observatory
+    group: Outposts & shelters
+    puzzle: observatory
+    puzzleType: Code sequence
+    find: Planetary Chart (Inhabited Outpost), or "Unknown Building" markers.
+    inside: Satellite-dish building with a code console; AtlasPass v2 side rooms.
+    rewards: Location of an ancient site (Ruin/Monolith) on another planet in the system, plus standing.
+  - name: Transmission Tower
+    group: Outposts & shelters
+    puzzle: tower
+    puzzleType: Number sequence
+    find: Planetary Chart (Inhabited Outpost), Signal Booster.
+    inside: Tall tower with a distress-signal console.
+    rewards: Location of a Crashed Ship or Crashed Freighter.
+  - name: Harmonic Camp
+    group: Outposts & shelters
+    puzzle: harmonic
+    puzzleType: Arithmetic glyphs
+    find: Dissonant planets only (corrupted Sentinels). Echo Locators point to them.
+    inside: Crashed pod with a Harmonic Interface; Sentinel multi-tool cabinet; 7 barrows of Harmonic Scrap.
+    rewards: Unlocks the Sentinel multi-tool cabinet and locates crashed Sentinel Interceptors. Autophage NPCs (after "They Who Returned").
+  - name: Minor Settlement
+    group: Outposts & shelters
+    puzzle: null
+    find: Beacons; Planetary Chart (Inhabited Outpost); often spotted from the air.
+    inside: Trade terminal, merchant, multi-tool cabinet (often B–A class), an expatriate NPC.
+    rewards: Trading; good place to shop for multi-tools.
+  - name: Trading Post
+    group: Outposts & shelters
+    puzzle: null
+    find: Economy Scanner (quick menu) marks one.
+    inside: 7 landing pads and a Galactic Trade Terminal.
+    rewards: Better trade prices than stations; browse landing ships.
+  - name: Colossal Archive
+    group: Outposts & shelters
+    puzzle: null
+    find: Exploring; inhabited systems.
+    inside: Guild Envoy, Tech Merchant, Trade Terminal, Artifact Exchange Vaults, 5–6 landing pads.
+    rewards: Artifact Charts (15 nanites), rare merchant stock (Antimatter Housing, Exosuit Upgrade Charts).
+  - name: Shelter
+    group: Outposts & shelters
+    puzzle: null
+    find: Exploring; Planetary Charts.
+    inside: Two empty apartments on stilts.
+    rewards: Nanites, Navigation Data, words and standing from objects inside.
+  - name: Autophage Camp
+    group: Outposts & shelters
+    puzzle: null
+    find: Polyphonic Cores; cloaked — decloak with a Polyphonic Core or Scan Harmoniser.
+    inside: Autophage NPCs and Synthesis Terminals.
+    rewards: Missions, Autophage language, Void Mote shop, Voltaic Staff.
+  - name: Drop Pod
+    group: Outposts & shelters
+    puzzle: null
+    find: Exosuit Upgrade Charts (formerly Drop Pod Coordinate Data), used from the inventory.
+    inside: Exosuit Upgrade Module with damaged components to repair.
+    rewards: A free exosuit inventory slot (General, Cargo or Technology).
+  - name: Abandoned Building
+    group: Outposts & shelters
+    puzzle: null
+    find: Planetary Chart (Distress Signal), Exocraft radar, exploring.
+    inside: Terminals jammed with Residual Goop; Whispering Eggs outside guarded by Biological Horrors.
+    rewards: Nanites, logs, Larval Cores.
+  - name: Holo-Terminus
+    group: Outposts & shelters
+    puzzle: null
+    find: Story missions (Artemis Path).
+    inside: Tall comms structure.
+    rewards: Story progress.
+  # Wrecks
+  - name: Crashed Ship
+    group: Wrecks
+    puzzle: null
+    find: Transmission Tower puzzle, Planetary Chart (Distress Signal).
+    inside: A wrecked starship with a distress beacon.
+    rewards: Claim it for free (heavily damaged) or swap your ship.
+  - name: Crashed Freighter
+    group: Wrecks
+    puzzle: null
+    find: Transmission Tower puzzle, Planetary Chart (Emergency), Minotaur radar.
+    inside: Six cargo pods — dig them out and clear the junk to open.
+    rewards: Nanites, units, valuable products.
+  - name: Abandoned Wreckage
+    group: Wrecks
+    puzzle: null
+    find: Analysis Visor (same icon as Damaged Machinery); rare on Salvageable Scrap planets.
+    inside: Mangled ship wreck.
+    rewards: A random Suspicious Packet (X-class modules).
+    link: /x-modules
+  - name: Salvageable Scrap
+    group: Wrecks
+    puzzle: null
+    find: Planets listing Salvageable Scrap as a resource.
+    inside: Fallen satellite remains with protective casings.
+    rewards: Salvaged Scrap (corvette parts and more).
+  # Resources & finds
+  - name: Buried Technology Module
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor; dig with the Terrain Manipulator.
+    inside: Buried capsule.
+    rewards: 2–4 Salvaged Data (blueprints at the Space Anomaly, or 15 nanites each).
+  - name: Damaged Machinery
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor; usually near Buried Technology.
+    inside: A cone with one damaged component.
+    rewards: Repair it for nanites or an upgrade module.
+  - name: Cargo Drop
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor.
+    inside: Containers; some need AtlasPass v1.
+    rewards: Useful items.
+  - name: Buried Cache
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor (same icon as Cargo Drop).
+    inside: One buried yellow container.
+    rewards: Can contain Suspicious Modules or other high-value loot.
+  - name: Ancient Data Structure
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor (red cubes on black pedestals).
+    inside: Harvest by hand.
+    rewards: Navigation Data or Exosuit Upgrade Charts.
+  - name: Natural Burial Site
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor.
+    inside: Buried Ancient Bones container.
+    rewards: Random Excavated Bones (sellable).
+  - name: Curious Deposit
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor (class III resource).
+    inside: Rolling spherical rock.
+    rewards: Runaway Mould, which refines into nanites — a top nanite farm.
+    link: /money
+  - name: Resource Deposit
+    group: Resources & finds
+    puzzle: null
+    find: Analysis Visor; ship scans.
+    inside: Concentrated node of one resource.
+    rewards: Lots of one resource; place Autonomous Mining Units here.
+  # Other
+  - name: Waypoint
+    group: Other
+    puzzle: null
+    find: Next to most other POIs.
+    inside: Save point.
+    rewards: Manual save; claim region discoveries.
+  - name: Beacon
+    group: Other
+    puzzle: null
+    find: Exploring.
+    inside: Tall thin structure.
+    rewards: Scans for nearby Minor Settlements.
+  - name: Planetary Settlement
+    group: Other
+    puzzle: null
+    find: Settlement Chart from a Cartographer; "The Settlers" mission.
+    inside: A town you can run as Overseer.
+    rewards: See Settlements.
+    link: /settlements
+
+plaqueChoice:
+  - {opt: Seek help with language, result: Learn a word and gain standing with the local race.}
+  - {opt: Seek knowledge of the past, result: "Marks an Ancient Ruin with a buried artifact. (If it says \"Nothing found\", interact again and pick language.)"}
+
+harmonicSteps:
+  - At the Harmonic Interface, choose "Scan Memory Registers".
+  - You are shown three short addition/subtraction problems; each answer is a number from 1 to 16 that stands for one of the 16 portal glyphs.
+  - Choose "Input Override Glyphs" and enter the three glyphs that match the three answers — order does not matter.
+  - Success unlocks the Sentinel multi-tool cabinet and the option to "Locate Dissonance Spikes" (crashed Sentinel Interceptors). Your first success also gives the Aeron Turbojet jetpack look.
+
+# Generic terminal interactions found at some waypoints / buildings.
+terminalInteractions:
+  - text: The alert has obscured the information on the primary terminal. I can only make out a few words. If I can work out what was being worked on here, I can restart the workflow — and restore operations. // ????? // warp // ????? //
+    options: [{opt: Freighter, best: true}, {opt: Starship}, {opt: Drop pod}]

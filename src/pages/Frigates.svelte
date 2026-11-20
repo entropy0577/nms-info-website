@@ -1,8 +1,8 @@
 <script>
-  import { frigateTypes, expeditionTypes, boosters, fuelItems, rankUps, repairs, expeditionFacts, safety, damageFacts, organicFacts, buyingTips, traits } from '../lib/data/expeditions.js';
+  import { frigateTypes, expeditionTypes, boosters, fuelItems, rankUps, repairs, expeditionFacts, safety, damageFacts, organicFacts, buyingTips, traits } from '../lib/data/expeditions.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
-  import { expeditionRewards } from '../lib/data/expedition-rewards.js';
+  import { expeditionRewards } from '../lib/data/expedition-rewards.yaml';
   import { norm, units } from '../lib/format.js';
 
   // ── Fuel calculator ──

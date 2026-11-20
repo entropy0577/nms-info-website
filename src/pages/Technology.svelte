@@ -1,5 +1,5 @@
 <script>
-  import { technology } from '../lib/data/tech.js';
+  import { technology } from '../lib/data/tech.yaml';
   import { route, href } from '../lib/router.svelte.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import { norm } from '../lib/format.js';

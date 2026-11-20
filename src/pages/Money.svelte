@@ -1,7 +1,7 @@
 <script>
-  import { unitMethods, naniteMethods, packets } from '../lib/data/money.js';
+  import { unitMethods, naniteMethods, packets } from '../lib/data/money.yaml';
   import { buffGroups, bestFor, effectsByStat, buffSlug, statNotes } from '../lib/buffs.js';
-  import { findItem } from '../lib/data/items.js';
+  import { findItem } from '../lib/items.js';
   import { href } from '../lib/router.svelte.js';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
   import ItemLink from '../lib/components/ItemLink.svelte';

@@ -1,5 +1,5 @@
 <script>
-  import { refinerRecipes } from '../lib/data/refiner.js';
+  import { refinerRecipes } from '../lib/data/refiner.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import Recipe from '../lib/components/Recipe.svelte';
   import { norm } from '../lib/format.js';

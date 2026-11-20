@@ -1,0 +1,220 @@
+# Monolith puzzle answers. Source: Steam guide "Monolith Answers" (2024, community-contributed),
+# cross-checked against older community lists. Element amounts in the old guides used pre-2018 resource names
+# (Iron, Heridium, Titanium…) so they're omitted — pick the option by its wording.
+# best = the option that gives the most (standing + words + items). Results are as reported by players.
+
+monoliths:
+  # ───────── Vy'keen ─────────
+  - race: Vy'keen
+    text: A layer of frozen gas suddenly coats the monolith from bottom to top. It’s so cold that I can see my breath inside my helmet. There is one small gap in the crystal ice… feed some of my mined elements through it.
+    options:
+      - {opt: Insert silicate element, result: "", best: false}
+      - {opt: Insert oxide element, result: "", best: false}
+      - {opt: Insert isotope element, result: "Atlas word, Vy’keen standing, commodity item", best: true}
+  - race: Vy'keen
+    text: A small terrified creature emerges from the monolith and runs between my legs. I hear the noises of an ancient hunt… a warrior barks a few words and swings a bladed weapon down towards me.
+    options:
+      - {opt: Dodge weapon, result: "", best: false}
+      - {opt: Grab weapon, result: "New multi-tool, Vy’keen standing", best: true}
+  - race: Vy'keen
+    text: The body of a warrior emerges from the obelisk, a jagged tear in their midriff… the dangerous-looking multi-tool that sits in their hand was not enough to save them. Images of military worship.
+    options:
+      - {opt: Take the multi-tool and leave, result: "New multi-tool, but Vy’keen standing drops", best: false}
+      - {opt: Bury the soldier and multi-tool, result: "Atlas word, Vy’keen standing, health refill", best: true}
+  - race: Vy'keen
+    text: The monolith melts in response to my touch… inside, I see riches that are beyond belief. Ancient technologies and cargo… lava continues to drop, and the edifice seems unstable.
+    options:
+      - {opt: Stand back, result: "Vy’keen standing, commodity item", best: true}
+      - {opt: Reach in, result: "Exosuit damage, Vy’keen standing drops", best: false}
+  - race: Vy'keen
+    text: I am suddenly underwater. I am drowning… I know it is my time. Suddenly, a green hand thrusts itself through the surface of the water.
+    options:
+      - {opt: Die, result: "Max health increase, Vy’keen standing", best: true}
+      - {opt: Reach for hand, result: "", best: false}
+  - race: Vy'keen
+    text: Two ancient stone cups materialise… one filled with a dark red viscous liquid, the other a sticky bright yellow bitter fluid. A muscular warrior with a red halo challenges an opponent in yellow armour.
+    options:
+      - {opt: Drink the bitter yellow liquid, result: "", best: false}
+      - {opt: Drink the viscous red liquid, result: "Healed, Atlas word, item", best: true}
+  - race: Vy'keen
+    text: The monolith shows images of creatures lying dead before it. Each sacrificed… the head of a small woodland animal raises up through the earth below me. Something is clearly expected of me.
+    options:
+      - {opt: Let the creature live, result: "", best: false}
+      - {opt: Sacrifice the creature, result: "Standing, Atlas word, commodity item", best: true}
+  - race: Vy'keen
+    text: The dried out heart of an ancient warrior is strung up between wooden pillars, still beating. Below it lie a set of wrinkled lungs… a desiccated eyeball stares up at me.
+    options:
+      - {opt: Respectfully depart, result: "", best: false}
+      - {opt: Place lungs with heart, result: Vy’keen standing, best: true}
+      - {opt: Shoot heart, result: "", best: false}
+  - race: Vy'keen
+    text: The monolith rips like paper, opening a window to another world laced with a giant web. An ancient warrior lies cocooned… it carries a rusted multi-tool, and a bulging webbed sack on its chest.
+    options:
+      - {opt: Search body, result: "Atlas word, Vy’keen Effigy", best: true}
+      - {opt: Take multi-tool, result: "Blueprint, Atlas word", best: true}
+  - race: Vy'keen
+    text: I am inside a vast coliseum beneath a blood red sky. Two combatants square up on the crimson sand. One has lost its blade and hides behind a shield; the other stalks towards it with spear raised.
+    options:
+      - {opt: Support spear-wielding gladiator, result: "Atlas word, new multi-tool", best: true}
+      - {opt: Support endangered gladiator, result: "Atlas word, exosuit blueprint", best: true}
+  - race: Vy'keen
+    text: I feel an intense heat burning within. A liquid metal starts to seep from a hole broken into the rock… the monolith’s contents are draining and its glow is starting to fade.
+    options:
+      - {opt: Plug hole with oxide, result: "Atlas word, Vy’keen standing, Vy’keen Dagger", best: true}
+      - {opt: Plug hole with silicate, result: Vy’keen standing drops, best: false}
+      - {opt: Take molten substance, result: "", best: false}
+  - race: Vy'keen
+    text: The body of a huge winged animal falls to my feet, its throat ritually cut… its original eyes have been cut out and replaced by glittering red orbs. Can I bear to desecrate this sacrifice?
+    options:
+      - {opt: Remove sacrifice’s eyes, result: "Atlas word, Vy’keen Dagger, but standing drops", best: false}
+      - {opt: Respect sacrifice, result: "Atlas word, Vy’keen standing, full health & shield", best: true}
+  - race: Vy'keen
+    text: The giant mouth of an ancient hound emerges through the monolith… valuable commodities balanced on its giant tongue. There’s space on the tongue for more, should I give up some of my cargo.
+    options:
+      - {opt: Place goods on giant hound tongue, result: "Atlas word, Vy’keen standing, Vy’keen Effigy, full health", best: true}
+      - {opt: Remove goods from giant hound tongue, result: "Damage, Vy’keen standing drops", best: false}
+  - race: Vy'keen
+    text: The monolith folds down in on itself until it is a tiny red orb surrounded by dancing lights… the oxides I carry are physically dragging me towards it, desperate to help it rebuild.
+    options:
+      - {opt: Give common oxide, result: Vy’keen standing, best: false}
+      - {opt: Give uncommon oxide, result: "Vy’keen standing, Atlas word, full health", best: false}
+      - {opt: Give rare oxide, result: "Vy’keen standing, Atlas word, full health & shield, Vy’keen Effigy", best: true}
+  - race: Vy'keen
+    text: The body of a gutted blob creature materialises, impaled through its eyes with metal spears. Liquid drips down a channel cut into the rock towards two carvings — one of a sun, the other of a moon.
+    options:
+      - {opt: Divert body liquid to sun, result: "Vy’keen standing, Atlas word, full health, blueprint", best: true}
+      - {opt: Divert body liquid to moon, result: Same rewards, best: true}
+  - race: Vy'keen
+    text: A sudden pulse of destructive energy flows through my exosuit… another build-up of energy grows deep within the monolith. I can use my Protection Mesh to dampen it, but can’t identify it.
+    options:
+      - {opt: Prepare to absorb radiation, result: "Vy’keen standing, Vy’keen Effigy, Atlas word, units", best: true}
+      - {opt: Prepare to absorb toxins, result: Damage, best: false}
+  - race: Vy'keen
+    text: The ancient stone is warm, and deep inside I hear the hum of an arcane technology as it prepares to unleash itself. The glyphs talk to me in an alien tongue.
+    incomplete: true
+    options:
+      - {opt: Wait, result: Three new words (at least one Atlas), best: true}
+      - {opt: Pull free, result: Unknown, best: false}
+  - race: Vy'keen
+    text: An ancient warrior’s decapitated body is pushed out of the monolith. High above me a disembodied head laughs… behind, I hear a blade unsheathe and someone rushing towards me.
+    options:
+      - {opt: Stand, result: "Atlas word, Vy’keen standing", best: true}
+      - {opt: Dodge, result: Vy’keen standing drops, best: false}
+  # ───────── Gek ─────────
+  - race: Gek
+    text: A ragged silicon claw grabs me. Despite being broken and fragmented, it holds me tight while an ancient metallic beak emerges from the living rock. It shouts in an ancient tongue.
+    options:
+      - {opt: Wait, result: "", best: false}
+      - {opt: Smash claw, result: "", best: false}
+      - {opt: Give silicate, result: "New word, Gek standing, valuable item", best: true}
+  - race: Gek
+    text: A low rumble builds into an ancient scream… inside my helmet it’s a nightmarish cacophony of pain and death. Through the noise I can make out some words within the screams.
+    options:
+      - {opt: Wait, result: "Damage, Gek standing drops", best: false}
+      - {opt: Move away, result: "Gek Relic, Atlas word, Gek standing", best: true}
+      - {opt: Touch monolith, result: "Damage, Gek standing drops", best: false}
+  - race: Gek
+    text: A replica of my own self and exosuit forces me to my knees. The doppelganger places its boltcaster to my forehead, then mimes cutting my belly open with the mining beam. I am to choose my execution.
+    options:
+      - {opt: A laser beam to the torso, result: "", best: false}
+      - {opt: A bolt to the brain, result: "Boltcaster blueprint, Gek standing, units", best: true}
+  - race: Gek
+    text: A beak emerges from the ancient stone, shouting but unheard. Someone long ago scrawled advice above it… my scanner detects traces of oxides around it, but can’t specify which ones.
+    options:
+      - {opt: Feed beak rare oxide, result: Two Gek words, best: false}
+      - {opt: Feed beak uncommon oxide, result: "Two Gek words, Atlas word, Gek Relic", best: true}
+      - {opt: Feed beak common oxide, result: "Two Gek words, Atlas word", best: false}
+  - race: Gek
+    text: A ragged claw grabs at me… a metallic beak emerges from the living rock. “Underling! The Gek First Spawn demand help! Give metal! Metal! Metal!”
+    options:
+      - {opt: Give metal, result: "Gek standing, Atlas word", best: true}
+      - {opt: Smash claw, result: "Rusted Metal, Gek standing drops", best: false}
+      - {opt: Wait, result: Damage, best: false}
+  - race: Gek
+    text: The structure swings open to reveal a body encased in ice — a patchwork of body parts, its beak stitched on with animal gut. A handwritten sign… a flammable isotope would most likely melt the ice.
+    options:
+      - {opt: Melt ice, result: "Damage, Gek standing drops", best: false}
+      - {opt: Abandon lifeform, result: "Gek Relic, Gek standing, Atlas word", best: true}
+  # ───────── Korvax ─────────
+  - race: Korvax
+    text: I feel faint, as if my mind is being invaded. Pustules on my skin grow… metal spiders, perhaps tiny Sentinels, run up my shoulder and into my visor. This CANNOT be real.
+    options:
+      - {opt: Remove helmet and scrape away tiny metal spiders, result: "", best: false}
+      - {opt: Fire weapon, result: "", best: false}
+      - {opt: Wait it out, result: "Korvax word, standing, item", best: true}
+  - race: Korvax
+    text: Tiny floating tetrahedrons emerge from the planet’s surface and surround me… each time I wave them away they swarm closer to my multi-tool. They make one final surge…
+    options:
+      - {opt: Escape the tetrahedron cloud, result: "", best: false}
+      - {opt: Let the tetrahedrons in, result: "Multi-tool blueprint, Korvax standing, word", best: true}
+  - race: Korvax
+    text: A strange lethargy comes over me, and I feel compelled to lie down in front of the ancient relic. This place feels calming. It feels like home.
+    options:
+      - {opt: Resist, result: Nothing — the power fades, best: false}
+      - {opt: Sleep, result: Full health, best: true}
+  - race: Korvax
+    text: A flickering reflection of my own body emerges from a portal and mimics every move I make. It wants something… its multi-tool looks better than my own. The irregularity is fading.
+    options:
+      - {opt: Shoot doppelganger, result: "Damage, Korvax standing drops", best: false}
+      - {opt: Give multi-tool, result: "A worse multi-tool, Korvax word, standing", best: true}
+  - race: Korvax
+    text: A chiselled hole appears at the foot of the obelisk… below it are three blocks that can be turned by a mechanism. I search my gear for the rare elements that could fit.
+    options:
+      - {opt: Insert rare oxide, result: "Atlas word, exosuit blueprint, Korvax standing", best: true}
+      - {opt: Insert rare silicate, result: "New multi-tool, Atlas word, standing", best: true}
+      - {opt: Insert rare isotope, result: "Atlas word, standing", best: false}
+  - race: Korvax
+    text: Pilgrims have carved numerical figures between the glowing glyphs. Looking down, I notice an ancient coin… and unearth several more. The site is silent; perhaps it waits for something.
+    options:
+      - {opt: Take coins, result: "Units, but damage and Korvax standing drops", best: false}
+      - {opt: Offer units, result: "Korvax standing, Atlas word, item, healing", best: true}
+  - race: Korvax
+    text: I am being watched. A red laser dot appears on the ancient stone structure. I’m a target… no cover, no time. The words of an unknown power blaze brightly on the monolith.
+    options:
+      - {opt: Move back, result: Korvax standing, best: true}
+      - {opt: Stand still, result: "", best: false}
+      - {opt: Touch monolith, result: "", best: false}
+  - race: Korvax
+    text: Blue light pours from the monolith… I catch a familiar smell. I know this doorway leads home. I ache for a past I cannot remember. Can I truly abandon my journey?
+    options:
+      - {opt: Resist temptation, result: "Korvax standing, Atlas word, item", best: true}
+      - {opt: Step back into the past, result: "Atlas word, health", best: false}
+  - race: Korvax
+    text: The monolith disappears. Where it stood is a red glowing orb burning the ground beneath it. I feel compelled to pick it up and become part of it. A distant voice speaks to me…
+    options:
+      - {opt: Hold the orb, result: "Damage, Korvax standing drops", best: false}
+      - {opt: Stand back, result: "The orb plunges into your chest, reality is restored", best: true}
+  - race: Korvax
+    text: A child emerges from the monolith — it’s me. The little one clings to my knees and implores me never to leave. We should be reunited. Whole again once more.
+    options:
+      - {opt: Stay, result: Korvax standing drops, best: false}
+      - {opt: "Comfort, then leave", result: "Korvax standing, Atlas word, item", best: true}
+      - {opt: Leave, result: Korvax standing drops, best: false}
+  - race: Korvax
+    text: I’m trapped in a time vortex. Numbers on my Multi-Tool seem to tick higher and higher. The closer I get to the Monolith, the more disturbance is added to the timeline…
+    options:
+      - {opt: Touch monolith, result: "Korvax standing, Korvax word", best: false}
+      - {opt: Move away, result: "Korvax standing, word, item and units", best: true}
+  # ───────── Any race ─────────
+  - race: Any
+    text: "Three vast columns of words, each in a different alphabet: savage runes scratched in sand, precise sequences of dots, and wide welcoming letters. Ancient hand prints cover the base of each column."
+    options:
+      - {opt: Press hand against letters, result: Gek word + Atlas word, best: true}
+      - {opt: Press hand against dots, result: Korvax word + Atlas word, best: true}
+      - {opt: Press hand against runes, result: Vy’keen word + Atlas word, best: true}
+  - race: Any
+    text: An expanding pool of liquid metal ripples out of the obelisk’s base. My feet are covered and I begin to sink. Warm hands pull me down… every hazard detector is going haywire.
+    options:
+      - {opt: Struggle, result: "Hazard protection boost, but damage", best: false}
+      - {opt: Sink, result: "Atlas word, technology repaired, item", best: true}
+  - race: Any
+    text: "Two stone blocks revolve on the base of the monolith, traced by red light. Both show masked electronic lifeforms: one absorbing power to break free of its shackles, the other hiding from its captors."
+    options:
+      - {opt: Place hand on the life-form taking shelter, result: "Exosuit upgrade, Atlas word", best: true}
+      - {opt: Place hand on the life-form breaking free, result: "Multi-tool blueprint, Atlas word", best: true}
+
+monolithTips:
+  - "After solving a monolith, interact again: offer a Gek Relic, Korvax Casing or Vy’keen Dagger (matching the system’s race) to reveal the planet’s Portal."
+  - "Korvax monoliths: after \"The Purge\", insert Atlantideum in the side terminal to awaken an Autophage monolith and get an Atlantid multi-tool."
+  - The more of the race’s language you know, the more of the prompt you can read — the guide below matches on the English narration.
+  - Wrong answers can cost health and standing, but never anything permanent beyond that.

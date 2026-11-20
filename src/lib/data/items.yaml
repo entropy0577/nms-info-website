@@ -1,0 +1,56 @@
+# Item names the site uses that aren't defined by any other data file. Checked against the community wiki's page titles
+# (No Man's Sky community wiki, CC BY-SA), Nov 2026.
+# The build checks every item name in recipes, costs, production rows, rewards and <ItemLink name="…"> against the items
+# the data files define (see tools/items-check.js). Add a name here only when it is a real in-game item.
+
+# Real items with no data of their own on this site. They still get an item page (with whatever links to them).
+otherItems:
+  - Albumen Pearl
+  - Ancient Bones
+  - Comet Dust
+  - Contaminated Metal
+  - Convergence Cube
+  - Corrupted Ichor
+  - Crystal Sulphide
+  - Crystallised Heart
+  - Cursed Dust
+  - Flesh Rope
+  - Frigate Fuel # settlement rows list the sizes ("Frigate Fuel (50 Tonnes)"); the item page groups them
+  - Fuel Oxidiser
+  - Gek Relic
+  - GekNip
+  - Gravitino Ball
+  - Holographic Analyser
+  - Hyaline Brain
+  - Hydrothermal Fuel Cell
+  - Inverted Mirror
+  - Korvax Casing
+  - Living Pearl
+  - Mind Control Device
+  - Mineral Compressor
+  - NipNip Buds
+  - Polished Stone
+  - Quad Servo
+  - Radiant Shard
+  - Sac Venom
+  - Salvaged Data
+  - Salvaged Frigate Module
+  - Salvaged Glass
+  - Settlement Chart
+  - Storage Augmentation
+  - Storm Crystal
+  - The Angler
+  - Tritium Hypercluster
+  - Vile Spawn
+  - Vortex Cube
+  - Vy'keen Dagger
+  - Vy'keen Effigy
+  - Walker Brain
+  - Wiring Loom
+
+# Other names for an item, all resolving to one item page (trade goods have theirs in economy.yaml tradeGoodAliases).
+itemAliases:
+  Convergence Cube: [Korvax Convergence Cube] # the wiki redirects "Korvax Convergence Cube" here
+
+# Wildcards in cooking recipes ("any fish will do") — not items.
+placeholders: [Any Fish, Any cooked seafood, cooked seafood]
