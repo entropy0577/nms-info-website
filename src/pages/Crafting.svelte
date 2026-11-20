@@ -1,5 +1,6 @@
 <script>
-  import { crafted, craftGroups, rawTotals } from '../lib/data/crafting.js';
+  import { crafted, craftGroups } from '../lib/data/crafting.yaml';
+  import { rawTotals } from '../lib/crafting.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import RecipeTree from '../lib/components/RecipeTree.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';

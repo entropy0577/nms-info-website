@@ -11,16 +11,20 @@ everything should be reachable from the sidebar or the global search, and every 
 ```sh
 npm install
 npm run dev       # dev server
-npm run build     # static site in dist/ — must finish with no warnings
+npm run build     # static site in dist/ — must finish with no warnings (also runs the data checks)
+npm run check     # data checks only: YAML syntax, schemas, item names (fast; run after every data edit)
+npm run generate -- <name|all> [--check]   # regenerate a generated data file from its source (see "Generated files")
 npm run preview   # serve dist/ (e.g. npx vite preview --host 127.0.0.1 --port 4173)
 ```
 
 There is no test suite. After a change, run `npm run build` (treat any warning as a failure) and check the affected
-pages in a browser, including at phone width (~390px) — no page may scroll sideways.
+pages in a browser, including at phone width (~390px) — no page may scroll sideways. The data checks are the
+closest thing to tests: never weaken a schema or add to `otherItems` just to make a failing build pass — fix the data.
 
 ## Stack & architecture
 
-- **Svelte 5 (runes) + Vite 8**, plain JavaScript, no framework router, no UI library, no runtime dependencies.
+- **Svelte 5 (runes) + Vite 8**, plain JavaScript, no framework router, no UI library, no runtime dependencies
+  (`yaml` is a build-time dev dependency only; `tools/` is build/maintenance code that never ships).
 - **Static, hash-routed SPA.** `src/lib/router.svelte.js` turns `#/path?anchor` into `route.path` / `route.query`.
   `?anchor` deep-links scroll to the element with that id (and some pages use it to preselect a tab/filter).
   `vite.config.js` uses `base: './'`, so `dist/` works from any sub-path (GitHub Pages) with no server config.
@@ -29,34 +33,106 @@ pages in a browser, including at phone width (~390px) — no page may scroll sid
   swapped together in one `view` object — keep it that way, or an old page can render with the new route's props.
 - **`src/lib/nav.js`** defines the sidebar groups and page order. The order also drives previous/next links, the home
   page tiles and the page entries in search.
-- **`src/lib/data/items.js`** builds one cross-referenced index of every item from all the data files (trade goods,
-  resources, crafting, refiner, settlements, cooking, technology). `src/pages/Item.svelte` renders `#/item/<name>` from
-  it. Use `<ItemLink name=…>` anywhere an item is mentioned so it links to that page.
+- **`src/lib/item-index.js`** builds one cross-referenced index of every item from the data files (trade goods,
+  resources, crafting, refiner, settlements, cooking, technology, `items.yaml`). It has no imports, so the same code runs
+  in the browser (`src/lib/items.js`) and at build time. `src/pages/Item.svelte` renders `#/item/<name>` from it. Use
+  `<ItemLink name=…>` anywhere an item is mentioned so it links to that page (ItemLink only loads the small alias table,
+  `src/lib/canonical.js`).
+- **Keep the data out of the app shell.** Every page is lazy-loaded, but the shell (search box, ItemLink) is on every
+  page, so it must not import data files or `items.js`. The search box and the home page counts use two build-time
+  modules from `tools/vite-plugin-data.js`: `virtual:nms-search` (names, kinds, aliases) and `virtual:nms-stats`. If the
+  main `index-*.js` chunk grows past ~100 kB, something pulled data into the shell.
 - **`src/lib/components/Search.svelte`** is the global search (`/` or Ctrl+K): pages, items, technology and Galactic Map
   economy names.
 - Shared helpers: `src/lib/format.js` (`units`, `shortUnits`, `norm`), `src/lib/arena.js` (Holo-Arena scoring heuristics).
 
 ## Adding a page
 
-1. Put the data in `src/lib/data/<topic>.js` (see data rules below).
+1. Put the data in `src/lib/data/<topic>.yaml` (see the data format and rules below).
 2. Create `src/pages/<Name>.svelte`. Start with an `<h1>` and a `<p class="lead">`; use `<OnThisPage>` for long pages;
    end with a `<p class="source">` naming the sources.
 3. Register it in `nav.js` (with a short `blurb`) and in the `routes` map in `App.svelte`.
 4. Add the data file to the table in `README.md`.
-5. If the page has items, link them with `ItemLink`; if it introduces new items, consider adding them to `items.js`.
+5. Add a schema for the new data file to `tools/schemas.js` (the build fails without one).
+6. If the page has items, link them with `ItemLink`. If its data names items (costs, recipes, rewards), add those
+   fields to `tools/items-check.js` so typos are caught, and make sure each item is defined somewhere (see below).
+
+## Data: where things live
+
+| What | Where |
+| --- | --- |
+| Game data (one file per topic) | `src/lib/data/<topic>.yaml` — data only, no code |
+| Items with no data of their own, extra item aliases, recipe wildcards | `src/lib/data/items.yaml` |
+| Trade good aliases ("5D Torus") | `src/lib/data/economy.yaml` `tradeGoodAliases` |
+| Code that derives things from the data (indexes, totals, verdicts) | `src/lib/<topic>.js` (`items.js`, `crafting.js`, `economy.js`, `xmodules.js`, `buffs.js`, `cooktree.js`) |
+| YAML → JS compiler, checks, search/stats modules | `tools/vite-plugin-data.js` |
+| Schema for each data file (+ same-file consistency rules) | `tools/schemas.js` (building blocks in `tools/schema.js`) |
+| Cross-file item name check | `tools/items-check.js` |
+| Generators for wiki/game-derived files, and their hand corrections | `tools/generate/<name>.js`, `tools/generate/corrections/<file>.yaml` |
+
+Every top-level key of a data file becomes a named export (`import { generators, powerTips } from '../lib/data/base.yaml'`),
+so top-level keys must be valid JS identifiers. There is no default export, and YAML never reaches the browser.
+
+## Editing data
+
+1. **Find the file** in the table above (the README lists what each data file contains). Keep the existing layout:
+   table-like lists use one record per line (`- {name: Glass, value: 200, in: [[Frost Crystal, 40]]}`), records with
+   long prose use one field per line. `#` comments are fine and stay in the file.
+2. **Quote values YAML would otherwise misread.** Parsing is YAML 1.2, so `yes`/`no`/`on`/`off` stay text, but quote:
+   - times and ratios: `"9:00"`, `"1:2"`;
+   - text that looks like a number, boolean or null but must stay text: `"2121"`, `"1e3"`, `"0x10"`, `".5"`, `"true"`,
+     `"null"`, `"~"`;
+   - text containing `: ` or ` #` (everything after ` #` is a comment), or starting with `- `, `[`, `{`, `!`, `*`, `&`, `%`,
+     `@`, `|`, `>` or a quote;
+   - **inside a one-line `{…}` or `[…]` record, any text containing a comma, `[`, `]`, `{` or `}`**
+     (e.g. `{note: "Gek, Korvax & Vy'keen produce trade goods here."}`) — otherwise the comma splits the value
+     (`{note: Gek, Korvax}` becomes a `note` of "Gek" plus an extra key "Korvax", which the schema reports as unknown);
+   - text with leading or trailing spaces (`unit: " ly"`) and empty text (`""`).
+   Use `"…"` and write an apostrophe inside as-is (`"Vy'keen Dagger"`); unquoted `Vy'keen` is also fine.
+   Write "no value" as `null`, not `""`, unless the schema says the field is text.
+3. **Run `npm run check`.** It reports every problem as `file:line path: message`: YAML syntax errors, duplicate keys,
+   missing or unknown fields, wrong types (`value: "800"` is text, not a number), values outside a fixed set, broken
+   same-file references (a `sellsTo` that isn't an economy id), and unknown item names, with a "did you mean". The build
+   runs the same checks, and the dev server shows them in the browser overlay.
+4. **Unknown item name?** Fix the spelling first — after a game update, a renamed or removed item is the usual cause.
+   Only if it is a real in-game item that no data file defines (check the wiki), add it to `otherItems` in `items.yaml`;
+   if it is another name for an existing item, add it to `itemAliases` (trade goods: `tradeGoodAliases`).
+   Defined items are: trade and smuggled goods, resources, crafted products, dishes and raw ingredients, Nutrient
+   Ingestor foods/fish (`ingest.yaml`) and `otherItems`.
+5. **New field or new top-level key?** Add it to the file's schema in `tools/schemas.js` (use `optional(...)` if not every
+   record has it) and handle it in the page. Don't loosen a type to make bad data pass.
+6. **Update the file's header comment** (the `#` lines at the top): the source you used and the month/year, e.g.
+   `# … Source: community wiki "Power" page, Nov 2026; Ion Battery cost corrected from the item page, Mar 2027.`
+   If you changed values from a different source than the header names, add that source. Update the page's
+   `<p class="source">` too if the sources changed.
+7. **Generated files** (`cooking`, `ingest`, `tech`, `refiner`, `puzzles-generated`, `expedition-rewards`): don't hand-edit
+   the data — the next regeneration would overwrite it. Put the fix in `tools/generate/corrections/<file>.yaml` (each entry
+   needs a `why:`), then `npm run generate -- <name>` and review `git diff src/lib/data/`.
+
+## Generated files
+
+- `tools/generate/<name>.js` rebuilds a data file from its source: `cooking`, `ingest`, `tech`, `refiner` and
+  `puzzles` from the community wiki (MediaWiki API), `expedition-rewards` from the game's reward table extract.
+  Downloads are cached in `tools/generate/.cache/` (git-ignored); `--refresh` fetches again. `ingest` reads
+  `cooking.yaml`, so regenerate `cooking` first (`all` runs them in a safe order).
+- `npm run generate -- <name> --check` compares the generated data with the committed file without writing. Run it after
+  changing a generator — it should report no differences unless the source changed.
+- After a game update: `npm run generate -- all --refresh`, read the whole `git diff src/lib/data/`, run `npm run check`
+  and fix renamed items, then update the date in the headers (the generators write them).
+- Corrections in `tools/generate/corrections/` are applied after parsing; each must match exactly one record, so a
+  correction that no longer applies (the wiki was fixed) stops the generator and should be removed. A correction whose
+  `why` starts with `UNRESOLVED:` keeps a value the source now disagrees with until someone verifies it in game.
+- `companions.yaml` and `expeditions.yaml` were partly compiled from wiki tables but are maintained by hand.
 
 ## Data rules (important)
 
 - **Accuracy over coverage.** Data comes from the No Man's Sky community wiki (CC BY-SA), player research and game-file
   extracts. Never invent numbers, recipes or mechanics. If something can't be verified, leave it out or label it on the
   page (e.g. *Usually:*, "unconfirmed", "community-mapped").
-- Every data file starts with a comment stating its **source and date**. Every page credits its sources at the bottom.
+- Every data file starts with a `#` comment stating its **source and date**. Every page credits its sources at the bottom.
   Don't remove credits — the wiki licence requires attribution.
 - Where sources disagree, say so on the page rather than silently picking one (see the Companions affinity chart and
   the frigate safety margin for examples).
-- Several files are **generated** from wiki/game data (`refiner.js`, `cooking.js`, `tech.js`, `puzzles-generated.js`,
-  `expedition-rewards.js`, `ingest.js`, parts of `companions.js` and `expeditions.js`). Edit them by hand only for small corrections,
-  and note the correction in a comment.
 - Data is current to the Cosmos (7.x) era, compiled November 2026. Game updates can change values.
 
 ## Styling

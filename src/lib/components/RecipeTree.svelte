@@ -1,5 +1,5 @@
 <script>
-  import { craftByName } from '../data/crafting.js';
+  import { craftByName } from '../crafting.js';
   import ItemLink from './ItemLink.svelte';
   import RecipeTree from './RecipeTree.svelte';
   import { shortUnits } from '../format.js';

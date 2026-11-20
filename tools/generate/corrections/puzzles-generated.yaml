@@ -1,0 +1,23 @@
+# Settings and hand corrections for tools/generate/puzzles.js (→ src/lib/data/puzzles-generated.yaml).
+
+# Short labels for Secure Sites rewards that can't be worded from the first line of the wiki's "Rewards" table
+# (https://nomanssky.fandom.com/wiki/Secure_Sites/Puzzles#Rewards). Nanite/unit/resource ranges, standing changes,
+# words and single items are derived from that table by the generator.
+rewardLabels:
+  DAMAGESMALL: Damage              # Take 50 damage (75 in hard mode)
+  DAMAGELARGE: Heavy damage        # Take 80 damage (160 in hard mode)
+  FACT_PROD: Product recipe (Factory Override Unit)   # 1 Factory Override Unit + a recipe from the CraftProducts tree
+  RECIPE_LIST: Product recipe      # one product recipe from a list
+  PROC_TECH_ALL: Tech blueprint or upgrade module
+  PROC_TECH_ONLY: Upgrade module
+  PROC_TECH_SHIP: Starship tech blueprint
+  PROC_TECH_SUIT: Exosuit tech blueprint
+  PROC_TECH_WEAP: Multi-Tool tech blueprint
+  USEFUL_PROD: Useful item         # one of 14 products (batteries, etc.)
+  WEAPON: Ammo                     # 50 ammunition
+
+# Corrections to codePuzzles (see tools/generate/lib/corrections.js for the format).
+corrections:
+  - why: Hand-written wording - this rule shows two worked steps; the generator only shows the final step.
+    match: {sequence: 1 – 3 – 4 – 7 – 11 – 18 – ?}
+    set: {rule: "Add the previous two numbers (7 + 11 = 18, 11 + 18 = 29)."}

@@ -1,10 +1,10 @@
 <script>
-  import { species, categories, production, claimCost, buildings, officeSteps, settlementTips } from '../lib/data/settlements.js';
+  import { species, categories, production, claimCost, buildings, officeSteps, settlementTips } from '../lib/data/settlements.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import EconomyTag from '../lib/components/EconomyTag.svelte';
   import Cls from '../lib/components/Cls.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
-  import { findItem } from '../lib/data/items.js';
+  import { findItem } from '../lib/items.js';
   import { units } from '../lib/format.js';
 
   let sp = $state('Korvax');

@@ -1,6 +1,6 @@
 <script>
   import { itemHref } from '../router.svelte.js';
-  import { canonical } from '../data/items.js';
+  import { canonical } from '../canonical.js';
   let { name, qty = null } = $props();
 </script>
 

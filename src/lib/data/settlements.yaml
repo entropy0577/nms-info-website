@@ -1,0 +1,170 @@
+# Settlement production data (post-Beacon update).
+# Source: "Settlement Math Part 4: Production of goods" by John Truck, Steam NMS General Discussion
+# (Oct–Nov 2025), cross-checked against the Fandom wiki Planetary Settlement page.
+# qty = items per batch. value = units per batch. gpt = Gek batch time in "Gek Production Time" units (1–2 h each).
+
+species: [Gek, Korvax, Vy'keen, Autophage]
+
+categories:
+  - {id: basic, name: Basic production, building: Always available, note: Every settlement can produce these.}
+  - {id: agri, name: Agricultural, building: Farm, note: Same crops for every species.}
+  - {id: starport, name: Starport, building: Starport / Stardock, note: ""}
+  - {id: leisure, name: Leisure, building: Saloon, note: ""}
+  - {id: industrial, name: Industrial, building: Warehouse / Utility Module, note: ""}
+  - {id: commercial, name: Commercial, building: Marketplace, note: "Gek, Korvax & Vy'keen produce trade goods here."}
+
+production:
+  Vy'keen:
+    - {cat: basic, cls: "-", item: Metal Plating, qty: 1, value: 800}
+    - {cat: basic, cls: "-", item: Ion Battery, qty: 1, value: 200}
+    - {cat: basic, cls: "-", item: Life Support Gel, qty: 1, value: 200}
+    - {cat: basic, cls: "-", item: Glass, qty: 2, value: 400}
+    - {cat: basic, cls: "-", item: Sulphurine, qty: 165, value: 3300}
+    - {cat: basic, cls: "-", item: Radon, qty: 165, value: 3300}
+    - {cat: basic, cls: "-", item: Nitrogen, qty: 165, value: 3300}
+    - {cat: agri, cls: C, item: Faecium, qty: 165, value: 4950}
+    - {cat: agri, cls: B, item: Gamma Root, qty: 165, value: 2640}
+    - {cat: agri, cls: B, item: Cactus Flesh, qty: 165, value: 4620}
+    - {cat: agri, cls: B, item: Fungal Mould, qty: 165, value: 2640}
+    - {cat: agri, cls: B, item: Solanium, qty: 165, value: 11550}
+    - {cat: agri, cls: B, item: Frost Crystal, qty: 165, value: 1980}
+    - {cat: agri, cls: B, item: Star Bulb, qty: 165, value: 5280}
+    - {cat: agri, cls: A, item: Marrow Bulb, qty: 165, value: 6765}
+    - {cat: agri, cls: S, item: Kelp Sac, qty: 165, value: 6765}
+    - {cat: starport, cls: B, item: Starship Launch Fuel, qty: 1, value: 450}
+    - {cat: starport, cls: A, item: Warp Cell, qty: 1, value: null}
+    - {cat: starport, cls: S, item: Frigate Fuel (50 Tonnes), qty: 1, value: 20000}
+    - {cat: leisure, cls: B, item: Vy'keen Effigy, qty: 1, value: 24750}
+    - {cat: leisure, cls: S, item: Vy'keen Dagger, qty: 2, value: 23376}
+    - {cat: industrial, cls: B, item: Thermic Condensate, qty: 2, value: 50000}
+    - {cat: industrial, cls: A, item: Organic Catalyst, qty: 1, value: 320000}
+    - {cat: industrial, cls: S, item: Portable Reactor, qty: 1, value: 4200000}
+    - {cat: commercial, cls: B, item: Dirt, qty: 4, value: 4000}
+    - {cat: commercial, cls: A, item: Ion Capacitor, qty: 3, value: 45000}
+    - {cat: commercial, cls: S, item: Superconducting Fibre, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: Teleport Coordinators, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: High Capacity Vector Compressor, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: Fusion Core, qty: 2, value: 100000}
+  Korvax:
+    - {cat: basic, cls: "-", item: Metal Plating, qty: 1, value: 800}
+    - {cat: basic, cls: "-", item: Ion Battery, qty: 1, value: 200}
+    - {cat: basic, cls: "-", item: Life Support Gel, qty: 1, value: 200}
+    - {cat: basic, cls: "-", item: Glass, qty: 2, value: 400}
+    - {cat: basic, cls: "-", item: Sulphurine, qty: 165, value: 3300}
+    - {cat: basic, cls: "-", item: Radon, qty: 165, value: 3300}
+    - {cat: basic, cls: "-", item: Nitrogen, qty: 165, value: 3300}
+    - {cat: agri, cls: C, item: Faecium, qty: 165, value: 4950}
+    - {cat: agri, cls: B, item: Gamma Root, qty: 165, value: 2640}
+    - {cat: agri, cls: B, item: Cactus Flesh, qty: 165, value: 4620}
+    - {cat: agri, cls: B, item: Fungal Mould, qty: 165, value: 2640}
+    - {cat: agri, cls: B, item: Solanium, qty: 165, value: 11550}
+    - {cat: agri, cls: B, item: Frost Crystal, qty: 165, value: 1980}
+    - {cat: agri, cls: B, item: Star Bulb, qty: 165, value: 5280}
+    - {cat: agri, cls: A, item: Marrow Bulb, qty: 165, value: 6765}
+    - {cat: agri, cls: S, item: Kelp Sac, qty: 165, value: 6765}
+    - {cat: starport, cls: B, item: Starship Launch Fuel, qty: 1, value: 450}
+    - {cat: starport, cls: A, item: Warp Cell, qty: 1, value: null}
+    - {cat: starport, cls: S, item: Frigate Fuel (50 Tonnes), qty: 1, value: 20000}
+    - {cat: leisure, cls: B, item: Korvax Casing, qty: 1, value: 22000}
+    - {cat: leisure, cls: S, item: Convergence Cube, qty: 1, value: 13063}
+    - {cat: industrial, cls: B, item: Enriched Carbon, qty: 1, value: 50000}
+    - {cat: industrial, cls: A, item: Semiconductor, qty: 1, value: 320000}
+    - {cat: industrial, cls: S, item: Quantum Processor, qty: 1, value: 4400000}
+    - {cat: commercial, cls: B, item: Decommissioned Circuit Board, qty: 4, value: 4000}
+    - {cat: commercial, cls: A, item: Optical Solvent, qty: 3, value: 45000}
+    - {cat: commercial, cls: S, item: Teleport Coordinators, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: High Capacity Vector Compressor, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: Fusion Core, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: Neural Duct, qty: 2, value: 100000}
+  Autophage:
+    - {cat: basic, cls: "-", item: Metal Plating, qty: 1, value: 800}
+    - {cat: basic, cls: "-", item: Carbon Nanotubes, qty: 1, value: 200}
+    - {cat: basic, cls: "-", item: Hermetic Seal, qty: 1, value: 200}
+    - {cat: basic, cls: "-", item: Glass, qty: 2, value: 400}
+    - {cat: basic, cls: "-", item: Pugneum, qty: 165, value: 3300}
+    - {cat: basic, cls: "-", item: Atlantideum, qty: 165, value: 3300}
+    - {cat: basic, cls: "-", item: Rusted Metal, qty: 165, value: 3300}
+    - {cat: agri, cls: C, item: Faecium, qty: 165, value: 4950}
+    - {cat: agri, cls: B, item: Gamma Root, qty: 165, value: 2640}
+    - {cat: agri, cls: B, item: Cactus Flesh, qty: 165, value: 4620}
+    - {cat: agri, cls: B, item: Fungal Mould, qty: 165, value: 2640}
+    - {cat: agri, cls: B, item: Solanium, qty: 165, value: 11550}
+    - {cat: agri, cls: B, item: Frost Crystal, qty: 165, value: 1980}
+    - {cat: agri, cls: B, item: Star Bulb, qty: 165, value: 5280}
+    - {cat: agri, cls: A, item: Marrow Bulb, qty: 165, value: 6765}
+    - {cat: agri, cls: S, item: Kelp Sac, qty: 165, value: 6765}
+    - {cat: starport, cls: B, item: Starship Launch Fuel, qty: 1, value: 450}
+    - {cat: starport, cls: A, item: Warp Hypercore, qty: 1, value: 46750}
+    - {cat: starport, cls: S, item: Frigate Fuel (50 Tonnes), qty: 1, value: 20000}
+    - {cat: leisure, cls: B, item: Salvaged Glass, qty: 1, value: 3000}
+    - {cat: leisure, cls: S, item: Radiant Shard, qty: 1, value: 1900}
+    - {cat: industrial, cls: B, item: Inverted Mirror, qty: 1, value: 17000}
+    - {cat: industrial, cls: A, item: Heat Capacitor, qty: 1, value: 180000}
+    - {cat: industrial, cls: S, item: Fusion Accelerant, qty: 1, value: 1500000}
+    - {cat: commercial, cls: B, item: Living Glass, qty: 1, value: 566000}
+    - {cat: commercial, cls: A, item: Hydraulic Wiring, qty: 1, value: 18000}
+    - {cat: commercial, cls: S, item: Quantum Computer, qty: 5, value: 21000}
+    - {cat: commercial, cls: S, item: Magnetic Resonator, qty: 5, value: 30750}
+    - {cat: commercial, cls: S, item: Solar Mirror, qty: 5, value: 30750}
+    - {cat: commercial, cls: S, item: Amino Chamber, qty: 5, value: 61500}
+  Gek:
+    - {cat: basic, cls: "-", item: Metal Plating, qty: 5, value: 4000, gpt: 2}
+    - {cat: basic, cls: "-", item: Ion Battery, qty: 5, value: 1000, gpt: 5}
+    - {cat: basic, cls: "-", item: Life Support Gel, qty: 5, value: 1000, gpt: 5}
+    - {cat: basic, cls: "-", item: Glass, qty: 5, value: 1000, gpt: 2}
+    - {cat: basic, cls: "-", item: Sulphurine, qty: 50, value: 1000, gpt: 3}
+    - {cat: basic, cls: "-", item: Radon, qty: 50, value: 1000, gpt: 3}
+    - {cat: basic, cls: "-", item: Nitrogen, qty: 50, value: 1000, gpt: 3}
+    - {cat: agri, cls: C, item: Faecium, qty: 100, value: 3000, gpt: 4}
+    - {cat: agri, cls: B, item: Gamma Root, qty: 100, value: 1600, gpt: 4}
+    - {cat: agri, cls: B, item: Cactus Flesh, qty: 100, value: 2800, gpt: 4}
+    - {cat: agri, cls: B, item: Fungal Mould, qty: 100, value: 1600, gpt: 4}
+    - {cat: agri, cls: B, item: Solanium, qty: 50, value: 3500, gpt: 4}
+    - {cat: agri, cls: B, item: Frost Crystal, qty: 100, value: 1200, gpt: 2}
+    - {cat: agri, cls: B, item: Star Bulb, qty: 100, value: 3200, gpt: 4}
+    - {cat: agri, cls: A, item: Marrow Bulb, qty: 100, value: 4100, gpt: 4}
+    - {cat: agri, cls: S, item: Kelp Sac, qty: 100, value: 4100, gpt: 4}
+    - {cat: starport, cls: B, item: Starship Launch Fuel, qty: 2, value: 900, gpt: 4}
+    - {cat: starport, cls: A, item: Warp Cell, qty: 1, value: null, gpt: 4}
+    - {cat: starport, cls: S, item: Frigate Fuel (50 Tonnes), qty: 1, value: 20000, gpt: 5}
+    - {cat: leisure, cls: B, item: Gek Relic, qty: 1, value: 23375, gpt: 6}
+    - {cat: leisure, cls: S, item: GekNip, qty: 1, value: 20625, gpt: 6}
+    - {cat: industrial, cls: B, item: Nitrogen Salt, qty: 1, value: 50000, gpt: 18}
+    - {cat: industrial, cls: A, item: Hot Ice, qty: 1, value: 320000, gpt: 60}
+    - {cat: industrial, cls: S, item: Cryogenic Chamber, qty: 1, value: 3800000, gpt: 300}
+    - {cat: commercial, cls: B, item: Nanotube Crate, qty: 5, value: 5000, gpt: 2}
+    - {cat: commercial, cls: A, item: Comet Droplets, qty: 1, value: 15000, gpt: 2}
+    - {cat: commercial, cls: S, item: High Capacity Vector Compressor, qty: 1, value: 50000, gpt: 6}
+    - {cat: commercial, cls: S, item: Fusion Core, qty: 1, value: 50000, gpt: 6}
+    - {cat: commercial, cls: S, item: Neural Duct, qty: 1, value: 50000, gpt: 6}
+    - {cat: commercial, cls: S, item: Re-latticed Arc Crystal, qty: 1, value: 50000, gpt: 6}
+
+claimCost:
+  Gek: 3 GekNip
+  Korvax: 3 Convergence Cube
+  Vy'keen: 3 Vy'keen Dagger
+  Autophage: Invitation after "They Who Returned", or a Settlement Chart (1,499 Void Motes)
+
+buildings:
+  - {name: Overseer's Office, role: Administration, effect: "Unlocks settlement management, Settlement Administration Terminal and a Base Teleport Module."}
+  - {name: Farm, role: Agriculture, effect: Strong productivity for modest upkeep. Unlocks crop production as it is upgraded.}
+  - {name: Warehouse / Utility Module, role: Industrial, effect: Strong productivity. Unlocks industrial production (the most valuable outputs).}
+  - {name: Saloon, role: Leisure, effect: Raises happiness. Unlocks leisure production. Has a Nutrient Processor.}
+  - {name: Marketplace, role: Commercial, effect: "Productivity. Unlocks commercial production. May host a Trade Terminal, Tech Merchant or Guild Envoy."}
+  - {name: Starport / Stardock, role: Starport, effect: Productivity (but high upkeep). Unlocks starport production. Ship trading and scrapping.}
+  - {name: Factory, role: Industrial, effect: Industrial production variety; Multi-Tool cabinet.}
+  - {name: Tower, role: Utility, effect: Small contribution. Navigation Data and scanning at higher classes.}
+  - {name: Fishing Pond, role: Leisure, effect: Fishing spot; better catches as it is upgraded.}
+  - {name: Residence, role: Housing, effect: Raises population cap only.}
+
+officeSteps: [Supply about 210 Silicate Powder or Ferrite Dust (90 s wait)., Supply 5 Metal Plating (90 s wait)., Supply 3 Microprocessors (90 s wait).]
+
+settlementTips:
+  - Production pauses while the settlement is in debt. Clear the debt first, then pick your two outputs at the Administration Terminal.
+  - "Output is in batches: nothing is collectable until a whole batch finishes. Non-Gek batches take 1–2 real days; Gek batches are much faster (multiples of a 1–2 h \"GPT\")."
+  - Collecting resets the production timer, so collect right after a batch completes, not halfway through.
+  - Going into debt (any settlement payment) resets the timer and loses uncollected goods.
+  - "A fast way out of debt: upgrade two Farms to S-class and one Warehouse to A-class. Their materials can all be bought or made from Atmosphere Harvester gases."
+  - "Most valuable single output: Korvax Quantum Processor (4.4M per batch) or Vy'keen Portable Reactor (4.2M). Combine them with Geodesite to craft Fusion Ignitors (15.6M each)."
+  - Hopper capacity is 999 for materials and one inventory stack for items (e.g. 10 Frigate Fuel). Gek hoppers are double size.
+  - You can be Overseer of up to four settlements at once, and collect from any teleport terminal.

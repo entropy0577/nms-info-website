@@ -1,5 +1,5 @@
 <script>
-  import { pois, poiGroups } from '../lib/data/poi.js';
+  import { pois, poiGroups } from '../lib/data/poi.yaml';
   import { href } from '../lib/router.svelte.js';
   import { norm } from '../lib/format.js';
 

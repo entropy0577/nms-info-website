@@ -1,9 +1,9 @@
 <script>
-  import { dishes, rawIngredients } from '../lib/data/cooking.js';
+  import { dishes, rawIngredients } from '../lib/data/cooking.yaml';
   import { tick } from 'svelte';
   import { route, scrollToAnchor, href } from '../lib/router.svelte.js';
   import { ingestEffects, buffGroups, statNotes, statBySlug, effectLabel, durSeconds, recipesFor, strongest, bestFor, effectFor } from '../lib/buffs.js';
-  import { findItem } from '../lib/data/items.js';
+  import { findItem } from '../lib/items.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import Cls from '../lib/components/Cls.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';

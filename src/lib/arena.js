@@ -1,6 +1,6 @@
 // Holo-Arena scoring helpers. These are transparent heuristics built on community-reported mechanics
 // (affinity ≈ ±30% damage, Agility decides turn order and matters most) — not the game's own formulas.
-import { affinities, chart } from './data/companions.js';
+import { affinities, chart } from './data/companions.yaml';
 
 export const classValue = { S: 4, A: 3, B: 2, C: 1 };
 

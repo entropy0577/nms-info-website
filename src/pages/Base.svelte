@@ -1,5 +1,5 @@
 <script>
-  import { generators, consumption, powerRecipes, powerTips, hotspots, hotspotResources, productionParts, specialists, baseFacts } from '../lib/data/base.js';
+  import { generators, consumption, powerRecipes, powerTips, hotspots, hotspotResources, productionParts, specialists, baseFacts } from '../lib/data/base.yaml';
   import { href } from '../lib/router.svelte.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';

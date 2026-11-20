@@ -1,0 +1,10 @@
+# Settings for tools/generate/expedition-rewards.js (→ src/lib/data/expedition-rewards.yaml).
+
+# Names for item ids that are missing from the wiki's Item Id List page (https://nomanssky.fandom.com/wiki/Item_Id_List).
+# The generator stops if an id here turns up on that page, so this list only ever holds what the wiki lacks.
+itemNames:
+  # Storage Augmentation (Freighter inventory slot token). The wiki's Frigate page "Loot Earned" table lists Storage
+  # Augmentation as an Industrial and Trade reward, the two expedition types whose pools contain SHIP_INV_TOKEN.
+  SHIP_INV_TOKEN: Storage Augmentation
+
+# Record corrections (`corrections:`) are not supported for this file: fix the generator or itemNames instead.

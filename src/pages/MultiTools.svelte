@@ -1,5 +1,5 @@
 <script>
-  import { multiToolTypes } from '../lib/data/gear.js';
+  import { multiToolTypes } from '../lib/data/gear.yaml';
 </script>
 
 <h1>Multi-Tools</h1>

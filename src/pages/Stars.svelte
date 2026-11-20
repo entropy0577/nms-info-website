@@ -1,8 +1,8 @@
 <script>
-  import { starColours, biomes } from '../lib/data/explore.js';
+  import { starColours, biomes } from '../lib/data/explore.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
-  import { findItem } from '../lib/data/items.js';
+  import { findItem } from '../lib/items.js';
 </script>
 
 <h1>Stars & Biomes</h1>

@@ -1,10 +1,11 @@
 <script>
-  import { staffStats, staffSets, staffParts, staffFacts, unlockSteps, staffMechanics, secondarySteps, huntSteps, voidMoteSources, unconfirmed } from '../lib/data/voltaic.js';
+  import { staffStats, staffSets, staffFacts, unlockSteps, staffMechanics, secondarySteps, huntSteps, voidMoteSources, unconfirmed } from '../lib/data/voltaic.yaml';
   import { href } from '../lib/router.svelte.js';
   import OnThisPage from '../lib/components/OnThisPage.svelte';
   import Cls from '../lib/components/Cls.svelte';
   import { units } from '../lib/format.js';
 
+  const staffParts = staffSets.flatMap((s) => s.parts.map((p) => ({ ...p, set: s.set })));
   const bySlot = (slot) => staffParts.filter((p) => p.slot === slot);
   const heads = bySlot('Head');
   const cores = bySlot('Core');

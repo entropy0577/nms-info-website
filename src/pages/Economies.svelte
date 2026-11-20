@@ -1,5 +1,6 @@
 <script>
-  import { economies, economyById, tierValues, tierStrength, strengths, smuggledGoods } from '../lib/data/economy.js';
+  import { economies, tierValues, tierStrength, strengths, smuggledGoods } from '../lib/data/economy.yaml';
+  import { economyById } from '../lib/economy.js';
   import { route } from '../lib/router.svelte.js';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import EconomyTag from '../lib/components/EconomyTag.svelte';

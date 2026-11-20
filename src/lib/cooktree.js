@@ -1,7 +1,7 @@
 // Full recipe trees for cooked dishes: expand every cooked ingredient down to raw ingredients.
 // A dish can have several recipes and each slot several interchangeable ingredients, so the tree follows the
 // simplest route: the recipe/ingredient choices with the fewest cooking steps. The other options are kept as `alts`.
-import { dishes } from './data/cooking.js';
+import { dishes } from './data/cooking.yaml';
 
 const byName = new Map(dishes.map((d) => [d.name, d]));
 

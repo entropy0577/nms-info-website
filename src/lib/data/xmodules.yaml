@@ -1,0 +1,212 @@
+# X-class (Suspicious) upgrade module roll ranges, compared with S-class.
+# Source: No Man's Sky community wiki, each "<Tech> Upgrade" page's class min/max table (Category:Procedural Upgrades), Nov 2026.
+# s / x = [min, max] for S-class and X-class. Values are % bonuses unless `unit` says otherwise.
+# Negative-direction stats (e.g. reload time, launch cost) are stored as positive "reduction" amounts with dir: 'less'.
+# `drawn` = how many stats the module rolls (S-class vs X-class).
+
+xFamilies:
+  # ───────── Starship ─────────
+  - name: Hyperdrive
+    device: Starship
+    packet: Tech
+    drawn: {s: "2", x: 1–2}
+    stats:
+      - {stat: Hyperdrive Range, unit: " ly", s: [220, 265], x: [50, 320], key: true}
+      - {stat: Warp Cell Efficiency, s: [100, 100], x: [100, 100]}
+  - name: Pulse Engine
+    device: Starship
+    packet: Tech
+    drawn: {s: "3", x: 2–3}
+    stats:
+      - {stat: Boost, s: [10, 25], x: [1, 30], key: true}
+      - {stat: Boost Maneuverability, s: [5, 18], x: [1, 20]}
+      - {stat: Pulse Drive Fuel Efficiency, s: [20, 20], x: [5, 25]}
+      - {stat: Maneuverability, unit: "", s: [0.65, 0.65], x: [0.65, 0.65]}
+  - name: Launch Thruster
+    device: Starship
+    packet: null
+    drawn: {s: 1–2, x: 1–2}
+    stats: [{stat: Launch Cost, dir: less, s: [20, 20], x: [5, 25], key: true}, {stat: Boost, s: [8, 10], x: [0, 10]}]
+  - name: Deflector Shield
+    device: Starship
+    packet: Tech
+    drawn: {s: "1", x: "1"}
+    stats: [{stat: Shield Strength, s: [30, 30], x: [7, 40], key: true}]
+  - name: Photon Cannon
+    device: Starship
+    packet: Arms
+    drawn: {s: "3", x: 1–3}
+    stats:
+      - {stat: Damage, s: [20, 28], x: [8, 32], key: true}
+      - {stat: Heat Dispersion, s: [3, 3], x: [0, 4]}
+      - {stat: Fire Rate, s: [3, 3], x: [0, 3]}
+  - name: Phase Beam
+    device: Starship
+    packet: Arms
+    drawn: {s: "2", x: 1–2}
+    stats: [{stat: Damage, s: [24, 27], x: [12, 31], key: true}, {stat: Heat Dispersion, s: [75, 95], x: [10, 100]}]
+  - name: Positron Ejector
+    device: Starship
+    packet: Arms
+    drawn: {s: "3", x: 2–3}
+    stats:
+      - {stat: Fire Rate, s: [6, 10], x: [5, 10]}
+      - {stat: Heat Dispersion, s: [6, 10], x: [1, 10]}
+      - {stat: Damage, s: [2, 2], x: [1, 2], key: true}
+  - name: Infra-Knife Accelerator
+    device: Starship
+    packet: Arms
+    drawn: {s: "3", x: 1–3}
+    stats:
+      - {stat: Damage, s: [4, 5], x: [1, 6], key: true}
+      - {stat: Fire Rate, s: [5, 10], x: [1, 15]}
+      - {stat: Heat Dispersion, s: [8, 9], x: [1, 13]}
+  - name: Cyclotron Ballista
+    device: Starship
+    packet: Arms
+    drawn: {s: "3", x: 1–3}
+    note: Damage is shown in-game as roughly 1–2%. The wiki notes the real X-class damage cap is closer to ~1.5%.
+    stats:
+      - {stat: Damage, s: [10, 12], x: [2, 14], key: true}
+      - {stat: Fire Rate, s: [10, 15], x: [1, 20]}
+      - {stat: Heat Dispersion, s: [30, 35], x: [10, 40]}
+  # ───────── Multi-Tool ─────────
+  - name: Mining Beam
+    device: Multi-Tool
+    packet: Tech
+    drawn: {s: "4", x: 1–4}
+    stats:
+      - {stat: Mining Speed, s: [15, 20], x: [5, 20], key: true}
+      - {stat: Heat Dispersion, s: [40, 50], x: [5, 55]}
+      - {stat: Overheat Downtime, dir: less, s: [15, 20], x: [5, 25]}
+      - {stat: Fuel Efficiency, s: [21, 21], x: [0, 26]}
+  - name: Analysis Visor (Scanner)
+    device: Multi-Tool
+    packet: Tech
+    drawn: {s: 3–4, x: 2–4}
+    stats:
+      - {stat: Flora scan rewards, s: [6500, 10000], x: [1000, 10999], key: true}
+      - {stat: Fauna scan rewards, s: [6500, 10000], x: [1000, 10999], key: true}
+      - {stat: Mineral scan rewards, s: [6500, 10000], x: [1000, 10999]}
+      - {stat: Scan Radius, s: [30, 40], x: [5, 50]}
+  - name: Boltcaster
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "4", x: 1–4}
+    note: Damage is a flat bonus (in-game shows about 1–2%).
+    stats:
+      - {stat: Damage, unit: "", s: [3, 4], x: [1, 5], key: true}
+      - {stat: Fire Rate, s: [10, 15], x: [0, 20]}
+      - {stat: Reload Time, dir: less, s: [10, 20], x: [5, 25]}
+      - {stat: Burst Cooldown, dir: less, s: [15, 15], x: [0, 20]}
+      - {stat: Shots Per Burst, unit: "", s: [1.2, 1.9], x: [1, 2]}
+      - {stat: Clip Size, unit: "", s: [8, 8], x: [2, 10]}
+  - name: Scatter Blaster
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "4", x: 2–4}
+    stats:
+      - {stat: Damage, s: [2, 3], x: [1, 6], key: true}
+      - {stat: Fire Rate, s: [10, 15], x: [0, 20]}
+      - {stat: Reload Time, dir: less, s: [20, 25], x: [5, 30]}
+      - {stat: Burst Cooldown, dir: less, s: [15, 20], x: [0, 25]}
+      - {stat: Clip Size, unit: "", s: [8, 8], x: [8, 8]}
+      - {stat: Shots Per Burst, unit: "", s: [1, 1], x: [1, 1]}
+  - name: Pulse Spitter
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "4", x: 0–4}
+    note: Some X-class Pulse Spitter modules roll no stats at all.
+    stats:
+      - {stat: Damage, s: [2, 3], x: [1, 4], key: true}
+      - {stat: Fire Rate, s: [10, 15], x: [0, 20]}
+      - {stat: Reload Time, dir: less, s: [5, 10], x: [0, 15]}
+      - {stat: Clip Size, unit: "", s: [12, 12], x: [12, 12]}
+  - name: Blaze Javelin
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "2", x: 1–2}
+    note: Damage is a flat bonus (S about 4%, X about 1–5% in-game).
+    stats:
+      - {stat: Damage, unit: "", s: [60, 75], x: [30, 85], key: true}
+      - {stat: Time to Full Power, dir: less, s: [10, 20], x: [5, 25]}
+  - name: Plasma Launcher
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "3", x: 1–3}
+    stats:
+      - {stat: Damage, s: [70, 80], x: [20, 90], key: true}
+      - {stat: Explosion Radius, s: [10, 15], x: [0, 20]}
+      - {stat: Projectile Velocity, s: [200, 300], x: [100, 400]}
+      - {stat: Bounce Potential, s: [100, 100], x: [0, 133]}
+  - name: Geology Cannon
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "2", x: 1–2}
+    stats:
+      - {stat: Damage, s: [35, 40], x: [10, 45], key: true}
+      - {stat: Explosion Radius, s: [40, 50], x: [10, 60]}
+      - {stat: Projectile Velocity, s: [200, 300], x: [100, 400]}
+  - name: Neutron Cannon
+    device: Multi-Tool
+    packet: Arms
+    drawn: {s: "4", x: "?"}
+    stats:
+      - {stat: Damage, s: [10, 14], x: [2, 14], key: true}
+      - {stat: Charging Speed, dir: less, s: [30, 50], x: [6, 50]}
+      - {stat: Ion Sphere Speed, s: [11, 13], x: [2, 13]}
+      - {stat: Ion Spheres Created, unit: "", s: [1, 1], x: [1, 1]}
+  # ───────── Exosuit ─────────
+  - name: Movement System
+    device: Exosuit
+    packet: Tech
+    drawn: {s: 2 + 4, x: 2 + 2–4}
+    note: Jetpack Tanks and Initial Boost Power are always rolled; the rest are drawn at random.
+    stats:
+      - {stat: Jetpack Tanks, s: [200, 235], x: [100, 240], key: true}
+      - {stat: Initial Boost Power, s: [5, 15], x: [1, 20]}
+      - {stat: Fuel Efficiency, s: [15, 25], x: [10, 30]}
+      - {stat: Recharge Rate, s: [15, 35], x: [5, 40]}
+      - {stat: Sprint Distance, s: [40, 50], x: [10, 60]}
+      - {stat: Sprint Recovery Time, dir: less, s: [30, 50], x: [1, 60]}
+  - name: Life Support
+    device: Exosuit
+    packet: Tech
+    drawn: {s: "2", x: 1–2}
+    stats:
+      - {stat: Life Support Tanks, s: [50, 100], x: [0, 110], key: true}
+      - {stat: Solar Panel Power, s: [25, 50], x: [0, 75]}
+  - name: Defence Systems (Shield)
+    device: Exosuit
+    packet: Tech
+    drawn: {s: "2", x: 1–2}
+    stats:
+      - {stat: Shield Strength, s: [30, 34], x: [10, 34], key: true}
+      - {stat: Core Health, unit: "", s: [20, 20], x: [20, 20]}
+  - name: Illegal Hazard Protection
+    device: Exosuit
+    packet: Tech
+    drawn: {s: —, x: "4"}
+    xOnly: true
+    note: X-class only (no S-class version). Each roll is usually +2%; +10% is the maximum.
+    stats:
+      - {stat: Heat Resistance, x: [1, 10]}
+      - {stat: Cold Resistance, x: [1, 10]}
+      - {stat: Radiation Resistance, x: [1, 10]}
+      - {stat: Toxic Resistance, x: [1, 10]}
+
+xNoVersion: [Exocraft upgrades, Fusion Engine, Daedalus Engine, Humboldt Drive, Minotaur upgrades, Thermal / Radiation / Toxic Protection (use Illegal Hazard Protection instead), Underwater Oxygen]
+
+xSources:
+  - Suspicious Packet (Tech) — Scrap Dealer on space stations (~320 Tainted Metal), or ~74,000 units in outlaw systems.
+  - Suspicious Packet (Arms) — Scrap Dealer (~300 Tainted Metal), ~130,000 units in outlaw systems, or from killing pirates.
+  - Buried caches and some ships you meet on planets.
+  - Tainted Metal comes from derelict freighters; you can also sell Crew Manifests and Captain's Logs to the Scrap Dealer.
+
+xRollTips:
+  - "X-class stats roll from a very wide range: often worse than A-class, occasionally better than any S-class. Only keep rolls above the S-class max."
+  - X modules also roll a random number of stats, sometimes just one — and some roll nothing at all.
+  - "Stats are fixed by a save seed, not when you buy: the same module installed in the same position of your install order always gives the same result."
+  - "To reroll: save (e.g. get in and out of your ship), install the X module, and check it. If it's bad, reload, install and dismantle any cheap C-class module first, then install the X module again — it will roll differently."
+  - Dismantling a module does not change the seed, so you can remove a weaker module before installing a new one.
+  - You can only have three upgrades of one family installed (per inventory tab for the exosuit). X modules count toward that limit; place them next to related tech for the adjacency bonus.

@@ -1,5 +1,5 @@
 <script>
-  import { shipTypes, shipClasses, shipSpawnByEconomy } from '../lib/data/gear.js';
+  import { shipTypes, shipClasses, shipSpawnByEconomy } from '../lib/data/gear.yaml';
   import Cls from '../lib/components/Cls.svelte';
 </script>
 

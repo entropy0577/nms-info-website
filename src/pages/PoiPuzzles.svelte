@@ -1,7 +1,7 @@
 <script>
-  import { securePuzzles, codePuzzles } from '../lib/data/puzzles-generated.js';
-  import { monoliths, monolithTips } from '../lib/data/monoliths.js';
-  import { plaqueChoice, harmonicSteps, terminalInteractions } from '../lib/data/poi.js';
+  import { securePuzzles, codePuzzles } from '../lib/data/puzzles-generated.yaml';
+  import { monoliths, monolithTips } from '../lib/data/monoliths.yaml';
+  import { plaqueChoice, harmonicSteps, terminalInteractions } from '../lib/data/poi.yaml';
   import { route, href } from '../lib/router.svelte.js';
   import { norm } from '../lib/format.js';
 

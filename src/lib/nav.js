@@ -12,7 +12,7 @@ export const navGroups = [
     title: 'Materials',
     pages: [
       { path: '/resources', title: 'Resources', blurb: 'Every raw element, where to find it and what it is for.' },
-      { path: '/refiner', title: 'Refiner Recipes', blurb: 'Search 290+ refiner recipes by input or output.' },
+      { path: '/refiner', title: 'Refiner Recipes', blurb: 'Search 350+ refiner recipes by input or output.' },
       { path: '/crafting', title: 'Crafting & Profit Chains', blurb: 'Key recipes and the high-value crafting chains, with raw totals.' },
     ],
   },

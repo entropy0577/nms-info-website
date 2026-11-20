@@ -1,5 +1,5 @@
 <script>
-  import { glyphs } from '../lib/data/explore.js';
+  import { glyphs } from '../lib/data/explore.yaml';
 
   let address = $state('');
   const clean = $derived(address.toUpperCase().replace(/[^0-9A-F]/g, '').slice(0, 12));

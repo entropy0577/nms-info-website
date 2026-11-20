@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "node tools/check-data.js",
+    "generate": "node tools/generate/run.js"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.1",
     "svelte": "^5.57.3",
-    "vite": "^8.3.8"
+    "vite": "^8.3.8",
+    "yaml": "^2.9.1"
   }
 }

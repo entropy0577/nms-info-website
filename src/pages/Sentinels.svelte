@@ -1,5 +1,5 @@
 <script>
-  import { sentinelLevels, sentinelTips } from '../lib/data/gear.js';
+  import { sentinelLevels, sentinelTips } from '../lib/data/gear.yaml';
 </script>
 
 <h1>Sentinels</h1>

@@ -1,5 +1,5 @@
 <script>
-  import { resources } from '../lib/data/resources.js';
+  import { resources } from '../lib/data/resources.yaml';
   import ItemLink from '../lib/components/ItemLink.svelte';
   import { units, norm } from '../lib/format.js';
 

@@ -1,18 +1,16 @@
 <script>
   import { navGroups } from '../lib/nav.js';
   import { href, itemHref } from '../lib/router.svelte.js';
-  import { economies } from '../lib/data/economy.js';
-  import { allItems } from '../lib/data/items.js';
-  import { refinerRecipes } from '../lib/data/refiner.js';
-  import { dishes } from '../lib/data/cooking.js';
-  import { technology } from '../lib/data/tech.js';
+  import { economies } from '../lib/data/economy.yaml';
+  // Counted at build time (tools/vite-plugin-data.js), so the home page doesn't load every data file.
+  import { stats } from 'virtual:nms-stats';
 
   // Live counts from the site's own data.
   const counts = [
-    [allItems.length, 'items indexed', ''],
-    [refinerRecipes.length, 'refiner recipes', '/refiner'],
-    [dishes.length, 'cooking recipes', '/cooking'],
-    [technology.length, 'technologies', '/technology'],
+    [stats.items, 'items indexed', ''],
+    [stats.refinerRecipes, 'refiner recipes', '/refiner'],
+    [stats.dishes, 'cooking recipes', '/cooking'],
+    [stats.technology, 'technologies', '/technology'],
     [216, 'puzzle answers', '/poi-puzzles'],
   ];
 </script>
