@@ -1,5 +1,6 @@
 # Raw resources. Source: Fandom wiki "Resource" page (Worlds Part II / Cosmos era), Nov 2026.
-# value = base value in units.
+# value = unit sell price in units (what one unit sells for).
+# Nov 2026: Crystallised Helium 82, Lithium 72 and Methane 35 taken from their item pages and confirmed in game (the "Resource" page table lists 62, 62 and 20).
 
 resources:
   - {name: Carbon, sym: C, group: Organic, value: 12, found: Almost any plant or tree (mining beam)., use: "Mining beam fuel, refiner fuel, countless recipes."}
@@ -38,8 +39,8 @@ resources:
   - {name: Dioxite, sym: CO2, group: Localised, value: 62, found: Frozen planets., use: Grantine.}
   - {name: Phosphorus, sym: P, group: Localised, value: 62, found: Scorched planets., use: Magno-Gold.}
   - {name: Basalt, sym: B, group: Localised, value: 62, found: Volcanic planets., use: Refining.}
-  - {name: Crystallised Helium, sym: He, group: Localised, value: 62, found: Gas giants (purple systems)., use: Refining.}
-  - {name: Lithium, sym: Li, group: Localised, value: 62, found: Waterworlds (purple systems)., use: Refining.}
+  - {name: Crystallised Helium, sym: He, group: Localised, value: 82, found: Gas giants (purple systems)., use: Refining.}
+  - {name: Lithium, sym: Li, group: Localised, value: 72, found: Waterworlds (purple systems)., use: Refining.}
   - {name: Tainted Metal, sym: Un, group: Localised, value: 380, found: Derelict freighters., use: Refines into Nanites (1 → 2).}
   - {name: Mordite, sym: Mo, group: Harvested, value: 40, found: Killing creatures., use: Acid; Gold via Pugneum.}
   - {name: Pugneum, sym: Pg, group: Anomalous, value: 138, found: Destroyed Sentinels., use: Many refiner boosts; Nanites (25 → 1).}
@@ -49,7 +50,7 @@ resources:
   - {name: Sulphurine, sym: Su, group: Gas, value: 20, found: Atmosphere Harvester on Barren/Scorched planets., use: Thermic Condensate.}
   - {name: Radon, sym: Rn, group: Gas, value: 20, found: Atmosphere Harvester on Frozen/Irradiated planets., use: Enriched Carbon.}
   - {name: Nitrogen, sym: N, group: Gas, value: 20, found: Atmosphere Harvester on Lush/Toxic planets., use: Nitrogen Salt.}
-  - {name: Methane, sym: CH4, group: Gas, value: 20, found: Purple-system planets., use: Refining.}
+  - {name: Methane, sym: CH4, group: Gas, value: 35, found: Purple-system planets., use: Refining.}
   - {name: Fungal Mould, sym: Ml, group: Agricultural, value: 16, found: Toxic planets (harvest by hand); farmable., use: Acid.}
   - {name: Frost Crystal, sym: Fc, group: Agricultural, value: 12, found: Frozen planets; farmable., use: "Glass, Heat Capacitor."}
   - {name: Gamma Root, sym: Gr, group: Agricultural, value: 16, found: Irradiated planets; farmable., use: Lubricant.}

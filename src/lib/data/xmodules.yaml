@@ -1,5 +1,7 @@
 # X-class (Suspicious) upgrade module roll ranges, compared with S-class.
 # Source: No Man's Sky community wiki, each "<Tech> Upgrade" page's class min/max table (Category:Procedural Upgrades), Nov 2026.
+# Accuracy pass, Nov 2026: Launch Thruster S-class stats drawn 1–2 → 2 and Neutron Cannon X-class stats drawn ? → 1–4
+# (source: wiki "Launch Thruster Upgrade" and "Neutron Cannon Upgrade" pages).
 # s / x = [min, max] for S-class and X-class. Values are % bonuses unless `unit` says otherwise.
 # Negative-direction stats (e.g. reload time, launch cost) are stored as positive "reduction" amounts with dir: 'less'.
 # `drawn` = how many stats the module rolls (S-class vs X-class).
@@ -25,7 +27,7 @@ xFamilies:
   - name: Launch Thruster
     device: Starship
     packet: null
-    drawn: {s: 1–2, x: 1–2}
+    drawn: {s: "2", x: 1–2}
     stats: [{stat: Launch Cost, dir: less, s: [20, 20], x: [5, 25], key: true}, {stat: Boost, s: [8, 10], x: [0, 10]}]
   - name: Deflector Shield
     device: Starship
@@ -150,7 +152,7 @@ xFamilies:
   - name: Neutron Cannon
     device: Multi-Tool
     packet: Arms
-    drawn: {s: "4", x: "?"}
+    drawn: {s: "4", x: 1–4}
     stats:
       - {stat: Damage, s: [10, 14], x: [2, 14], key: true}
       - {stat: Charging Speed, dir: less, s: [30, 50], x: [6, 50]}

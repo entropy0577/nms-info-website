@@ -1,4 +1,7 @@
 # Economy & trade data. Source: No Man's Sky Fandom wiki (Economy, Template:TradeRoutes, trade good pages), Nov 2026.
+# Accuracy pass, Nov 2026: five trade goods use their current names (Waypoint renamed them; the old names are kept as
+# aliases): De-Scented Bottles, 5D Torus, Mesh Decouplers, Vector Compressors, Decommissioned Circuits (source: the
+# wiki pages of those items, release history "Waypoint - Renamed"; Template:TradeRoutes still lists the old names).
 
 economies:
   - id: trading
@@ -18,7 +21,7 @@ economies:
     aliases: [Advanced Materials, Alchemical, Metal Processing, Material Fusion]
     category: Advanced Construction Materials
     sellsTo: scientific
-    goods: [Nanotube Crate, Self-Repairing Heridium, Optical Solvent, Five Dimensional Torus, Superconducting Fibre]
+    goods: [Nanotube Crate, Self-Repairing Heridium, Optical Solvent, 5D Torus, Superconducting Fibre]
   - id: scientific
     name: Scientific
     colour: "#3a5bd9"
@@ -27,7 +30,7 @@ economies:
     aliases: [Scientific, Research, Experimental, Mathematical]
     category: Scientific Components
     sellsTo: trading
-    goods: [De-Scented Pheromone Bottle, Neutron Microscope, Instability Injector, Organic Piping, Neural Duct]
+    goods: [De-Scented Bottles, Neutron Microscope, Instability Injector, Organic Piping, Neural Duct]
   - id: mining
     name: Mining
     colour: "#e8822a"
@@ -45,7 +48,7 @@ economies:
     aliases: [Manufacturing, Industrial, Construction, Mass Production]
     category: Industrial Components
     sellsTo: technology
-    goods: [Enormous Metal Cog, Non-Stick Piston, Six-Pronged Mesh Decoupler, Holographic Crankshaft, High Capacity Vector Compressor]
+    goods: [Enormous Metal Cog, Non-Stick Piston, Mesh Decouplers, Holographic Crankshaft, Vector Compressors]
   - id: technology
     name: Technology
     colour: "#2ab4d9"
@@ -54,7 +57,7 @@ economies:
     aliases: [High Tech, Technology, Nano-construction, Engineering]
     category: Technology Parts
     sellsTo: power-generation
-    goods: [Decommissioned Circuit Board, Welding Soap, Ion Capacitor, Autonomous Positioning Unit, Quantum Accelerator]
+    goods: [Decommissioned Circuits, Welding Soap, Ion Capacitor, Autonomous Positioning Unit, Quantum Accelerator]
   - id: power-generation
     name: Power Generation
     colour: "#d93b3b"
@@ -78,13 +81,13 @@ tierStrength:
   - {min: 3, sometimes: 2}
   - {min: 3, sometimes: null}
 
-# Short names used in-game / by players that should resolve to the same item.
+# Older names (before the Waypoint update renamed them) and player shorthand that should resolve to the same item.
 tradeGoodAliases:
-  De-Scented Pheromone Bottle: [De-Scented Bottles]
-  Five Dimensional Torus: [5D Torus]
-  Six-Pronged Mesh Decoupler: [Mesh Decouplers]
-  High Capacity Vector Compressor: [Vector Compressors, Vector Compressor]
-  Decommissioned Circuit Board: [Decommissioned Circuits, Decomm. Circuits]
+  De-Scented Bottles: [De-Scented Pheromone Bottle]
+  5D Torus: [Five Dimensional Torus]
+  Mesh Decouplers: [Six-Pronged Mesh Decoupler]
+  Vector Compressors: [High Capacity Vector Compressor, Vector Compressor]
+  Decommissioned Circuits: [Decommissioned Circuit Board, Decomm. Circuits]
   Teleport Coordinators: [Teleport Coordinator]
   Superconducting Fibre: [Superconductive Fibre]
 

@@ -1,4 +1,9 @@
 # Planetary Points of Interest. Source: No Man's Sky community wiki ("Point of Interest" and individual POI pages), Nov 2026.
+# Accuracy pass, Nov 2026: removed Signal Booster scan types gone since Beyond (Monolith, Plaque, Abandoned Building), Drop Pod
+# location (Exosuit Upgrade Charts; renamed from Drop Pod Coordinate Data in Waypoint), Transmission Tower chart type, Curious
+# Deposit contents, Autophage Camp decloaking and Harmonic Interface equations (source: wiki "Signal Booster", "Plaque",
+# "Monolith", "Exosuit Upgrade Chart", "Planetary Chart", "Curious Deposit", "Polyphonic Core", "Harmonic Interface" pages).
+# Removed a terminal interaction ("Cut heat sensors / Cut the alarm / Cut the camera feed") that no source documents.
 # puzzle: id of the puzzle section on the POI Puzzles page, or null.
 
 poiGroups: [Ancient sites, Secure sites, Outposts & shelters, Wrecks, Resources & finds, Other]
@@ -9,14 +14,14 @@ pois:
     group: Ancient sites
     puzzle: monoliths
     puzzleType: Story choice
-    find: Signal Booster (ancient structures), Observatory puzzle reward, Planetary Chart (Ancient), or exploring.
+    find: Exocraft Radar Power Resonator, Signal Booster, Observatory puzzle reward, Planetary Chart (Ancient), or exploring.
     inside: A trial based on the local race’s values, with 2–3 Knowledge Stones nearby.
     rewards: Words, standing, multi-tools, blueprints, health/tech repair. Second interaction can reveal the planet’s Portal.
   - name: Plaque
     group: Ancient sites
     puzzle: plaques
     puzzleType: Simple choice
-    find: Signal Booster (ancient structures), Planetary Chart (Ancient).
+    find: Planetary Chart (Ancient), Exocraft Radar Power Resonator.
     inside: A chapter of the local race’s lore.
     rewards: "\"Seek help with language\" → word + standing. \"Seek knowledge of the past\" → location of a Ruin with a buried artifact."
   - name: Ruins
@@ -83,7 +88,7 @@ pois:
     group: Outposts & shelters
     puzzle: tower
     puzzleType: Number sequence
-    find: Planetary Chart (Distress Signal), Signal Booster.
+    find: Planetary Chart (Inhabited Outpost), Signal Booster.
     inside: Tall tower with a distress-signal console.
     rewards: Location of a Crashed Ship or Crashed Freighter.
   - name: Harmonic Camp
@@ -110,7 +115,7 @@ pois:
     puzzle: null
     find: Exploring; inhabited systems.
     inside: Guild Envoy, Tech Merchant, Trade Terminal, Artifact Exchange Vaults, 5–6 landing pads.
-    rewards: Artifact Charts (15 nanites), rare merchant stock (Antimatter Housing, Drop Pod Coordinate Data).
+    rewards: Artifact Charts (15 nanites), rare merchant stock (Antimatter Housing, Exosuit Upgrade Charts).
   - name: Shelter
     group: Outposts & shelters
     puzzle: null
@@ -120,19 +125,19 @@ pois:
   - name: Autophage Camp
     group: Outposts & shelters
     puzzle: null
-    find: Polyphonic Cores; cloaked — needs a Scan Harmoniser.
+    find: Polyphonic Cores; cloaked — decloak with a Polyphonic Core or Scan Harmoniser.
     inside: Autophage NPCs and Synthesis Terminals.
     rewards: Missions, Autophage language, Void Mote shop, Voltaic Staff.
   - name: Drop Pod
     group: Outposts & shelters
     puzzle: null
-    find: Drop Pod Coordinate Data + Signal Booster; Exosuit Upgrade Charts.
+    find: Exosuit Upgrade Charts (formerly Drop Pod Coordinate Data), used from the inventory.
     inside: Exosuit Upgrade Module with damaged components to repair.
     rewards: A free exosuit inventory slot (General, Cargo or Technology).
   - name: Abandoned Building
     group: Outposts & shelters
     puzzle: null
-    find: Signal Booster (distress), exploring.
+    find: Planetary Chart (Distress Signal), Exocraft radar, exploring.
     inside: Terminals jammed with Residual Goop; Whispering Eggs outside guarded by Biological Horrors.
     rewards: Nanites, logs, Larval Cores.
   - name: Holo-Terminus
@@ -197,7 +202,7 @@ pois:
     puzzle: null
     find: Analysis Visor (red cubes on black pedestals).
     inside: Harvest by hand.
-    rewards: Navigation Data or Drop Pod Coordinate Data.
+    rewards: Navigation Data or Exosuit Upgrade Charts.
   - name: Natural Burial Site
     group: Resources & finds
     puzzle: null
@@ -209,7 +214,7 @@ pois:
     puzzle: null
     find: Analysis Visor (class III resource).
     inside: Rolling spherical rock.
-    rewards: Condensed resources — Runaway Mould deposits are a top nanite farm.
+    rewards: Runaway Mould, which refines into nanites — a top nanite farm.
     link: /money
   - name: Resource Deposit
     group: Resources & finds
@@ -244,7 +249,7 @@ plaqueChoice:
 
 harmonicSteps:
   - At the Harmonic Interface, choose "Scan Memory Registers".
-  - You are shown three simple arithmetic equations written in portal glyphs.
+  - You are shown three short addition/subtraction problems; each answer is a number from 1 to 16 that stands for one of the 16 portal glyphs.
   - Choose "Input Override Glyphs" and enter the three glyphs that match the three answers — order does not matter.
   - Success unlocks the Sentinel multi-tool cabinet and the option to "Locate Dissonance Spikes" (crashed Sentinel Interceptors). Your first success also gives the Aeron Turbojet jetpack look.
 
@@ -252,5 +257,3 @@ harmonicSteps:
 terminalInteractions:
   - text: The alert has obscured the information on the primary terminal. I can only make out a few words. If I can work out what was being worked on here, I can restart the workflow — and restore operations. // ????? // warp // ????? //
     options: [{opt: Freighter, best: true}, {opt: Starship}, {opt: Drop pod}]
-  - text: "The alarm has locked the terminal. Security scanners appear and slowly turn towards me. A message displays itself letter-by-letter: suspicious interloper! visual detection system initiated!"
-    options: [{opt: Cut heat sensors}, {opt: Cut the alarm}, {opt: Cut the camera feed, best: true}]

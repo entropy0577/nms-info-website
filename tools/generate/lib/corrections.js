@@ -1,6 +1,7 @@
 // Applies hand corrections (tools/generate/corrections/<name>.yaml) on top of generated records, so regenerating
 // a file never silently loses a fix. Each correction must match exactly one record, or the generator stops — that
-// way a correction that is no longer needed (the wiki was fixed) or no longer matches (a rename) gets noticed.
+// way a correction that no longer matches (a rename) gets noticed; a `set` that no longer changes anything (the wiki
+// was fixed) stops the generator too.
 //
 // Corrections file format — a list under `corrections:`, applied in order:
 //   - why: Stellar Custard needs both ingredients, the wiki table merges them into one slot.   (required)
@@ -54,7 +55,12 @@ export function applyCorrections(records, corrections) {
     else if (c.move_after) {
       const [rec] = out.splice(i, 1);
       out.splice(findOne(out, c.move_after, c.why) + 1, 0, rec);
-    } else if (c.set) out[i] = { ...out[i], ...structuredClone(c.set) };
+    } else if (c.set) {
+      const next = { ...out[i], ...structuredClone(c.set) };
+      // A correction that changes nothing means the source now agrees — it should be removed, not kept silently.
+      if (JSON.stringify(next) === JSON.stringify(out[i])) throw new Error(`Correction "${c.why}" no longer changes anything (the source now agrees) — remove it.`);
+      out[i] = next;
+    }
     else throw new Error(`Correction "${c.why}" has nothing to do (set, remove or move_after).`);
   }
   return out;

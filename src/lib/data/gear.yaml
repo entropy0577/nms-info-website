@@ -1,4 +1,5 @@
 # Starships, multi-tools, frigates, sentinels. Source: Fandom wiki pages of the same names, Nov 2026.
+# Accuracy pass, Nov 2026: space Wanted level 5 corrected to a Sentinel carrier launching waves of 3–5 starships (source: wiki "Sentinel", "Wanted level").
 
 shipClasses:
   - {cls: C, bonus: Up to 20%, slots: Fewest slots}
@@ -83,7 +84,7 @@ sentinelLevels:
   - {level: 2, ground: "2 heavy drones, 2 repair, 1 summoner", space: 2 Sentinel starships}
   - {level: 3, ground: "3 heavy drones, 2 repair, 2 summoners, 1 Quad", space: More interceptors}
   - {level: 4, ground: "2 heavy drones, 3 repair, 2 summoners, 1 Mech", space: More interceptors}
-  - {level: 5, ground: "2 heavy drones, 4 repair, 3 summoners, 1 Mech, 1 Walker", space: Up to 16 interceptors}
+  - {level: 5, ground: "2 heavy drones, 4 repair, 3 summoners, 1 Mech, 1 Walker", space: "A Sentinel carrier, launching waves of 3–5 starships"}
 
 sentinelTips:
   - Mining heavily, harming fauna, or damaging Sentinels raises your Wanted level. Aggressive Sentinel planets attack on sight.

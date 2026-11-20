@@ -4,7 +4,7 @@
 
 /**
  * Alias → canonical name lookup. Each argument maps a canonical name to its other names,
- * e.g. { 'Five Dimensional Torus': ['5D Torus'] }.
+ * e.g. { '5D Torus': ['Five Dimensional Torus'] }.
  */
 export function makeCanonical(...aliasMaps) {
   const aliasToName = {};

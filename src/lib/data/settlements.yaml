@@ -1,7 +1,11 @@
 # Settlement production data (post-Beacon update).
 # Source: "Settlement Math Part 4: Production of goods" by John Truck, Steam NMS General Discussion
 # (Oct–Nov 2025), cross-checked against the Fandom wiki Planetary Settlement page.
-# qty = items per batch. value = units per batch. gpt = Gek batch time in "Gek Production Time" units (1–2 h each).
+# Accuracy pass, Nov 2026: trade goods renamed to their current names, Vector Compressors and Decommissioned Circuits
+# (source: wiki item pages, "Waypoint - Renamed"; the Steam guide uses these names too).
+# Batch times are no longer given as fixed durations: they vary with the settlement's productivity and maintenance cost.
+# qty = items per batch. value = units per batch. gpt = Gek batch time in "Gek Production Time" units (relative: how long a
+# batch really takes varies with the settlement's productivity and maintenance cost).
 
 species: [Gek, Korvax, Vy'keen, Autophage]
 
@@ -43,7 +47,7 @@ production:
     - {cat: commercial, cls: A, item: Ion Capacitor, qty: 3, value: 45000}
     - {cat: commercial, cls: S, item: Superconducting Fibre, qty: 2, value: 100000}
     - {cat: commercial, cls: S, item: Teleport Coordinators, qty: 2, value: 100000}
-    - {cat: commercial, cls: S, item: High Capacity Vector Compressor, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: Vector Compressors, qty: 2, value: 100000}
     - {cat: commercial, cls: S, item: Fusion Core, qty: 2, value: 100000}
   Korvax:
     - {cat: basic, cls: "-", item: Metal Plating, qty: 1, value: 800}
@@ -70,10 +74,10 @@ production:
     - {cat: industrial, cls: B, item: Enriched Carbon, qty: 1, value: 50000}
     - {cat: industrial, cls: A, item: Semiconductor, qty: 1, value: 320000}
     - {cat: industrial, cls: S, item: Quantum Processor, qty: 1, value: 4400000}
-    - {cat: commercial, cls: B, item: Decommissioned Circuit Board, qty: 4, value: 4000}
+    - {cat: commercial, cls: B, item: Decommissioned Circuits, qty: 4, value: 4000}
     - {cat: commercial, cls: A, item: Optical Solvent, qty: 3, value: 45000}
     - {cat: commercial, cls: S, item: Teleport Coordinators, qty: 2, value: 100000}
-    - {cat: commercial, cls: S, item: High Capacity Vector Compressor, qty: 2, value: 100000}
+    - {cat: commercial, cls: S, item: Vector Compressors, qty: 2, value: 100000}
     - {cat: commercial, cls: S, item: Fusion Core, qty: 2, value: 100000}
     - {cat: commercial, cls: S, item: Neural Duct, qty: 2, value: 100000}
   Autophage:
@@ -134,7 +138,7 @@ production:
     - {cat: industrial, cls: S, item: Cryogenic Chamber, qty: 1, value: 3800000, gpt: 300}
     - {cat: commercial, cls: B, item: Nanotube Crate, qty: 5, value: 5000, gpt: 2}
     - {cat: commercial, cls: A, item: Comet Droplets, qty: 1, value: 15000, gpt: 2}
-    - {cat: commercial, cls: S, item: High Capacity Vector Compressor, qty: 1, value: 50000, gpt: 6}
+    - {cat: commercial, cls: S, item: Vector Compressors, qty: 1, value: 50000, gpt: 6}
     - {cat: commercial, cls: S, item: Fusion Core, qty: 1, value: 50000, gpt: 6}
     - {cat: commercial, cls: S, item: Neural Duct, qty: 1, value: 50000, gpt: 6}
     - {cat: commercial, cls: S, item: Re-latticed Arc Crystal, qty: 1, value: 50000, gpt: 6}
@@ -161,7 +165,7 @@ officeSteps: [Supply about 210 Silicate Powder or Ferrite Dust (90 s wait)., Sup
 
 settlementTips:
   - Production pauses while the settlement is in debt. Clear the debt first, then pick your two outputs at the Administration Terminal.
-  - "Output is in batches: nothing is collectable until a whole batch finishes. Non-Gek batches take 1–2 real days; Gek batches are much faster (multiples of a 1–2 h \"GPT\")."
+  - "Output is in batches: nothing is collectable until a whole batch finishes. How long a batch takes varies with the settlement's productivity and its maintenance cost; Gek batches are much faster than other species' (Gek times are listed in \"GPT\" units)."
   - Collecting resets the production timer, so collect right after a batch completes, not halfway through.
   - Going into debt (any settlement payment) resets the timer and loses uncollected goods.
   - "A fast way out of debt: upgrade two Farms to S-class and one Warehouse to A-class. Their materials can all be bought or made from Atmosphere Harvester gases."

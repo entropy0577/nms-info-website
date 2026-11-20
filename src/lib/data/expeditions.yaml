@@ -1,5 +1,6 @@
 # Frigates & fleet expeditions. Source: No Man's Sky community wiki (Frigate, Frigate Expedition, Fleet Command Room,
 # consumable item pages), Nov 2026. Expedition loot table from game files (v3.75) via the wiki.
+# Organic frigates updated Nov 2026 to the Cosmos (7.x) Dream Aerial (wiki "Organic Frigate", "Dream Aerial", "Frigate Expedition", "Update 7.00").
 
 frigateTypes:
   - type: Combat
@@ -59,7 +60,7 @@ expeditionFacts:
   - Up to 3 booster items can be added per expedition.
   - Any expedition can throw in encounters of other types, so avoid sending a fleet with a big hole in one stat.
   - Mid-expedition, crews may call you with a choice — your answer changes the rewards. Some calls ask you to fly over and help.
-  - Debrief the captain in the Fleet Command Room to collect rewards. Three-star expeditions can include a corrupted log that gives the Dream Aerial (needed to find Organic Frigates).
+  - Debrief the captain in the Fleet Command Room to collect rewards. Three-star expeditions can include a corrupted log that gives the Dream Aerial blueprint (needed to find Organic Frigates).
 
 safety:
   - {rating: Fleet 2+ stars above the expedition, result: Safe — the wiki’s Frigate Expedition page says this guarantees no damage.}
@@ -74,9 +75,12 @@ damageFacts:
   - Damaged frigates can gain negative traits, and lower-class frigates get damaged more often.
 
 organicFacts:
-  - Organic (living) frigates are found with the Dream Aerial (from a three-star expedition’s corrupted log), then later with the Anomaly Detector.
-  - They appear as a space encounter that asks questions — your answers shape its stats. They cost a lot (from about 1 billion units).
-  - They can never be destroyed on expeditions and bring back Psychonic Eggs (living ship upgrades) or Spawning Sacs (living ship slots).
+  - "Organic (living) frigates are found with a Dream Aerial. Its blueprint comes from a corrupted log when debriefing a three-star expedition (The Leviathan brings it back more often); craft it from 3 Living Glass + 1 Solar Mirror."
+  - Since Cosmos (7.00) the Dream Aerial is used up each time — craft a new one for every living frigate. Use it in deep space to reveal the system's living frigate, then hail it with your ship's communicator.
+  - Each system has exactly one living frigate, always with the same name and class — to find a different one, try another system. Recruiting it is free (only the Dream Aerial's materials) and it counts toward the 30-frigate fleet limit.
+  - The first one you meet asks a series of dream-like questions; your answers decide its primary trait.
+  - They have no captain and can't be boarded. Repair them by feeding them at the Frigates terminal on the freighter bridge; feeding food also changes their traits (each frigate reacts differently).
+  - They can never be destroyed on expeditions and bring back Psychonic Eggs (living ship upgrades) or Spawning Sacs (living ship slots). They don't roll negative traits, but have none of the extra abilities of normal frigates (combat support, scanning, resource generation).
 
 buyingTips:
   - "Frigates cost roughly 1.5M–12.5M units. Hire one by hailing its captain when the frigate shows as available. Max fleet: 30."

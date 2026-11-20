@@ -1,4 +1,5 @@
 # Star colours, biomes, portals. Source: Fandom wiki (System colours, Biome, Glyph, Portal address), Nov 2026.
+# Accuracy pass, Nov 2026: Gas Giant harvester gas set to Methane (source: wiki "Biome - Gas Giant", "Hotspot").
 
 starColours:
   - colour: Yellow
@@ -131,7 +132,7 @@ biomes:
     hazard: Endless extreme storms, high gravity
     plant: —
     mineral: Crystallised Helium, Activated Quartzite
-    gas: —
+    gas: Methane
     protection: Coolant Network
     notes: Purple systems only. No fauna; Storm Crystals common.
 

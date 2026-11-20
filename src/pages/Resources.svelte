@@ -28,7 +28,7 @@
 
 <div class="table-wrap">
   <table>
-    <thead><tr><th>Resource</th><th>Group</th><th>Where to find it</th><th>Main use</th><th class="num">Value</th></tr></thead>
+    <thead><tr><th>Resource</th><th>Group</th><th>Where to find it</th><th>Main use</th><th class="num" title="What one unit sells for, in units">Sell price</th></tr></thead>
     <tbody>
       {#each rows as r}
         <tr>

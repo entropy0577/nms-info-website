@@ -2,6 +2,7 @@
 # Sources: official 6.30 patch notes (via community wiki); community wiki Egg Sequencer page and species pages;
 # community guides (nomansskyrecipes.com, allthings.how, topgamerarena.com, vortexgaming.io), April–Aug 2026.
 # The affinity chart is community-mapped from in-game matchup screens — sources disagree on some cells, so verify in game.
+# Accuracy pass, Nov 2026: Anomalous Jam mutagen shift corrected 3% → 8.3% per item (source: community wiki "Egg Sequencer - Neural Calibrator").
 
 affinities: [Fire, Frost, Radioactive, Toxic, Tropical, Anomalous, Mechanical, Desert]
 
@@ -181,7 +182,7 @@ mutagens:
   - {item: Herox, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 39, full: "3"}
   - {item: Unstable Gel, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 78, full: "2"}
   - {item: Anomalous Doughnut, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 100, full: "1"}
-  - {item: Anomalous Jam, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 3, full: "12"}
+  - {item: Anomalous Jam, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 8.3, full: "12"}
   - {item: Bone Cream, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 50, full: "2"}
   - {item: Bone Butter, pair: Playfulness/Helpfulness, outcome: Playfulness, pct: 50, full: "2"}
   - {item: Bread, pair: Playfulness/Helpfulness, outcome: Helpfulness, pct: 8, full: "13"}
