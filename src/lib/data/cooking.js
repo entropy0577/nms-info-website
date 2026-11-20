@@ -1,5 +1,14 @@
 // Cooking (Nutrient Processor) recipes. Generated from the No Man's Sky community wiki "Cooking" page and item values, Nov 2026.
 // recipes: each entry is one way to cook the dish = list of ingredient slots; each slot lists interchangeable ingredients.
+// Correction (Nov 2026): the generator had merged all ingredients of multi-ingredient dishes into one "any of" slot
+// (e.g. Stellar Custard read as 1 Cream). The custards, butters, cheeses, doughs, Pastry, Delicate Meringue, Smoked Meat,
+// Crunchy Caramel, Clarified Oil and Proto-Oil were rebuilt by hand from the wiki item pages' {{Cook}} recipes.
+// Also corrected by hand against the wiki item pages: Cream Fingers (Proto-Cream, not Proto-Butter); Honey Ice Cream (an
+// ingredient read as "Synthetic Honey, Syrupy Nectar" is two options); added missing alternatives to Bone Milk, Wailing Batter,
+// the meat stews, Abyssal Stew, Bone Broth, Solidified Grease Pie, Enriched Biscuit and Fish Biscuit. Syrup-Drenched Delight:
+// removed batter + Sticky 'Honey'/Gooey Butter combos (only Syrupy Batter takes those; the others make Questionably Sweet
+// Cake) — confirmed in the 7.0.3 game recipe table (NMSE Recipes.json). Horrifying Mush from Abyssal Horror Egg is real
+// (game recipe RECIPE_1289), although that recipe uses Seafood Assembly, not Bind Proteins.
 export const dishes = [
  {
   "name": "Creature Pellets",
@@ -322,24 +331,26 @@ export const dishes = [
    [
     [
      "Meaty Chunks",
-     "Feline Liver",
-     "Offal Sac",
-     "Leg Meat",
-     "Scaly Meat",
-     "Raw Steak",
-     "Strider Sausage",
-     "Diplo Chunks",
-     "ProtoSausage",
-     "Fiendish Roe",
+     "Processed Meat",
      "Meaty Wings",
+     "Fiendish Roe",
+     "Offal Sac",
+     "ProtoSausage",
+     "Diplo Chunks",
+     "Scaly Meat",
+     "Feline Liver",
+     "Strider Sausage",
+     "Raw Steak",
+     "Leg Meat",
      "Crystal Flesh",
      "Dirty Meat",
      "Lumpy Brainstem",
      "Scooped Innards",
      "Crunchy Wings",
      "Latticed Sinew",
-     "Juicy Thorax",
-     "Processed Meat",
+     "Juicy Thorax"
+    ],
+    [
      "Carbon",
      "Condensed Carbon"
     ]
@@ -472,7 +483,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Refined Flour",
+     "Refined Flour"
+    ],
+    [
      "Churned Butter",
      "Proto-Butter",
      "Bone Butter"
@@ -490,6 +503,14 @@ export const dishes = [
    [
     [
      "Bone Nuggets"
+    ]
+   ],
+   [
+    [
+     "Ancient Bones"
+    ],
+    [
+     "Ancient Bones"
     ]
    ]
   ]
@@ -517,7 +538,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Bone Cream",
+     "Bone Cream"
+    ],
+    [
      "Wild Yeast"
     ]
    ]
@@ -532,8 +555,12 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Bone Cream",
-     "Processed Sugar",
+     "Bone Cream"
+    ],
+    [
+     "Processed Sugar"
+    ],
+    [
      "Creature Egg"
     ]
    ]
@@ -562,8 +589,12 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Cream",
-     "Processed Sugar",
+     "Cream"
+    ],
+    [
+     "Processed Sugar"
+    ],
+    [
      "Creature Egg",
      "Tall Eggs",
      "Giant Egg"
@@ -580,8 +611,12 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Cream",
-     "Processed Sugar",
+     "Cream"
+    ],
+    [
+     "Processed Sugar"
+    ],
+    [
      "Salt"
     ]
    ]
@@ -596,8 +631,12 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Cream",
-     "Processed Sugar",
+     "Cream"
+    ],
+    [
+     "Processed Sugar"
+    ],
+    [
      "Larval Core"
     ]
    ]
@@ -612,8 +651,12 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Cream",
-     "Processed Sugar",
+     "Cream"
+    ],
+    [
+     "Processed Sugar"
+    ],
+    [
      "Silicon Egg"
     ]
    ]
@@ -628,10 +671,12 @@ export const dishes = [
   "recipes": [
    [
     [
+     "Larval Core",
      "Creature Egg",
      "Tall Eggs",
-     "Giant Egg",
-     "Larval Core",
+     "Giant Egg"
+    ],
+    [
      "Processed Sugar"
     ]
    ]
@@ -647,7 +692,9 @@ export const dishes = [
    [
     [
      "Churned Butter",
-     "Bone Butter",
+     "Bone Butter"
+    ],
+    [
      "Processed Sugar"
     ]
    ]
@@ -662,7 +709,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Proto-Butter",
+     "Proto-Butter"
+    ],
+    [
      "Processed Sugar"
     ]
    ]
@@ -678,7 +727,9 @@ export const dishes = [
    [
     [
      "Churned Butter",
-     "Bone Butter",
+     "Bone Butter"
+    ],
+    [
      "Synthetic Honey"
     ]
    ]
@@ -693,7 +744,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Proto-Butter",
+     "Proto-Butter"
+    ],
+    [
      "Synthetic Honey"
     ]
    ]
@@ -709,7 +762,9 @@ export const dishes = [
    [
     [
      "Churned Butter",
-     "Bone Butter",
+     "Bone Butter"
+    ],
+    [
      "Sticky 'Honey'"
     ]
    ]
@@ -724,7 +779,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Proto-Butter",
+     "Proto-Butter"
+    ],
+    [
      "Sticky 'Honey'"
     ]
    ]
@@ -739,7 +796,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Cream",
+     "Cream"
+    ],
+    [
      "Wild Yeast"
     ]
    ]
@@ -754,7 +813,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Proto-Cream",
+     "Proto-Cream"
+    ],
+    [
      "Wild Yeast"
     ]
    ]
@@ -769,7 +830,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Refined Flour",
+     "Refined Flour"
+    ],
+    [
      "Wild Yeast"
     ]
    ]
@@ -784,7 +847,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Refined Flour",
+     "Refined Flour"
+    ],
+    [
      "Processed Sugar"
     ]
    ]
@@ -800,7 +865,9 @@ export const dishes = [
    [
     [
      "Bone Butter",
-     "Churned Butter",
+     "Churned Butter"
+    ],
+    [
      "Syrupy Nectar"
     ]
    ]
@@ -815,7 +882,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Syrupy Nectar",
+     "Syrupy Nectar"
+    ],
+    [
      "Proto-Butter"
     ]
    ]
@@ -830,7 +899,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Processed Sugar",
+     "Processed Sugar"
+    ],
+    [
      "Salt"
     ]
    ],
@@ -850,10 +921,20 @@ export const dishes = [
   "recipes": [
    [
     [
+     "Churned Butter"
+    ],
+    [
      "Churned Butter",
      "Proto-Butter",
+     "Bone Butter"
+    ]
+   ],
+   [
+    [
      "Bone Butter",
-     "Churned Butter",
+     "Proto-Butter"
+    ],
+    [
      "Bone Butter"
     ]
    ]
@@ -868,7 +949,9 @@ export const dishes = [
   "recipes": [
    [
     [
-     "Proto-Butter",
+     "Proto-Butter"
+    ],
+    [
      "Proto-Butter"
     ]
    ]
@@ -1077,7 +1160,8 @@ export const dishes = [
     ],
     [
      "Sticky 'Honey'",
-     "Synthetic Honey, Syrupy Nectar"
+     "Synthetic Honey",
+     "Syrupy Nectar"
     ]
    ]
   ]
@@ -1294,7 +1378,8 @@ export const dishes = [
      "Sweetened Proto-Butter",
      "Honied Proto-Butter",
      "Gooey Butter",
-     "Gooey ProtoButter"
+     "Gooey ProtoButter",
+     "Butter Syrup"
     ]
    ]
   ]
@@ -1872,7 +1957,8 @@ export const dishes = [
      "Feline Liver",
      "Strider Sausage",
      "Raw Steak",
-     "Leg Meat"
+     "Leg Meat",
+     "Juicy Thorax"
     ]
    ]
   ]
@@ -1903,7 +1989,8 @@ export const dishes = [
      "Feline Liver",
      "Strider Sausage",
      "Raw Steak",
-     "Leg Meat"
+     "Leg Meat",
+     "Juicy Thorax"
     ]
    ]
   ]
@@ -1934,7 +2021,8 @@ export const dishes = [
      "Feline Liver",
      "Strider Sausage",
      "Raw Steak",
-     "Leg Meat"
+     "Leg Meat",
+     "Juicy Thorax"
     ]
    ]
   ]
@@ -1965,7 +2053,8 @@ export const dishes = [
      "Feline Liver",
      "Strider Sausage",
      "Raw Steak",
-     "Leg Meat"
+     "Leg Meat",
+     "Juicy Thorax"
     ]
    ]
   ]
@@ -1996,7 +2085,8 @@ export const dishes = [
      "Feline Liver",
      "Strider Sausage",
      "Raw Steak",
-     "Leg Meat"
+     "Leg Meat",
+     "Juicy Thorax"
     ]
    ]
   ]
@@ -2036,7 +2126,15 @@ export const dishes = [
      "Sweetroot",
      "Pulpy Roots",
      "Juicy Thorax",
-     "Nourishing Slime"
+     "Nourishing Slime",
+     "Crystal Flesh",
+     "Latticed Sinew",
+     "Crunchy Wings",
+     "Lumpy Brainstem",
+     "Dirty Meat",
+     "Scooped Innards",
+     "Foraged Mushrooms",
+     "Bone Nuggets"
     ]
    ]
   ]
@@ -2342,7 +2440,20 @@ export const dishes = [
      "Softened Marrow"
     ],
     [
-     "Softened Marrow"
+     "Softened Marrow",
+     "Processed Meat",
+     "Meaty Chunks",
+     "Meaty Wings",
+     "Offal Sac",
+     "ProtoSausage",
+     "Diplo Chunks",
+     "Scaly Meat",
+     "Feline Liver",
+     "Strider Sausage",
+     "Raw Steak",
+     "Leg Meat",
+     "Pulpy Roots",
+     "Sweetroot"
     ]
    ]
   ]
@@ -2961,7 +3072,8 @@ export const dishes = [
     [
      "Regis Grease",
      "Clarified Oil",
-     "Proto-Oil"
+     "Proto-Oil",
+     "Nourishing Slime"
     ]
    ]
   ]
@@ -5089,7 +5201,14 @@ export const dishes = [
     ],
     [
      "Syrupy Nectar",
-     "Butter Syrup",
+     "Butter Syrup"
+    ]
+   ],
+   [
+    [
+     "Syrupy Batter"
+    ],
+    [
      "Sticky 'Honey'",
      "Gooey Butter"
     ]
@@ -5516,7 +5635,7 @@ export const dishes = [
     ],
     [
      "Cream",
-     "Proto-Butter",
+     "Proto-Cream",
      "Bone Cream",
      "Salty Custard",
      "Viscous Custard",
@@ -5565,7 +5684,8 @@ export const dishes = [
      "Bone Milk",
      "Bone Nuggets",
      "Tall Eggs",
-     "Creature Egg"
+     "Creature Egg",
+     "Giant Egg"
     ]
    ]
   ]
@@ -5583,7 +5703,8 @@ export const dishes = [
     ],
     [
      "Hadal Core",
-     "Salty Chunks"
+     "Salty Chunks",
+     "Edible Chum"
     ]
    ]
   ]
